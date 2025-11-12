@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/testimonials"
 import { NewReleasePromo } from "@/components/new-release-promo"
 import { FAQSection } from "@/components/faq-section"
 import { PricingSection } from "@/components/pricing-section"
+import { ROICalculator } from "@/components/roi-calculator"
 import { StickyFooter } from "@/components/sticky-footer"
 
 export default function Home() {
@@ -299,6 +300,9 @@ export default function Home() {
 
       {/* Video Section */}
       <VideoSection />
+
+      {/* ROI Calculator Section */}
+      <ROICalculator />
 
       {/* Pricing Section */}
       <div id="pricing">
