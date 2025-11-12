@@ -77,10 +77,11 @@ export default function Features() {
           }
         >
           <div className="cursor-none">
-            <div className="grid grid-cols-12 gap-4 justify-center">
-              {/* Cli */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1400px] mx-auto">
+              {/* AI RevOps Agents */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-2"
+                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                style={{ transform: "translateY(0px)" }}
                 onMouseEnter={() => setIsCliHovering(true)}
                 onMouseLeave={() => setIsCliHovering(false)}
                 ref={ref}
@@ -94,18 +95,18 @@ export default function Features() {
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6 mb-6">
                   <h3 className="text-2xl leading-none font-semibold tracking-tight">AI RevOps Agents</h3>
-                  <div className="text-md text-muted-foreground flex flex-col gap-3 text-sm">
-                    <p className="max-w-[460px] leading-relaxed">
+                  <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
+                    <p className="leading-relaxed">
                       Sophisticated AI Agents that capture insights, update the CRM, route leads instantly, trigger next steps, and escalate exceptions—end to end.
                     </p>
-                    <p className="max-w-[460px] leading-relaxed">
+                    <p className="leading-relaxed">
                       Outcomes: Faster speed-to-lead, a cleaner CRM, consistent follow-up, fewer manual hours per rep, and a more reliable pipeline.
                     </p>
                   </div>
                 </div>
-                <div className="pointer-events-none flex grow items-center justify-center select-none relative">
+                <div className="pointer-events-none flex grow items-center justify-center select-none relative mt-4">
                   <div
                     className="relative w-full h-[400px] rounded-xl overflow-hidden"
                     style={{ borderRadius: "20px" }}
@@ -306,7 +307,8 @@ export default function Features() {
 
               {/* Content Machine */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-8"
+                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                style={{ transform: "translateY(8px)" }}
                 onMouseEnter={() => setIsFeature4Hovering(true)}
                 onMouseLeave={() => setIsFeature4Hovering(false)}
                 initial={{ opacity: 0, y: 50 }}
@@ -319,18 +321,18 @@ export default function Features() {
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6 mb-6">
                   <h3 className="text-2xl leading-none font-semibold tracking-tight">Content Machine</h3>
-                  <div className="text-md text-muted-foreground flex flex-col gap-3 text-sm">
-                    <p className="max-w-[460px] leading-relaxed">
+                  <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
+                    <p className="leading-relaxed">
                       A ZalesMachine-built platform that transforms call transcripts, technical YouTube videos, Reddit threads, and podcasts into high-quality technical posts that position you as the go-to authority in your niche.
                     </p>
-                    <p className="max-w-[460px] leading-relaxed">
+                    <p className="leading-relaxed">
                       Sophisticated systems designed to transform your revenue operations through intelligent automation.
                     </p>
                   </div>
                 </div>
-                <div className="pointer-events-none flex grow items-center justify-center select-none relative">
+                <div className="pointer-events-none flex grow items-center justify-center select-none relative mt-4">
                   <div
                     className="relative w-full h-[400px] rounded-xl overflow-hidden"
                     style={{ borderRadius: "20px" }}
@@ -507,7 +509,8 @@ export default function Features() {
 
               {/* Outbound Machine */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-2"
+                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                style={{ transform: "translateY(-4px)" }}
                 onMouseEnter={() => setIsFeature3Hovering(true)}
                 onMouseLeave={() => setIsFeature3Hovering(false)}
                 initial={{ opacity: 0, y: 50 }}
@@ -520,18 +523,18 @@ export default function Features() {
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6 mb-6">
                   <h3 className="text-2xl leading-none font-semibold tracking-tight">Outbound Machine</h3>
-                  <div className="text-md text-muted-foreground flex flex-col gap-3 text-sm">
-                    <p className="max-w-[460px] leading-relaxed">
+                  <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
+                    <p className="leading-relaxed">
                       A proven-system created by ZalesMachine that automates prospecting end-to-end — from ICP definition and TAM build to enrichment, multichannel outreach, and booked calls.
                     </p>
-                    <p className="max-w-[460px] leading-relaxed">
+                    <p className="leading-relaxed">
                       Sophisticated systems designed to transform your revenue operations through intelligent automation.
                     </p>
                   </div>
                 </div>
-                <div className="pointer-events-none flex grow items-center justify-center select-none relative">
+                <div className="pointer-events-none flex grow items-center justify-center select-none relative mt-4">
                   <div
                     className="relative w-full h-[400px] rounded-xl overflow-hidden"
                     style={{ borderRadius: "20px" }}
@@ -720,7 +723,8 @@ export default function Features() {
 
               {/* Globally Usable */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-8"
+                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                style={{ transform: "translateY(4px)" }}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
                 ref={ref}
@@ -734,10 +738,10 @@ export default function Features() {
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6 mb-6">
                   <h3 className="text-2xl leading-none font-semibold tracking-tight">Globally Usable</h3>
-                  <div className="text-md text-muted-foreground flex flex-col gap-2 text-sm">
-                    <p className="max-w-[460px]">
+                  <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
+                    <p>
                       We work globally, serving clients across multiple countries and regions. Our proven system delivers results regardless of location.
                     </p>
                   </div>

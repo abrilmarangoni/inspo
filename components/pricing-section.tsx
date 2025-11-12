@@ -99,83 +99,238 @@ export function PricingSection() {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className={`relative rounded-2xl p-8 backdrop-blur-sm border transition-all duration-300 ${
-                plan.popular
-                  ? "bg-gradient-to-b from-[#e78a53]/10 to-transparent border-[#e78a53]/30 shadow-lg shadow-[#e78a53]/10"
-                  : "bg-white/5 border-white/10 hover:border-white/20"
-              }`}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.15,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="relative"
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-[#e78a53] to-[#e78a53]/80 text-white text-sm font-medium px-4 py-2 rounded-full">
-                    Most Popular
-                  </div>
-                </div>
+                <motion.div 
+                  className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30"
+                  initial={{ opacity: 0, y: -10, scale: 0.8 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.5,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                >
+                  <motion.div 
+                    className="bg-white/30 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border-2 border-white/40 shadow-lg shadow-[#FF6B35]/30"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ 
+                      duration: 2, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  >
+                    ⚡ Most Popular
+                  </motion.div>
+                </motion.div>
               )}
-
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                <div className="flex flex-col items-center justify-center gap-1 mb-2">
-                  {plan.price ? (
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  ) : plan.setupPrice ? (
-                    <>
-                      <div className="flex items-baseline justify-center gap-1">
-                        <span className="text-3xl font-bold text-white">${plan.setupPrice.toLocaleString()}</span>
-                        <span className="text-white/60 text-sm">setup</span>
-                      </div>
-                      <div className="flex items-baseline justify-center gap-1">
-                        <span className="text-3xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
-                        <span className="text-white/60 text-sm">/month ({plan.months} months)</span>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-4xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
-                      <span className="text-white/60 text-lg">/month</span>
-                    </>
-                  )}
-                </div>
-                <p className="text-white/60 text-sm">{plan.description}</p>
-              </div>
-
-              <ul className="space-y-3 mb-6">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#e78a53] flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {plan.approach && (
-                <div className="mb-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                  <p className="text-white/70 text-sm italic">
-                    <span className="font-semibold text-white/90">Approach:</span> {plan.approach}
-                  </p>
-                </div>
-              )}
-
-              <motion.button
+              <motion.div 
+                className="mx-auto"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.15 + 0.2 }}
                 whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-200 ${
-                  plan.popular
-                    ? "bg-gradient-to-r from-[#e78a53] to-[#e78a53]/80 text-white shadow-lg shadow-[#e78a53]/25 hover:shadow-[#e78a53]/40"
-                    : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
-                }`}
               >
-                {plan.cta}
-              </motion.button>
+                <div className={`relative overflow-hidden rounded-2xl p-8 pt-12 shadow-2xl backdrop-blur-xl ${
+                  plan.popular 
+                    ? "bg-gradient-to-br from-[#FF6B35] via-[#FF6B35]/95 to-[#FF6B35]/90 shadow-[#FF6B35]/20" 
+                    : "bg-gradient-to-b from-secondary/40 to-secondary/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                }`}>
+                  {/* Animated grid pattern */}
+                  <div 
+                    className="absolute inset-0 z-0 opacity-10"
+                    style={{
+                      backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                      backgroundSize: "20px 20px",
+                    }}
+                  />
+
+                  {/* Animated radial glow */}
+                  <motion.div
+                    className="absolute inset-0 z-0"
+                    animate={{
+                      background: plan.popular 
+                        ? [
+                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
+                            "radial-gradient(ellipse 60% 40% at 30% 70%, rgba(255, 255, 255, 0.15), transparent 70%)",
+                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
+                          ]
+                        : [
+                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
+                            "radial-gradient(ellipse 60% 40% at 70% 30%, rgba(255, 255, 255, 0.15), transparent 70%)",
+                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
+                          ],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+
+                  {/* Shimmer effect */}
+                  <motion.div
+                    className="absolute inset-0 z-0"
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%"],
+                    }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{
+                      background: "linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%)",
+                      backgroundSize: "200% 200%",
+                    }}
+                  />
+
+                  {/* Film grain overlay */}
+                  <div
+                    className="absolute inset-0 z-0 opacity-[0.03]"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                    }}
+                  />
+
+
+
+                  <motion.div 
+                    className="relative z-10"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
+                  >
+                    <div className="text-center mb-6">
+                      <motion.h3 
+                        className="text-2xl font-bold text-white mb-3 drop-shadow-lg"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
+                      >
+                        {plan.name}
+                      </motion.h3>
+                      <motion.div 
+                        className="flex flex-col items-center justify-center gap-2 mb-3"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.15 + 0.5 }}
+                      >
+                        {plan.price ? (
+                          <span className="text-4xl font-bold text-white">{plan.price}</span>
+                        ) : plan.setupPrice ? (
+                          <>
+                            <div className="flex items-baseline justify-center gap-1">
+                              <span className="text-3xl font-bold text-white">${plan.setupPrice.toLocaleString()}</span>
+                              <span className="text-white/70 text-sm">setup</span>
+                            </div>
+                            <div className="flex items-baseline justify-center gap-1">
+                              <span className="text-3xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
+                              <span className="text-white/70 text-sm">/month ({plan.months} months)</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-4xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
+                            <span className="text-white/70 text-lg">/month</span>
+                          </>
+                        )}
+                      </motion.div>
+                      <motion.p 
+                        className="text-white/70 text-sm"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.15 + 0.6 }}
+                      >
+                        {plan.description}
+                      </motion.p>
+                    </div>
+
+                    <ul className="space-y-2.5 mb-6 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                      {plan.features.map((feature, featureIndex) => (
+                        <motion.li 
+                          key={featureIndex} 
+                          className="flex items-start gap-2 group/item"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: featureIndex * 0.05 }}
+                        >
+                          <div className={`p-0.5 rounded-full ${
+                            plan.popular ? "bg-[#FF6B35]" : "bg-primary"
+                          }`}>
+                            <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />
+                          </div>
+                          <span className="text-white/95 text-sm group-hover/item:text-white transition-colors">{feature}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+
+                    {plan.approach && (
+                      <motion.div 
+                        className="mb-6 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/30 relative overflow-hidden"
+                        whileHover={{ scale: 1.02 }}
+                      >
+                        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                        <p className="text-white/90 text-xs italic relative z-10">
+                          <span className="font-bold text-white">Approach:</span> {plan.approach}
+                        </p>
+                      </motion.div>
+                    )}
+
+                    <motion.div 
+                      className="flex items-center justify-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <div className="group border-2 border-white/30 bg-white/15 backdrop-blur-md flex h-[56px] cursor-pointer items-center gap-2 rounded-full p-[11px] w-full max-w-full shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <div className="border-2 border-white/30 bg-white/25 flex h-[40px] items-center justify-center rounded-full border flex-1 backdrop-blur-sm">
+                          <p className="mr-3 ml-2 flex items-center justify-center gap-2 font-semibold tracking-tight text-white text-sm">
+                            {plan.cta}
+                          </p>
+                        </div>
+                        <div className="border-2 border-white/30 bg-white/25 flex size-[26px] items-center justify-center rounded-full transition-all ease-in-out group-hover:ml-2 group-hover:rotate-45 backdrop-blur-sm">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="lucide lucide-arrow-right text-white"
+                            aria-hidden="true"
+                          >
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
