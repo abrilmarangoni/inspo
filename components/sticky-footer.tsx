@@ -55,24 +55,34 @@ export function StickyFooter() {
                   style={{ color: "#121113" }}
                   onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
                   onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onClick={() => {
+                    const element = document.getElementById("pricing")
+                    if (element) {
+                      const headerOffset = 120
+                      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                      const offsetPosition = elementPosition - headerOffset
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth",
+                      })
+                    }
+                  }}
+                >
+                  Contact
+                </li>
+                <li
+                  className="hover:underline cursor-pointer transition-colors"
+                  style={{ color: "#121113" }}
+                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onClick={() => {
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }}
                 >
                   Home
-                </li>
-                <li
-                  className="hover:underline cursor-pointer transition-colors"
-                  style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
-                >
-                  Docs
-                </li>
-                <li
-                  className="hover:underline cursor-pointer transition-colors"
-                  style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
-                >
-                  Components
                 </li>
               </ul>
               <ul className="space-y-2">
@@ -82,7 +92,9 @@ export function StickyFooter() {
                   onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
                   onMouseLeave={(e) => (e.target.style.color = "#121113")}
                 >
-                  Github
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                    YouTube
+                  </a>
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
@@ -90,7 +102,9 @@ export function StickyFooter() {
                   onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
                   onMouseLeave={(e) => (e.target.style.color = "#121113")}
                 >
-                  Twitter
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                    LinkedIn
+                  </a>
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
@@ -98,7 +112,9 @@ export function StickyFooter() {
                   onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
                   onMouseLeave={(e) => (e.target.style.color = "#121113")}
                 >
-                  Discord
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                    Instagram
+                  </a>
                 </li>
               </ul>
             </motion.div>
@@ -109,7 +125,7 @@ export function StickyFooter() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              v0
+              ZalesMachine
             </motion.h2>
           </div>
         </motion.div>
