@@ -294,30 +294,36 @@ export default function Home() {
       <Hero />
 
       {/* Features Section */}
-      <div id="features">
+      <div id="features" className="py-16 md:py-24">
         <Features />
       </div>
 
       {/* Video Section */}
-      <VideoSection />
+      <div className="py-16 md:py-24">
+        <VideoSection />
+      </div>
 
       {/* ROI Calculator Section */}
-      <ROICalculator />
+      <div className="py-16 md:py-24">
+        <ROICalculator />
+      </div>
 
       {/* Pricing Section */}
-      <div id="pricing">
+      <div id="pricing" className="py-16 md:py-24">
         <PricingSection />
       </div>
 
       {/* Testimonials Section */}
-      <div id="testimonials">
+      <div id="testimonials" className="py-16 md:py-24">
         <TestimonialsSection />
       </div>
 
-      <NewReleasePromo />
+      <div className="py-16 md:py-24">
+        <NewReleasePromo />
+      </div>
 
       {/* FAQ Section */}
-      <div id="faq">
+      <div id="faq" className="py-16 md:py-24">
         <FAQSection />
       </div>
 
