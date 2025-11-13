@@ -62,8 +62,8 @@ export default function Home() {
       {/* Desktop Header */}
       <header
         className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-background/80 md:flex backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 ${
-          isScrolled ? "max-w-3xl px-2" : "max-w-5xl px-4"
-        } py-2`}
+          isScrolled ? "max-w-3xl px-4" : "max-w-5xl px-6"
+        } py-4`}
         style={{
           willChange: "transform",
           transform: "translateZ(0)",
@@ -73,21 +73,19 @@ export default function Home() {
       >
         <div
           className={`z-50 flex items-center justify-center gap-2 transition-all duration-300 ${
-            isScrolled ? "ml-4" : ""
+            isScrolled ? "ml-6" : "ml-6"
           }`}
         >
-          <img
-            src="/logo.png"
-            alt="ZalesMachine"
-            className={`w-auto transition-all duration-300 ${
-              isScrolled ? "h-4" : "h-6"
-            }`}
-          />
+          <div className={`font-bold font-mono text-foreground tracking-wider transition-all duration-300 ${
+            isScrolled ? "text-2xl" : "text-3xl"
+          }`}>
+            ZM
+          </div>
         </div>
 
-        <div className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2">
+        <div className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-medium text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2">
           <a
-            className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("features")
@@ -106,7 +104,7 @@ export default function Home() {
             <span className="relative z-20">Features</span>
           </a>
           <a
-            className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("pricing")
@@ -125,7 +123,7 @@ export default function Home() {
             <span className="relative z-20">Pricing</span>
           </a>
           <a
-            className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("testimonials")
@@ -144,7 +142,7 @@ export default function Home() {
             <span className="relative z-20">Testimonials</span>
           </a>
           <a
-            className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("faq")
@@ -167,15 +165,15 @@ export default function Home() {
         <div className="flex items-center gap-4">
           <button
             onClick={() => setLanguage(language === "en" ? "es" : "en")}
-            className="flex items-center gap-2 px-3 py-2 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors text-sm font-medium text-foreground"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors text-base font-medium text-foreground"
             aria-label="Change language"
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="w-5 h-5" />
             <span>{language === "en" ? "EN" : "ES"}</span>
           </button>
           <a
             href="#pricing"
-            className="rounded-md font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] px-4 py-2 text-sm"
+            className="rounded-md font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] px-5 py-2.5 text-base"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("pricing")
@@ -196,13 +194,11 @@ export default function Home() {
         </div>
       </header>
 
-      <header className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-4 py-3">
-        <div className="flex items-center justify-center gap-2">
-          <img
-            src="/logo.png"
-            alt="ZalesMachine"
-            className="h-7 w-auto"
-          />
+      <header className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-5 py-4">
+        <div className="flex items-center justify-center gap-2 ml-4">
+          <div className="font-bold font-mono text-foreground tracking-wider text-3xl">
+            ZM
+          </div>
         </div>
 
         <button

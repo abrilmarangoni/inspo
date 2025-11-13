@@ -4,7 +4,6 @@ import type React from "react"
 
 import { useTheme } from "next-themes"
 import Earth from "./ui/globe"
-import ScrambleHover from "./ui/scramble"
 import { FollowerPointerCard } from "./ui/following-pointer"
 import { motion, useInView } from "framer-motion"
 import { Suspense, useEffect, useRef, useState } from "react"
@@ -21,7 +20,15 @@ export default function Features() {
   const [isFeature4Hovering, setIsFeature4Hovering] = useState(false)
   const [currentCountryIndex, setCurrentCountryIndex] = useState(0)
 
-  const countries = ["Argentina", "México", "USA", "Europa", "Colombia", "Chile", "España", "Brasil"]
+  const countries = [
+    "Argentina", "México", "USA", "Colombia", "Chile", "España", "Brasil",
+    "Perú", "Ecuador", "Venezuela", "Uruguay", "Paraguay", "Bolivia",
+    "Costa Rica", "Panamá", "Guatemala", "República Dominicana", "Honduras",
+    "Francia", "Alemania", "Italia", "Reino Unido", "Portugal", "Países Bajos",
+    "Bélgica", "Suiza", "Austria", "Suecia", "Noruega", "Dinamarca", "Polonia"
+  ]
+  
+  const [scrambledCountry, setScrambledCountry] = useState(countries[0])
 
   const [baseColor, setBaseColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
   const [glowColor, setGlowColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
@@ -39,15 +46,25 @@ export default function Features() {
     if (!isHovering) {
       // Resetear a Argentina cuando no hay hover
       setCurrentCountryIndex(0)
+      setScrambledCountry(countries[0])
       return
     }
 
-    // Rotar países cada 2 segundos cuando hay hover
-    const interval = setInterval(() => {
+    // Mostrar países aleatorios durante el hover
+    const scrambleInterval = setInterval(() => {
+      const randomCountry = countries[Math.floor(Math.random() * countries.length)]
+      setScrambledCountry(randomCountry)
+    }, 150)
+
+    // Rotar al país final cada 2 segundos cuando hay hover
+    const finalInterval = setInterval(() => {
       setCurrentCountryIndex((prev) => (prev + 1) % countries.length)
     }, 2000)
 
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(scrambleInterval)
+      clearInterval(finalInterval)
+    }
   }, [isHovering, countries.length])
 
   return (
@@ -749,16 +766,9 @@ export default function Features() {
                 <div className="flex min-h-[300px] grow items-start justify-center select-none">
                   <h1 className="mt-8 text-center text-5xl leading-[100%] font-semibold sm:leading-normal lg:mt-12 lg:text-6xl">
                     <span className='bg-background relative mt-3 inline-block w-fit rounded-md border px-1.5 py-0.5 before:absolute before:top-0 before:left-0 before:z-10 before:h-full before:w-full before:bg-[url("/noise.gif")] before:opacity-[0.09] before:content-[""]'>
-                      <ScrambleHover
-                        text={countries[currentCountryIndex]}
-                        scrambleSpeed={150}
-                        maxIterations={20}
-                        useOriginalCharsOnly={false}
-                        className="cursor-pointer bg-gradient-to-t from-[#e78a53] to-[#e78a53] bg-clip-text text-transparent"
-                        isHovering={isHovering}
-                        setIsHovering={setIsHovering}
-                        characters="abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\,./<>?"
-                      />
+                      <span className="cursor-pointer bg-gradient-to-t from-[#e78a53] to-[#e78a53] bg-clip-text text-transparent">
+                        {isHovering ? scrambledCountry : countries[currentCountryIndex]}
+                      </span>
                     </span>
                   </h1>
                   <div className="absolute top-64 z-10 flex items-center justify-center">
