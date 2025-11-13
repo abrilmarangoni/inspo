@@ -1,6 +1,10 @@
 "use client"
 
+import { useLanguage } from "@/contexts/language-context"
+
 export function NewReleasePromo() {
+  const { t } = useLanguage()
+  
   return (
     <section className="mt-12 w-full">
       <div className="mx-auto max-w-4xl rounded-[40px] border border-black/5 dark:border-white/20 p-2 shadow-sm">
@@ -23,8 +27,8 @@ export function NewReleasePromo() {
 
           <div className="relative z-10">
             <div className="mt-8 text-center">
-              <h2 className="text-4xl font-bold text-white mb-6">Automate. Transform. Scale Revenue.</h2>
-              <p className="text-white/60 mb-8">Built to deliver predictable results on autopilot.</p>
+              <h2 className="text-4xl font-bold text-white mb-6">{t("promo.title")}</h2>
+              <p className="text-white/60 mb-8">{t("promo.description")}</p>
               <svg
                 width="100"
                 height="50"
@@ -60,7 +64,7 @@ export function NewReleasePromo() {
                         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                         <path d="M2 12h20"></path>
                       </svg>
-                      Get started
+                      {t("promo.cta")}
                     </p>
                   </div>
                   <div className="border-border flex size-[26px] items-center justify-center rounded-full border-2 transition-all ease-in-out group-hover:ml-2">

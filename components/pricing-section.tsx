@@ -5,68 +5,70 @@ import { Check } from "lucide-react"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SectionDivider } from "@/components/section-divider"
-
-const pricingPlans = [
-  {
-    name: "In-House",
-    setupPrice: 9300,
-    monthlyPrice: 3100,
-    months: 3,
-    description: "Best for teams that want 100% ownership of their GTM processes",
-    features: [
-      "New Company Asset",
-      "You acquire the ZalesMachine System",
-      "Same Capabilities",
-      "As Agency model, delivered in-house",
-      "3-Month Implementation",
-      "Complete setup and training",
-      "Team Training",
-      "In-house team training included",
-    ],
-    approach: "You get all our know-how and experience, implemented in a system that works",
-    popular: false,
-    cta: "Learn More",
-  },
-  {
-    name: "Agency",
-    monthlyPrice: 3000,
-    description: "Best for teams that want more qualified leads with no extra effort",
-    features: [
-      "Cold Email Infrastructure",
-      "Complete email setup and automation",
-      "Outbound Machine",
-      "Automated lead generation system",
-      "Content Machine",
-      "30-40 ready-to-post LinkedIn posts",
-      "Software Included",
-      "$1,500+ in tools (Clay, Trigify, etc.)",
-    ],
-    approach: "We take care of the whole process; you just join the call.",
-    popular: true,
-    cta: "Learn More",
-  },
-  {
-    name: "Custom",
-    price: "Custom",
-    description: "Best for sales, marketing and growth teams stuck doing repetitive, manual work",
-    features: [
-      "AI + automation solutions",
-      "AI Lead-Qualification Bot",
-      "WhatsApp agent that auto-qualifies leads",
-      "Post-Meeting Workflow",
-      "CRM-driven flows with smart analysis",
-      "Database Enrichment",
-      "Custom system to enrich existing databases",
-      "Meeting Intelligence",
-      "Notetaker integration for call analysis",
-    ],
-    approach: "Free part of your team from ops to focus on real value — and hit this quarter's goals.",
-    popular: false,
-    cta: "Learn More",
-  },
-]
+import { useLanguage } from "@/contexts/language-context"
 
 export function PricingSection() {
+  const { t } = useLanguage()
+  
+  const pricingPlans = [
+    {
+      name: t("pricing.inhouse.name"),
+      setupPrice: 9300,
+      monthlyPrice: 3100,
+      months: 3,
+      description: t("pricing.inhouse.description"),
+      features: [
+        t("pricing.inhouse.feature1"),
+        t("pricing.inhouse.feature2"),
+        t("pricing.inhouse.feature3"),
+        t("pricing.inhouse.feature4"),
+        t("pricing.inhouse.feature5"),
+        t("pricing.inhouse.feature6"),
+        t("pricing.inhouse.feature7"),
+        t("pricing.inhouse.feature8"),
+      ],
+      approach: t("pricing.inhouse.approach"),
+      popular: false,
+      cta: t("pricing.inhouse.cta"),
+    },
+    {
+      name: t("pricing.agency.name"),
+      monthlyPrice: 3000,
+      description: t("pricing.agency.description"),
+      features: [
+        t("pricing.agency.feature1"),
+        t("pricing.agency.feature2"),
+        t("pricing.agency.feature3"),
+        t("pricing.agency.feature4"),
+        t("pricing.agency.feature5"),
+        t("pricing.agency.feature6"),
+        t("pricing.agency.feature7"),
+        t("pricing.agency.feature8"),
+      ],
+      approach: t("pricing.agency.approach"),
+      popular: true,
+      cta: t("pricing.agency.cta"),
+    },
+    {
+      name: t("pricing.custom.name"),
+      price: t("pricing.custom.name"),
+      description: t("pricing.custom.description"),
+      features: [
+        t("pricing.custom.feature1"),
+        t("pricing.custom.feature2"),
+        t("pricing.custom.feature3"),
+        t("pricing.custom.feature4"),
+        t("pricing.custom.feature5"),
+        t("pricing.custom.feature6"),
+        t("pricing.custom.feature7"),
+        t("pricing.custom.feature8"),
+        t("pricing.custom.feature9"),
+      ],
+      approach: t("pricing.custom.approach"),
+      popular: false,
+      cta: t("pricing.custom.cta"),
+    },
+  ]
 
   return (
     <section className="relative py-24 px-4 overflow-hidden">
@@ -86,15 +88,15 @@ export function PricingSection() {
               geist.className,
             )}
           >
-            Pricing
+            {t("pricing.title")}
           </h2>
 
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent mb-4">
-            Choose your transformation path
+            {t("pricing.subtitle")}
           </h2>
 
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Three different approaches to scaling your sales operations
+            {t("pricing.description")}
           </p>
         </motion.div>
 
@@ -134,7 +136,7 @@ export function PricingSection() {
                       ease: "easeInOut" 
                     }}
                   >
-                    ⚡ Most Popular
+                    {t("pricing.popular")}
                   </motion.div>
                 </motion.div>
               )}
@@ -240,17 +242,17 @@ export function PricingSection() {
                           <>
                             <div className="flex items-baseline justify-center gap-1">
                               <span className="text-3xl font-bold text-white">${plan.setupPrice.toLocaleString()}</span>
-                              <span className="text-white/70 text-sm">setup</span>
+                              <span className="text-white/70 text-sm">{t("pricing.setup")}</span>
                             </div>
                             <div className="flex items-baseline justify-center gap-1">
                               <span className="text-3xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
-                              <span className="text-white/70 text-sm">/month ({plan.months} months)</span>
+                              <span className="text-white/70 text-sm">{t("pricing.month")} ({plan.months} {t("pricing.months")})</span>
                             </div>
                           </>
                         ) : (
                           <>
                             <span className="text-4xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
-                            <span className="text-white/70 text-lg">/month</span>
+                            <span className="text-white/70 text-lg">{t("pricing.month")}</span>
                           </>
                         )}
                       </motion.div>
@@ -300,7 +302,7 @@ export function PricingSection() {
                           }`} />
                           <div className="flex-1">
                             <p className="text-white/80 text-sm leading-relaxed">
-                              <span className="font-semibold text-white/95 mr-1.5">Approach:</span>
+                              <span className="font-semibold text-white/95 mr-1.5">{t("pricing.approach")}:</span>
                               {plan.approach}
                             </p>
                           </div>

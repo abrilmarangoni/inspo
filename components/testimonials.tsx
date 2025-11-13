@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import Script from "next/script"
 import { SectionDivider } from "@/components/section-divider"
+import { useLanguage } from "@/contexts/language-context"
 
 declare global {
   interface Window {
@@ -13,6 +14,7 @@ declare global {
 }
 
 export function TestimonialsSection() {
+  const { t } = useLanguage()
   useEffect(() => {
     // Senja widget will auto-initialize when script loads
     const initWidget = () => {
@@ -54,15 +56,15 @@ export function TestimonialsSection() {
               >
                 <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
                 <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
-                <span className="relative text-white">Testimonials</span>
+                <span className="relative text-white">{t("nav.testimonials")}</span>
               </button>
             </div>
             <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
-              What our users say
+              {t("testimonials.title")}
             </h2>
 
             <p className="mt-5 relative z-10 text-center text-lg text-zinc-500">
-              From intuitive design to powerful features, our app has become an essential tool for users around the world.
+              {t("testimonials.description")}
             </p>
           </div>
 

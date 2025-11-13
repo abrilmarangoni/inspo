@@ -9,8 +9,10 @@ import { motion, useInView } from "framer-motion"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Features() {
+  const { t } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const { theme } = useTheme()
@@ -113,13 +115,13 @@ export default function Features() {
                 style={{ transition: "all 0s ease-in-out" }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">AI RevOps Agents</h3>
+                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.ai.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
-                      Sophisticated AI Agents that capture insights, update the CRM, route leads instantly, trigger next steps, and escalate exceptions—end to end.
+                      {t("features.ai.description1")}
                     </p>
                     <p className="leading-relaxed">
-                      Outcomes: Faster speed-to-lead, a cleaner CRM, consistent follow-up, fewer manual hours per rep, and a more reliable pipeline.
+                      {t("features.ai.description2")}
                     </p>
                   </div>
                 </div>
@@ -339,13 +341,10 @@ export default function Features() {
                 style={{ transition: "all 0s ease-in-out" }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">Content Machine</h3>
+                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.content.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
-                      A ZalesMachine-built platform that transforms call transcripts, technical YouTube videos, Reddit threads, and podcasts into high-quality technical posts that position you as the go-to authority in your niche.
-                    </p>
-                    <p className="leading-relaxed">
-                      Sophisticated systems designed to transform your revenue operations through intelligent automation.
+                      {t("features.content.description")}
                     </p>
                   </div>
                 </div>
@@ -541,13 +540,10 @@ export default function Features() {
                 style={{ transition: "all 0s ease-in-out" }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">Outbound Machine</h3>
+                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.outbound.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
-                      A proven-system created by ZalesMachine that automates prospecting end-to-end — from ICP definition and TAM build to enrichment, multichannel outreach, and booked calls.
-                    </p>
-                    <p className="leading-relaxed">
-                      Sophisticated systems designed to transform your revenue operations through intelligent automation.
+                      {t("features.outbound.description")}
                     </p>
                   </div>
                 </div>
@@ -756,10 +752,10 @@ export default function Features() {
                 style={{ transition: "all 0s ease-in-out" }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">Globally Usable</h3>
+                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.globally.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p>
-                      We work globally, serving clients across multiple countries and regions. Our proven system delivers results regardless of location.
+                      {t("features.globally.description")}
                     </p>
                   </div>
                 </div>

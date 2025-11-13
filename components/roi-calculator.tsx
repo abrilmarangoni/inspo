@@ -4,8 +4,10 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Calculator, TrendingUp, DollarSign, Users, Target } from "lucide-react"
 import { SectionDivider } from "@/components/section-divider"
+import { useLanguage } from "@/contexts/language-context"
 
 export function ROICalculator() {
+  const { t } = useLanguage()
   const [monthlyRevenue, setMonthlyRevenue] = useState(50000)
   const [conversionRate, setConversionRate] = useState(2)
   const [averageDealSize, setAverageDealSize] = useState(10000)
@@ -32,10 +34,10 @@ export function ROICalculator() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Calculate Your ROI
+            {t("roi.title")}
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            See how the ZalesMachine System can transform your revenue operations
+            {t("roi.description")}
           </p>
         </motion.div>
 
@@ -52,14 +54,14 @@ export function ROICalculator() {
               <div className="p-2 bg-[#FF6B35]/20 rounded-lg">
                 <Calculator className="w-5 h-5 text-[#FF6B35]" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Your Current Metrics</h3>
+              <h3 className="text-xl font-semibold text-white">{t("roi.metrics")}</h3>
             </div>
 
             <div className="space-y-5">
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
                   <DollarSign className="w-4 h-4 text-[#FF6B35]" />
-                  Monthly Revenue Target
+                  {t("roi.monthlyRevenue")}
                 </label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60">$</span>
@@ -76,7 +78,7 @@ export function ROICalculator() {
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
                   <Target className="w-4 h-4 text-[#FF6B35]" />
-                  Conversion Rate (%)
+                  {t("roi.conversionRate")}
                 </label>
                 <input
                   type="number"
@@ -91,7 +93,7 @@ export function ROICalculator() {
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
                   <DollarSign className="w-4 h-4 text-[#FF6B35]" />
-                  Average Deal Size
+                  {t("roi.dealSize")}
                 </label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60">$</span>
@@ -108,7 +110,7 @@ export function ROICalculator() {
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
                   <Users className="w-4 h-4 text-[#FF6B35]" />
-                  Current Cost Per Lead
+                  {t("roi.costPerLead")}
                 </label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60">$</span>
@@ -136,29 +138,29 @@ export function ROICalculator() {
               <div className="p-2 bg-[#FF6B35]/20 rounded-lg">
                 <TrendingUp className="w-5 h-5 text-[#FF6B35]" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Your ROI Results</h3>
+              <h3 className="text-xl font-semibold text-white">{t("roi.results")}</h3>
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-4">
               <div className="flex justify-between items-center py-2">
-                <span className="text-white/70 text-sm">Leads Needed (Monthly)</span>
+                <span className="text-white/70 text-sm">{t("roi.leadsNeeded")}</span>
                 <span className="text-xl font-bold text-white">{leadsNeeded.toLocaleString()}</span>
               </div>
 
               <div className="flex justify-between items-center py-2">
-                <span className="text-white/70 text-sm">Qualified Leads Needed</span>
+                <span className="text-white/70 text-sm">{t("roi.qualifiedLeads")}</span>
                 <span className="text-xl font-bold text-white">{qualifiedLeadsNeeded.toLocaleString()}</span>
               </div>
 
               <div className="h-px bg-white/10 my-4" />
 
               <div className="flex justify-between items-center py-2">
-                <span className="text-white/70 text-sm">Monthly Investment</span>
+                <span className="text-white/70 text-sm">{t("roi.monthlyCost")}</span>
                 <span className="text-xl font-bold text-white">${monthlyCost.toLocaleString()}</span>
               </div>
 
               <div className="flex justify-between items-center py-2">
-                <span className="text-white/70 text-sm">Annual Investment</span>
+                <span className="text-white/70 text-sm">{t("roi.annualCost")}</span>
                 <span className="text-xl font-bold text-white">${annualCost.toLocaleString()}</span>
               </div>
 
@@ -166,15 +168,15 @@ export function ROICalculator() {
 
               <div className="bg-gradient-to-br from-[#FF6B35]/20 to-[#FF6B35]/10 border border-[#FF6B35]/30 rounded-lg p-5">
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-white/90 font-medium">Annual Revenue</span>
+                  <span className="text-white/90 font-medium">{t("roi.annualRevenue")}</span>
                   <span className="text-3xl font-bold text-white">${annualRevenue.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-white/70 text-sm">ROI</span>
+                  <span className="text-white/70 text-sm">{t("roi.roi")}</span>
                   <span className="text-2xl font-bold text-[#FF6B35]">{roi.toFixed(0)}%</span>
                 </div>
                 <div className="pt-3 border-t border-white/10 text-center">
-                  <span className="text-white/70 text-sm">Every $1 invested returns </span>
+                  <span className="text-white/70 text-sm">{t("roi.investmentReturn")} </span>
                   <span className="text-white font-bold">${roiMultiplier}</span>
                 </div>
               </div>
@@ -188,7 +190,7 @@ export function ROICalculator() {
               <div className="flex items-center justify-center">
                 <div className="group border border-white/20 bg-white/5 hover:bg-white/10 flex h-12 cursor-pointer items-center gap-2 rounded-full px-6 w-full max-w-sm transition-all">
                   <p className="flex items-center justify-center gap-2 font-medium text-white text-sm">
-                    Schedule a call
+                    {t("hero.schedule")}
                   </p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -10,11 +10,12 @@ import { FAQSection } from "@/components/faq-section"
 import { PricingSection } from "@/components/pricing-section"
 import { ROICalculator } from "@/components/roi-calculator"
 import { StickyFooter } from "@/components/sticky-footer"
+import { LanguageProvider, useLanguage } from "@/contexts/language-context"
 
-export default function Home() {
+function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -83,9 +84,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-medium text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2">
+        <div className={`absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-medium text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2 ${
+          isScrolled ? "px-32" : "px-40"
+        }`}>
           <a
-            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("features")
@@ -101,10 +104,10 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Features</span>
+            <span className="relative z-20 text-inherit">{t("nav.features")}</span>
           </a>
           <a
-            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("pricing")
@@ -120,10 +123,10 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Pricing</span>
+            <span className="relative z-20 text-inherit">{t("nav.pricing")}</span>
           </a>
           <a
-            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("testimonials")
@@ -139,10 +142,10 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Testimonials</span>
+            <span className="relative z-20 text-inherit">{t("nav.testimonials")}</span>
           </a>
           <a
-            className="relative px-5 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("faq")
@@ -158,17 +161,24 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">FAQ</span>
+            <span className="relative z-20 text-inherit">{t("nav.faq")}</span>
           </a>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 relative z-50">
           <button
-            onClick={() => setLanguage(language === "en" ? "es" : "en")}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors text-base font-medium text-foreground"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              setLanguage(language === "en" ? "es" : "en")
+            }}
+            className={`flex items-center gap-2 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-medium text-foreground cursor-pointer whitespace-nowrap ${
+              isScrolled ? "px-3 py-1.5 text-sm" : "px-4 py-2.5 text-base"
+            }`}
             aria-label="Change language"
+            type="button"
           >
-            <Globe className="w-5 h-5" />
+            <Globe className={`${isScrolled ? "w-4 h-4" : "w-5 h-5"}`} />
             <span>{language === "en" ? "EN" : "ES"}</span>
           </button>
           <a
@@ -189,7 +199,7 @@ export default function Home() {
               }
             }}
           >
-            Contact Us
+            {t("nav.contact")}
           </a>
         </div>
       </header>
@@ -229,31 +239,36 @@ export default function Home() {
                 onClick={() => handleMobileNavClick("features")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Features
+                {t("nav.features")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("pricing")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Pricing
+                {t("nav.pricing")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("testimonials")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Testimonials
+                {t("nav.testimonials")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("faq")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                FAQ
+                {t("nav.faq")}
               </button>
               <div className="border-t border-border/50 pt-4 mt-4 flex flex-col space-y-3">
                 <button
-                  onClick={() => setLanguage(language === "en" ? "es" : "en")}
-                  className="flex items-center justify-center gap-2 px-4 py-3 text-lg font-medium border border-border/50 bg-background/50 hover:bg-background/80 transition-colors rounded-lg text-foreground"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    setLanguage(language === "en" ? "es" : "en")
+                  }}
+                  className="flex items-center justify-center gap-2 px-4 py-3 text-lg font-medium border border-border/50 bg-background/50 hover:bg-background/80 transition-colors rounded-lg text-foreground relative z-50 cursor-pointer"
                   aria-label="Change language"
+                  type="button"
                 >
                   <Globe className="w-5 h-5" />
                   <span>{language === "en" ? "English" : "Español"}</span>
@@ -279,7 +294,7 @@ export default function Home() {
                     }, 100)
                   }}
                 >
-                  Contact Us
+                  {t("nav.contact")}
                 </a>
               </div>
             </nav>
@@ -327,5 +342,19 @@ export default function Home() {
       {/* Sticky Footer */}
       <StickyFooter />
     </div>
+  )
+}
+
+export default function Home() {
+  const [language, setLanguage] = useState<"en" | "es">("en")
+  
+  const handleLanguageChange = (newLang: "en" | "es") => {
+    setLanguage(newLang)
+  }
+  
+  return (
+    <LanguageProvider language={language} setLanguage={handleLanguageChange}>
+      <HomeContent />
+    </LanguageProvider>
   )
 }

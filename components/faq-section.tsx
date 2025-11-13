@@ -4,8 +4,10 @@ import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { SectionDivider } from "@/components/section-divider"
+import { useLanguage } from "@/contexts/language-context"
 
 export function FAQSection() {
+  const { t } = useLanguage()
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
@@ -14,29 +16,24 @@ export function FAQSection() {
 
   const faqs = [
     {
-      question: "What is ZalesMachine exactly?",
-      answer:
-        "ZalesMachine is a comprehensive revenue operations platform that combines AI-powered agents, outbound automation, and content generation to transform your sales, marketing, and growth processes. It's designed to help B2B companies automate end-to-end operations and scale revenue efficiently.",
+      question: t("faq.q1"),
+      answer: t("faq.a1"),
     },
     {
-      question: "How quickly can I see results?",
-      answer:
-        "Most clients see measurable results within the first 30-60 days. Our proven framework has booked over 1,000 calls and generated more than $1M in pipeline for clients. The exact timeline depends on your specific use case and implementation scope.",
+      question: t("faq.q2"),
+      answer: t("faq.a2"),
     },
     {
-      question: "Can I customize the AI agents?",
-      answer:
-        "Yes! All our AI RevOps Agents are fully customizable to match your specific workflows, CRM structure, and business processes. We work with you to configure agents that align perfectly with your operations.",
+      question: t("faq.q3"),
+      answer: t("faq.a3"),
     },
     {
-      question: "What CRM systems do you integrate with?",
-      answer:
-        "Our platform integrates seamlessly with major CRM systems including Salesforce, HubSpot, Pipedrive, and more. We provide CRM workflows, sync capabilities, and enrichment features that work across platforms.",
+      question: t("faq.q4"),
+      answer: t("faq.a4"),
     },
     {
-      question: "How do I get started?",
-      answer:
-        "Simply schedule a call with our team. We'll discuss your specific needs, show you how the ZalesMachine System can transform your operations, and provide a customized implementation plan tailored to your business.",
+      question: t("faq.q5"),
+      answer: t("faq.a5"),
     },
   ]
 
@@ -61,20 +58,20 @@ export function FAQSection() {
           >
             <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
             <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
-            <span className="relative text-white">FAQs</span>
+            <span className="relative text-white">{t("nav.faq")}</span>
           </button>
         </motion.div>
 
         <motion.h2
-          className="mx-auto mt-6 max-w-xl text-center text-4xl font-medium md:text-[54px] md:leading-[60px]"
+          className="mx-auto mt-6 max-w-xl text-center text-4xl font-medium md:text-[54px] md:leading-[60px] text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Questions? We've got{" "}
-          <span className="bg-gradient-to-b from-foreground via-rose-200 to-primary bg-clip-text text-transparent">
-            answers
+          {t("faq.title")}{" "}
+          <span className="bg-gradient-to-b from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+            {t("faq.answers")}
           </span>
         </motion.h2>
 

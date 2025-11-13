@@ -4,8 +4,11 @@ import { motion } from "framer-motion"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SectionDivider } from "@/components/section-divider"
+import { useLanguage } from "@/contexts/language-context"
 
 export function VideoSection() {
+  const { t } = useLanguage()
+  
   return (
     <section className="relative py-24 px-4 overflow-hidden">
       <SectionDivider />
@@ -23,11 +26,11 @@ export function VideoSection() {
               geist.className,
             )}
           >
-            We have built the ZalesMachine System — and it actually works.
+            {t("video.title")}
           </h2>
 
           <p className="text-lg text-white/60 max-w-3xl mx-auto mb-12">
-            We created a system that combines an Outbound Machine and a Content Machine, powered by AI and automation — to deliver leads on autopilot, predictably and consistently.
+            {t("video.description")}
           </p>
         </motion.div>
 

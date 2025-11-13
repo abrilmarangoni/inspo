@@ -1,8 +1,10 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function StickyFooter() {
+  const { t } = useLanguage()
   const [isAtBottom, setIsAtBottom] = useState(false)
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export function StickyFooter() {
                     }
                   }}
                 >
-                  Contact
+                  {t("footer.contact")}
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
@@ -82,7 +84,7 @@ export function StickyFooter() {
                     })
                   }}
                 >
-                  Home
+                  {t("footer.home")}
                 </li>
               </ul>
               <ul className="space-y-2">

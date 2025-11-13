@@ -3,9 +3,11 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { DataFlowDiagram } from "@/components/data-flow-diagram"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     setMounted(true)
@@ -28,7 +30,7 @@ export default function Hero() {
               className="mb-8"
             >
               <h1 id="main-title" className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                We turn your company into a{" "}
+                {t("hero.title")}{" "}
                 <img 
                   src="/logo.png" 
                   alt="ZalesMachine" 
@@ -46,10 +48,10 @@ export default function Hero() {
               className="mx-auto mb-12 max-w-2xl text-lg text-muted-foreground space-y-4"
             >
               <p>
-                For B2B companies looking to implement AI + AUTOMATION in their sales, marketing, or growth processes.
+                {t("hero.description1")}
               </p>
               <p>
-                We have developed a proven framework called the ZalesMachine System, through which we've booked over 1,000 calls and generated more than $1M in pipeline for our clients.
+                {t("hero.description2")}
               </p>
             </motion.div>
 
@@ -68,7 +70,7 @@ export default function Hero() {
                   <div className="group cursor-pointer border border-border bg-card gap-2 h-[60px] flex items-center p-[10px] rounded-full">
                     <div className="border border-border bg-primary h-[40px] rounded-full flex items-center justify-center text-primary-foreground">
                       <p className="font-medium tracking-tight mr-3 ml-3 flex items-center gap-2 justify-center text-base">
-                        Schedule a call
+                        {t("hero.schedule")}
                       </p>
                     </div>
                     <div className="text-muted-foreground size-[24px] flex items-center justify-center rounded-full border-2 border-border">
