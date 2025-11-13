@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
-import { FlowDiagram } from "@/components/flow-diagram"
+import { DataFlowDiagram } from "@/components/data-flow-diagram"
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
@@ -54,13 +54,13 @@ export default function Hero() {
             </motion.div>
 
             {/* Flow Diagram */}
-            <FlowDiagram />
+            <DataFlowDiagram />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col items-center gap-6"
+              className="flex flex-col items-center gap-6 mt-12 md:mt-16"
             >
               {/* Schedule a call button */}
               <div className="flex items-center justify-center">

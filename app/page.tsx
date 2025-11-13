@@ -31,6 +31,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+
   const handleMobileNavClick = (elementId: string) => {
     setIsMobileMenuOpen(false)
     setTimeout(() => {
