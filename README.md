@@ -68,15 +68,17 @@ npm start
 inspo/
 ├── app/                    # Next.js app directory
 │   ├── page.tsx           # Main landing page
-│   ├── login/             # Login page
-│   ├── signup/            # Signup page
 │   └── layout.tsx         # Root layout
 ├── components/            # React components
 │   ├── home/             # Home page components
 │   ├── ui/               # Reusable UI components
 │   └── ...               # Feature-specific components
+├── contexts/              # React contexts
+│   └── language-context.tsx  # Language translation context
 ├── lib/                   # Utility functions
 ├── public/               # Static assets
+│   ├── logo.png          # Company logo
+│   └── icon.svg          # Favicon
 └── styles/               # Global styles
 ```
 
