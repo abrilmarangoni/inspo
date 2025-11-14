@@ -62,7 +62,7 @@ function HomeContent() {
 
       {/* Desktop Header */}
       <header
-        className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-background/80 md:flex backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 ${
+        className={`sticky top-6 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-lg bg-background/95 md:flex backdrop-blur-md border border-border/50 shadow-lg transition-all duration-300 ${
           isScrolled ? "max-w-3xl px-4" : "max-w-5xl px-6"
         } py-4`}
         style={{
@@ -204,7 +204,7 @@ function HomeContent() {
         </div>
       </header>
 
-      <header className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-5 py-4">
+      <header className="sticky top-6 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-lg bg-background/95 backdrop-blur-md border border-border/50 shadow-lg md:hidden px-5 py-4">
         <div className="flex items-center justify-center gap-2 ml-4">
           <div className="font-bold font-mono text-foreground tracking-wider text-3xl">
             ZM

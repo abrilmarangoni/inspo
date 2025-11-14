@@ -32,14 +32,14 @@ export default function Features() {
   
   const [scrambledCountry, setScrambledCountry] = useState(countries[0])
 
-  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
-  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
+  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.298, 0.631, 0.961]) // #4ca1f5 in RGB normalized
+  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.298, 0.631, 0.961]) // #4ca1f5 in RGB normalized
 
   const [dark, setDark] = useState<number>(theme === "dark" ? 1 : 0)
 
   useEffect(() => {
-    setBaseColor([0.906, 0.541, 0.325]) // #e78a53
-    setGlowColor([0.906, 0.541, 0.325]) // #e78a53
+    setBaseColor([0.298, 0.631, 0.961]) // #4ca1f5
+    setGlowColor([0.298, 0.631, 0.961]) // #4ca1f5
     setDark(theme === "dark" ? 1 : 0)
   }, [theme])
 
@@ -99,7 +99,7 @@ export default function Features() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1400px] mx-auto">
               {/* AI RevOps Agents */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
                 style={{ transform: "translateY(0px)" }}
                 onMouseEnter={() => setIsCliHovering(true)}
                 onMouseLeave={() => setIsCliHovering(false)}
@@ -109,8 +109,8 @@ export default function Features() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 whileHover={{
                   scale: 1.02,
-                  borderColor: "rgba(231, 138, 83, 0.6)",
-                  boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                  borderColor: "rgba(76, 161, 245, 0.6)",
+                  boxShadow: "0 0 30px rgba(76, 161, 245, 0.2)",
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
@@ -130,14 +130,25 @@ export default function Features() {
                     className="relative w-full h-[400px] rounded-xl overflow-hidden"
                     style={{ borderRadius: "20px" }}
                   >
-                    {/* Background Image */}
-                    <div className="absolute inset-0">
-                      <img
-                        src="https://framerusercontent.com/images/UjqUIiBHmIcSH9vos9HlG2BF4bo.png"
-                        alt="AI RevOps Agents"
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
+                    {/* Background with blue gradient - same as pricing */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#4ca1f5]/40 to-[#4ca1f5]/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"></div>
+                    
+                    {/* Grid pattern */}
+                    <div 
+                      className="absolute inset-0 z-0 opacity-20"
+                      style={{
+                        backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+                        backgroundSize: "20px 20px",
+                      }}
+                    />
+                    
+                    {/* Static radial glow */}
+                    <div
+                      className="absolute inset-0 z-0"
+                      style={{
+                        background: "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.1), transparent 70%)",
+                      }}
+                    />
 
                     {/* Animated SVG Connecting Lines */}
                     <motion.div
@@ -177,9 +188,10 @@ export default function Features() {
                       </svg>
                     </motion.div>
 
-                    {/* Animated Purple Blur Effect */}
+                    {/* Animated Blue Blur Effect */}
                     <motion.div
-                      className="absolute top-1/2 left-1/2 w-16 h-16 bg-purple-500 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
+                      className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
+                      style={{ backgroundColor: "#4ca1f5" }}
                       initial={{ scale: 1 }}
                       animate={isCliHovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
                       transition={{
@@ -326,7 +338,7 @@ export default function Features() {
 
               {/* Content Machine */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
                 style={{ transform: "translateY(8px)" }}
                 onMouseEnter={() => setIsFeature4Hovering(true)}
                 onMouseLeave={() => setIsFeature4Hovering(false)}
@@ -335,8 +347,8 @@ export default function Features() {
                 transition={{ duration: 0.5, delay: 0.75 }}
                 whileHover={{
                   scale: 1.02,
-                  borderColor: "rgba(231, 138, 83, 0.6)",
-                  boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                  borderColor: "rgba(76, 161, 245, 0.6)",
+                  boxShadow: "0 0 30px rgba(76, 161, 245, 0.2)",
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
@@ -353,14 +365,25 @@ export default function Features() {
                     className="relative w-full h-[400px] rounded-xl overflow-hidden"
                     style={{ borderRadius: "20px" }}
                   >
-                    {/* Background Image */}
-                    <div className="absolute inset-0">
-                      <img
-                        src="https://framerusercontent.com/images/UjqUIiBHmIcSH9vos9HlG2BF4bo.png"
-                        alt="Content Machine"
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
+                    {/* Background with blue gradient - same as pricing */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#4ca1f5]/40 to-[#4ca1f5]/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"></div>
+                    
+                    {/* Grid pattern */}
+                    <div 
+                      className="absolute inset-0 z-0 opacity-20"
+                      style={{
+                        backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+                        backgroundSize: "20px 20px",
+                      }}
+                    />
+                    
+                    {/* Static radial glow */}
+                    <div
+                      className="absolute inset-0 z-0"
+                      style={{
+                        background: "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.1), transparent 70%)",
+                      }}
+                    />
 
                     {/* Animated SVG Connecting Lines */}
                     <motion.div
@@ -400,9 +423,10 @@ export default function Features() {
                       </svg>
                     </motion.div>
 
-                    {/* Animated Purple Blur Effect */}
+                    {/* Animated Blue Blur Effect */}
                     <motion.div
-                      className="absolute top-1/2 left-1/2 w-16 h-16 bg-purple-500 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
+                      className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
+                      style={{ backgroundColor: "#4ca1f5" }}
                       initial={{ scale: 1 }}
                       animate={isFeature4Hovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
                       transition={{
@@ -525,7 +549,7 @@ export default function Features() {
 
               {/* Outbound Machine */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
                 style={{ transform: "translateY(-4px)" }}
                 onMouseEnter={() => setIsFeature3Hovering(true)}
                 onMouseLeave={() => setIsFeature3Hovering(false)}
@@ -534,8 +558,8 @@ export default function Features() {
                 transition={{ duration: 0.5, delay: 1.0 }}
                 whileHover={{
                   scale: 1.02,
-                  borderColor: "rgba(231, 138, 83, 0.6)",
-                  boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                  borderColor: "rgba(76, 161, 245, 0.6)",
+                  boxShadow: "0 0 30px rgba(76, 161, 245, 0.2)",
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
@@ -552,14 +576,25 @@ export default function Features() {
                     className="relative w-full h-[400px] rounded-xl overflow-hidden"
                     style={{ borderRadius: "20px" }}
                   >
-                    {/* Background Image */}
-                    <div className="absolute inset-0">
-                      <img
-                        src="https://framerusercontent.com/images/UjqUIiBHmIcSH9vos9HlG2BF4bo.png"
-                        alt="Outbound Machine"
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
+                    {/* Background with blue gradient - same as pricing */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#4ca1f5]/40 to-[#4ca1f5]/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"></div>
+                    
+                    {/* Grid pattern */}
+                    <div 
+                      className="absolute inset-0 z-0 opacity-20"
+                      style={{
+                        backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+                        backgroundSize: "20px 20px",
+                      }}
+                    />
+                    
+                    {/* Static radial glow */}
+                    <div
+                      className="absolute inset-0 z-0"
+                      style={{
+                        background: "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.1), transparent 70%)",
+                      }}
+                    />
 
                     {/* Animated SVG Connecting Lines */}
                     <motion.div
@@ -599,9 +634,10 @@ export default function Features() {
                             </svg>
                     </motion.div>
 
-                    {/* Animated Purple Blur Effect */}
+                    {/* Animated Blue Blur Effect */}
                     <motion.div
-                      className="absolute top-1/2 left-1/2 w-16 h-16 bg-purple-500 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
+                      className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
+                      style={{ backgroundColor: "#4ca1f5" }}
                       initial={{ scale: 1 }}
                       animate={isFeature3Hovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
                       transition={{
@@ -736,7 +772,7 @@ export default function Features() {
 
               {/* Globally Usable */}
               <motion.div
-                className="group border-secondary/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
                 style={{ transform: "translateY(4px)" }}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
@@ -746,8 +782,8 @@ export default function Features() {
                 transition={{ duration: 0.5, delay: 1.25 }}
                 whileHover={{
                   scale: 1.02,
-                  borderColor: "rgba(231, 138, 83, 0.6)",
-                  boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                  borderColor: "rgba(76, 161, 245, 0.6)",
+                  boxShadow: "0 0 30px rgba(76, 161, 245, 0.2)",
                 }}
                 style={{ transition: "all 0s ease-in-out" }}
               >
@@ -762,7 +798,7 @@ export default function Features() {
                 <div className="flex min-h-[300px] grow items-start justify-center select-none">
                   <h1 className="mt-8 text-center text-5xl leading-[100%] font-semibold sm:leading-normal lg:mt-12 lg:text-6xl">
                     <span className='bg-background relative mt-3 inline-block w-fit rounded-md border px-1.5 py-0.5 before:absolute before:top-0 before:left-0 before:z-10 before:h-full before:w-full before:bg-[url("/noise.gif")] before:opacity-[0.09] before:content-[""]'>
-                      <span className="cursor-pointer bg-gradient-to-t from-[#e78a53] to-[#e78a53] bg-clip-text text-transparent">
+                      <span className="cursor-pointer bg-gradient-to-t from-[#4ca1f5] to-[#4ca1f5] bg-clip-text text-transparent">
                         {isHovering ? scrambledCountry : countries[currentCountryIndex]}
                       </span>
                     </span>
@@ -779,8 +815,8 @@ export default function Features() {
                     </div>
                   </div>
                   <div className="absolute top-1/2 w-full translate-y-20 scale-x-[1.2] opacity-70 transition-all duration-1000 group-hover:translate-y-8 group-hover:opacity-100">
-                    <div className="from-primary/50 to-primary/0 absolute left-1/2 h-[256px] w-[60%] -translate-x-1/2 scale-[2.5] rounded-[50%] bg-radial from-10% to-60% opacity-20 sm:h-[512px] dark:opacity-100"></div>
-                    <div className="from-primary/30 to-primary/0 absolute left-1/2 h-[128px] w-[40%] -translate-x-1/2 scale-200 rounded-[50%] bg-radial from-10% to-60% opacity-20 sm:h-[256px] dark:opacity-100"></div>
+                    <div className="absolute left-1/2 h-[256px] w-[60%] -translate-x-1/2 scale-[2.5] rounded-[50%] bg-radial from-[#4ca1f5]/50 to-[#4ca1f5]/0 from-10% to-60% opacity-20 sm:h-[512px] dark:opacity-100"></div>
+                    <div className="absolute left-1/2 h-[128px] w-[40%] -translate-x-1/2 scale-200 rounded-[50%] bg-radial from-[#4ca1f5]/30 to-[#4ca1f5]/0 from-10% to-60% opacity-20 sm:h-[256px] dark:opacity-100"></div>
                   </div>
                 </div>
               </motion.div>

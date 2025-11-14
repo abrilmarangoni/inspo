@@ -51,8 +51,8 @@ export function ROICalculator() {
             className="space-y-6"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-[#FF6B35]/20 rounded-lg">
-                <Calculator className="w-5 h-5 text-[#FF6B35]" />
+              <div className="p-2 bg-[#b57edc]/20 rounded-lg">
+                <Calculator className="w-5 h-5 text-[#b57edc]" />
               </div>
               <h3 className="text-xl font-semibold text-white">{t("roi.metrics")}</h3>
             </div>
@@ -60,7 +60,7 @@ export function ROICalculator() {
             <div className="space-y-5">
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
-                  <DollarSign className="w-4 h-4 text-[#FF6B35]" />
+                  <DollarSign className="w-4 h-4 text-[#b57edc]" />
                   {t("roi.monthlyRevenue")}
                 </label>
                 <div className="relative">
@@ -69,7 +69,7 @@ export function ROICalculator() {
                     type="number"
                     value={monthlyRevenue}
                     onChange={(e) => setMonthlyRevenue(Number(e.target.value))}
-                    className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/50 focus:border-[#FF6B35]/50 transition-all"
+                    className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#b57edc]/50 focus:border-[#b57edc]/50 transition-all"
                     placeholder="50000"
                   />
                 </div>
@@ -77,7 +77,7 @@ export function ROICalculator() {
 
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
-                  <Target className="w-4 h-4 text-[#FF6B35]" />
+                  <Target className="w-4 h-4 text-[#b57edc]" />
                   {t("roi.conversionRate")}
                 </label>
                 <input
@@ -85,14 +85,14 @@ export function ROICalculator() {
                   value={conversionRate}
                   onChange={(e) => setConversionRate(Number(e.target.value))}
                   step="0.1"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/50 focus:border-[#FF6B35]/50 transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#b57edc]/50 focus:border-[#b57edc]/50 transition-all"
                   placeholder="2"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
-                  <DollarSign className="w-4 h-4 text-[#FF6B35]" />
+                  <DollarSign className="w-4 h-4 text-[#b57edc]" />
                   {t("roi.dealSize")}
                 </label>
                 <div className="relative">
@@ -101,7 +101,7 @@ export function ROICalculator() {
                     type="number"
                     value={averageDealSize}
                     onChange={(e) => setAverageDealSize(Number(e.target.value))}
-                    className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/50 focus:border-[#FF6B35]/50 transition-all"
+                    className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#b57edc]/50 focus:border-[#b57edc]/50 transition-all"
                     placeholder="10000"
                   />
                 </div>
@@ -109,7 +109,7 @@ export function ROICalculator() {
 
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-[#FF6B35]" />
+                  <Users className="w-4 h-4 text-[#b57edc]" />
                   {t("roi.costPerLead")}
                 </label>
                 <div className="relative">
@@ -118,7 +118,7 @@ export function ROICalculator() {
                     type="number"
                     value={costPerLead}
                     onChange={(e) => setCostPerLead(Number(e.target.value))}
-                    className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/50 focus:border-[#FF6B35]/50 transition-all"
+                    className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#b57edc]/50 focus:border-[#b57edc]/50 transition-all"
                     placeholder="50"
                   />
                 </div>
@@ -135,8 +135,8 @@ export function ROICalculator() {
             className="space-y-6"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-[#FF6B35]/20 rounded-lg">
-                <TrendingUp className="w-5 h-5 text-[#FF6B35]" />
+              <div className="p-2 bg-[#b57edc]/20 rounded-lg">
+                <TrendingUp className="w-5 h-5 text-[#b57edc]" />
               </div>
               <h3 className="text-xl font-semibold text-white">{t("roi.results")}</h3>
             </div>
@@ -166,14 +166,14 @@ export function ROICalculator() {
 
               <div className="h-px bg-white/10 my-4" />
 
-              <div className="bg-gradient-to-br from-[#FF6B35]/20 to-[#FF6B35]/10 border border-[#FF6B35]/30 rounded-lg p-5">
+              <div className="bg-gradient-to-br from-[#b57edc]/20 to-[#b57edc]/10 border border-[#b57edc]/30 rounded-lg p-5">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-white/90 font-medium">{t("roi.annualRevenue")}</span>
                   <span className="text-3xl font-bold text-white">${annualRevenue.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-white/70 text-sm">{t("roi.roi")}</span>
-                  <span className="text-2xl font-bold text-[#FF6B35]">{roi.toFixed(0)}%</span>
+                  <span className="text-2xl font-bold text-[#b57edc]">{roi.toFixed(0)}%</span>
                 </div>
                 <div className="pt-3 border-t border-white/10 text-center">
                   <span className="text-white/70 text-sm">{t("roi.investmentReturn")} </span>

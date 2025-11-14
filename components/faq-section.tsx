@@ -41,8 +41,8 @@ export function FAQSection() {
     <section id="faq" className="relative overflow-hidden pb-120 pt-24">
       <SectionDivider />
       {/* Background blur effects */}
-      <div className="bg-primary/20 absolute top-1/2 -right-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl"></div>
-      <div className="bg-primary/20 absolute top-1/2 -left-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl"></div>
+      <div className="bg-[#4ca1f5]/20 absolute top-1/2 -right-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl"></div>
+      <div className="bg-[#4ca1f5]/20 absolute top-1/2 -left-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl"></div>
 
       <div className="z-10 container mx-auto px-4">
         <motion.div
@@ -56,8 +56,8 @@ export function FAQSection() {
             type="button"
             className="group relative z-[60] mx-auto rounded-full border border-white/20 bg-white/5 px-6 py-1 text-xs backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100 md:text-sm"
           >
-            <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
-            <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
+            <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
+            <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
             <span className="relative text-white">{t("nav.faq")}</span>
           </button>
         </motion.div>
@@ -79,7 +79,7 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="from-secondary/40 to-secondary/10 rounded-2xl border border-white/10 bg-gradient-to-b p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all duration-300 hover:border-white/20 cursor-pointer"
+              className="from-[#4ca1f5]/40 to-[#4ca1f5]/10 rounded-2xl border border-white/10 bg-gradient-to-b p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all duration-300 hover:border-white/20 cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -105,9 +105,9 @@ export function FAQSection() {
                   className=""
                 >
                   {openItems.includes(index) ? (
-                    <Minus className="text-primary flex-shrink-0 transition duration-300" size={24} />
+                    <Minus className="text-[#4ca1f5] flex-shrink-0 transition duration-300" size={24} />
                   ) : (
-                    <Plus className="text-primary flex-shrink-0 transition duration-300" size={24} />
+                    <Plus className="text-[#4ca1f5] flex-shrink-0 transition duration-300" size={24} />
                   )}
                 </motion.div>
               </div>

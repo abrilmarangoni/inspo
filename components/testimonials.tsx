@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Script from "next/script"
 import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
@@ -15,34 +15,59 @@ declare global {
 
 export function TestimonialsSection() {
   const { t } = useLanguage()
+  const [scriptLoaded, setScriptLoaded] = useState(false)
+
   useEffect(() => {
     // Senja widget will auto-initialize when script loads
     const initWidget = () => {
       // Check if Senja script has loaded and initialize embed
-      if (typeof window !== "undefined" && window.Senja) {
-        window.Senja.init()
+      if (typeof window !== "undefined" && window.Senja && typeof window.Senja.init === "function") {
+        try {
+          window.Senja.init()
+        } catch (error) {
+          console.error("Error initializing Senja widget:", error)
+        }
       }
     }
 
-    // Run after a delay to ensure script has loaded
-    const timer = setTimeout(initWidget, 1000)
-    return () => clearTimeout(timer)
-  }, [])
+    if (scriptLoaded) {
+      // Try multiple times for Safari compatibility
+      const timer1 = setTimeout(initWidget, 500)
+      const timer2 = setTimeout(initWidget, 1500)
+      const timer3 = setTimeout(initWidget, 3000)
+      
+      return () => {
+        clearTimeout(timer1)
+        clearTimeout(timer2)
+        clearTimeout(timer3)
+      }
+    }
+  }, [scriptLoaded])
 
   return (
     <>
       <Script
         src="https://widget.senja.io/widget/7120adc0-7e87-438f-bf7d-435059d4728c/platform.js"
         strategy="afterInteractive"
+        crossOrigin="anonymous"
         onLoad={() => {
           console.log("Senja widget script loaded successfully")
+          setScriptLoaded(true)
           // Initialize Senja after script loads
-          if (typeof window !== "undefined" && window.Senja) {
-            window.Senja.init()
+          if (typeof window !== "undefined" && window.Senja && typeof window.Senja.init === "function") {
+            try {
+              window.Senja.init()
+            } catch (error) {
+              console.error("Error initializing Senja widget:", error)
+            }
           }
         }}
         onError={(e) => {
           console.error("Error loading Senja widget:", e)
+          // Continue even if script fails to load
+        }}
+        onReady={() => {
+          setScriptLoaded(true)
         }}
       />
       <section id="testimonials" className="mb-24 relative overflow-hidden pt-16">
@@ -54,8 +79,8 @@ export function TestimonialsSection() {
                 type="button"
                 className="group relative z-[60] mx-auto rounded-full border border-white/20 bg-white/5 px-6 py-1 text-xs backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100 md:text-sm"
               >
-                <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
-                <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#e78a53] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
+                <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
+                <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
                 <span className="relative text-white">{t("nav.testimonials")}</span>
               </button>
             </div>

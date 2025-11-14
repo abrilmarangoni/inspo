@@ -44,7 +44,7 @@ export function VideoSection() {
           <div
             className="relative rounded-lg overflow-hidden"
             style={{
-              boxShadow: "0 25px 80px -10px rgba(255, 107, 53, 0.5), 0 0 40px -5px rgba(255, 107, 53, 0.4), 0 10px 20px -5px rgba(255, 107, 53, 0.3)",
+              boxShadow: "0 25px 80px -10px rgba(181, 126, 220, 0.5), 0 0 40px -5px rgba(181, 126, 220, 0.4), 0 10px 20px -5px rgba(181, 126, 220, 0.3)",
             }}
           >
             <iframe

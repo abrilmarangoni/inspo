@@ -6,9 +6,11 @@ import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
+import { useState } from "react"
 
 export function PricingSection() {
   const { t } = useLanguage()
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   const pricingPlans = [
     {
@@ -101,19 +103,19 @@ export function PricingSection() {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto items-end">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileInView={{ opacity: 1, y: plan.popular ? -20 : 20, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ 
                 duration: 0.8, 
                 delay: index * 0.15,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className="relative"
+              className={`relative ${plan.popular ? 'z-10' : 'z-0'}`}
             >
               {plan.popular && (
                 <motion.div 
@@ -128,7 +130,7 @@ export function PricingSection() {
                   }}
                 >
                   <motion.div 
-                    className="bg-white/30 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border-2 border-white/40 shadow-lg shadow-[#FF6B35]/30"
+                    className="bg-white/30 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border-2 border-white/40 shadow-lg shadow-[#b57edc]/30"
                     animate={{ y: [0, -3, 0] }}
                     transition={{ 
                       duration: 2, 
@@ -147,58 +149,28 @@ export function PricingSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15 + 0.2 }}
                 whileHover={{ scale: 1.02 }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div className={`relative overflow-hidden rounded-2xl p-8 pt-12 shadow-2xl backdrop-blur-xl ${
+                <div className={`relative overflow-hidden rounded-2xl p-8 pt-12 backdrop-blur-xl ${
                   plan.popular 
-                    ? "bg-gradient-to-br from-[#FF6B35] via-[#FF6B35]/95 to-[#FF6B35]/90 shadow-[#FF6B35]/20" 
-                    : "bg-gradient-to-b from-secondary/40 to-secondary/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                    ? "bg-gradient-to-br from-[#b57edc] via-[#b57edc]/95 to-[#b57edc]/90 shadow-2xl shadow-[#b57edc]/30" 
+                    : "bg-gradient-to-b from-[#4ca1f5]/40 to-[#4ca1f5]/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                 }`}>
                   {/* Animated grid pattern */}
                   <div 
-                    className="absolute inset-0 z-0 opacity-10"
+                    className="absolute inset-0 z-0 opacity-20"
                     style={{
-                      backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                      backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
                       backgroundSize: "20px 20px",
                     }}
                   />
 
-                  {/* Animated radial glow */}
-                  <motion.div
+                  {/* Static radial glow */}
+                  <div
                     className="absolute inset-0 z-0"
-                    animate={{
-                      background: plan.popular 
-                        ? [
-                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
-                            "radial-gradient(ellipse 60% 40% at 30% 70%, rgba(255, 255, 255, 0.15), transparent 70%)",
-                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
-                          ]
-                        : [
-                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
-                            "radial-gradient(ellipse 60% 40% at 70% 30%, rgba(255, 255, 255, 0.15), transparent 70%)",
-                            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%)",
-                          ],
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-
-                  {/* Shimmer effect */}
-                  <motion.div
-                    className="absolute inset-0 z-0"
-                    animate={{
-                      backgroundPosition: ["0% 0%", "100% 100%"],
-                    }}
-                    transition={{
-                      duration: 10,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
                     style={{
-                      background: "linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%)",
-                      backgroundSize: "200% 200%",
+                      background: "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255, 255, 255, 0.1), transparent 70%)",
                     }}
                   />
 
@@ -209,6 +181,164 @@ export function PricingSection() {
                       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                     }}
                   />
+
+                  {/* Animated expanding lines on hover */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center z-[1]"
+                    initial={{ opacity: 0 }}
+                    animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <svg width="100%" height="100%" viewBox="0 0 200 200" className="absolute">
+                      {/* Diagonal lines expanding from center */}
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="100"
+                        y2="0"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
+                        strokeWidth="1.5"
+                        strokeDasharray="3 3"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                      />
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="100"
+                        y2="200"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
+                        strokeWidth="1.5"
+                        strokeDasharray="3 3"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.1 }}
+                      />
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="0"
+                        y2="100"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
+                        strokeWidth="1.5"
+                        strokeDasharray="3 3"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                      />
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="200"
+                        y2="100"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
+                        strokeWidth="1.5"
+                        strokeDasharray="3 3"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+                      />
+                      {/* Diagonal lines */}
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="0"
+                        y2="0"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
+                        strokeWidth="1"
+                        strokeDasharray="2 2"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
+                      />
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="200"
+                        y2="200"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
+                        strokeWidth="1"
+                        strokeDasharray="2 2"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+                      />
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="0"
+                        y2="200"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
+                        strokeWidth="1"
+                        strokeDasharray="2 2"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.6 }}
+                      />
+                      <motion.line
+                        x1="100"
+                        y1="100"
+                        x2="200"
+                        y2="0"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
+                        strokeWidth="1"
+                        strokeDasharray="2 2"
+                        initial={{ pathLength: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.7 }}
+                      />
+                    </svg>
+                  </motion.div>
+
+                  {/* Animated rotating circle on hover */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center z-[1]"
+                    initial={{ opacity: 0 }}
+                    animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <svg width="300" height="300" viewBox="0 0 300 300" className="opacity-50">
+                      <motion.circle
+                        cx="150"
+                        cy="150"
+                        r="140"
+                        fill="none"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.5)" : "rgba(76, 161, 245, 0.5)"}
+                        strokeWidth="2"
+                        strokeDasharray="8 8"
+                        initial={{ pathLength: 0, rotate: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1, rotate: 360 } : { pathLength: 0, rotate: 0 }}
+                        transition={{
+                          pathLength: { duration: 2, ease: "easeInOut" },
+                          rotate: {
+                            duration: 15,
+                            repeat: hoveredIndex === index ? Infinity : 0,
+                            ease: "linear",
+                          },
+                        }}
+                      />
+                      <motion.circle
+                        cx="150"
+                        cy="150"
+                        r="120"
+                        fill="none"
+                        stroke={plan.popular ? "rgba(181, 126, 220, 0.3)" : "rgba(76, 161, 245, 0.3)"}
+                        strokeWidth="1.5"
+                        strokeDasharray="6 6"
+                        initial={{ pathLength: 0, rotate: 0 }}
+                        animate={hoveredIndex === index ? { pathLength: 1, rotate: -360 } : { pathLength: 0, rotate: 0 }}
+                        transition={{
+                          pathLength: { duration: 2, ease: "easeInOut", delay: 0.3 },
+                          rotate: {
+                            duration: 20,
+                            repeat: hoveredIndex === index ? Infinity : 0,
+                            ease: "linear",
+                          },
+                        }}
+                      />
+                    </svg>
+                  </motion.div>
 
 
 
@@ -278,7 +408,7 @@ export function PricingSection() {
                           transition={{ delay: featureIndex * 0.05 }}
                         >
                           <div className={`p-0.5 rounded-full ${
-                            plan.popular ? "bg-[#FF6B35]" : "bg-primary"
+                            plan.popular ? "bg-[#b57edc]" : "bg-[#4ca1f5]"
                           }`}>
                             <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />
                           </div>
@@ -298,7 +428,7 @@ export function PricingSection() {
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                         <div className="flex items-start gap-3 relative z-10">
                           <div className={`mt-0.5 flex-shrink-0 w-1 h-1 rounded-full ${
-                            plan.popular ? "bg-[#FF6B35]" : "bg-white/60"
+                            plan.popular ? "bg-[#b57edc]" : "bg-[#4ca1f5]"
                           }`} />
                           <div className="flex-1">
                             <p className="text-white/80 text-sm leading-relaxed">
@@ -313,8 +443,8 @@ export function PricingSection() {
                     <motion.button
                       className={`group relative w-full overflow-hidden rounded-xl px-6 py-4 font-semibold text-white transition-all duration-300 ${
                         plan.popular
-                          ? "bg-white/20 hover:bg-white/25 shadow-lg shadow-[#FF6B35]/20 hover:shadow-[#FF6B35]/30"
-                          : "bg-white/10 hover:bg-white/15 shadow-md hover:shadow-lg"
+                          ? "bg-white/20 hover:bg-white/25 shadow-lg shadow-[#b57edc]/20 hover:shadow-[#b57edc]/30"
+                          : "bg-white/10 hover:bg-white/15 shadow-md hover:shadow-lg shadow-[#4ca1f5]/10 hover:shadow-[#4ca1f5]/20"
                       } backdrop-blur-sm border border-white/20 hover:border-white/30`}
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
@@ -348,9 +478,6 @@ export function PricingSection() {
                           <path d="m12 5 7 7-7 7"></path>
                         </motion.svg>
                       </div>
-                      <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ${
-                        plan.popular ? "via-[#FF6B35]/20" : ""
-                      }`} />
                     </motion.button>
                   </motion.div>
                 </div>

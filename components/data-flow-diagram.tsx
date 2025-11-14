@@ -97,31 +97,16 @@ export function DataFlowDiagram() {
 
         {/* Center - ZM Power Core */}
         <div className="relative flex items-center justify-center flex-shrink-0">
-          {/* Outer rotating ring */}
-          <div
-            className="absolute w-32 h-32 lg:w-36 lg:h-36 rounded-full border-2 border-primary/30"
-            style={{ animation: "rotate-center 20s linear infinite" }}
-          />
-          {/* Middle rotating ring */}
-          <div
-            className="absolute w-24 h-24 lg:w-28 lg:h-28 rounded-full border-2 border-accent/30"
-            style={{ animation: "rotate-center 15s linear infinite reverse" }}
-          />
-          {/* Pulsing glow effect */}
-          <div
-            className="absolute w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-primary/20 blur-2xl"
-            style={{ animation: "pulse-glow 3s ease-in-out infinite" }}
-          />
           {/* Core container */}
-          <div className="relative z-10 flex flex-col items-center justify-center w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-card border-4 border-primary shadow-[0_0_50px_rgba(124,58,237,0.5)]">
-            <div className="text-2xl lg:text-3xl font-bold font-mono text-primary tracking-wider">ZM</div>
+          <div className="relative z-10 flex flex-col items-center justify-center">
+            <img 
+              src="/logo.png" 
+              alt="ZalesMachine" 
+              className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
+              style={{ filter: "drop-shadow(0 0 8px rgba(181, 126, 220, 0.9))" }}
+            />
             <div className="absolute -bottom-8 text-xs text-muted-foreground font-mono">POWER CORE</div>
           </div>
-          {/* Corner accents */}
-          <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-primary/50" />
-          <div className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-primary/50" />
-          <div className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-primary/50" />
-          <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-primary/50" />
         </div>
 
         {/* Right Side - Output Destinations */}
