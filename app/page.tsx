@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { Globe } from "lucide-react"
+import { geist } from "@/lib/fonts"
 import Hero from "@/components/home/hero"
 import Features from "@/components/features"
 import { VideoSection } from "@/components/video-section"
@@ -52,15 +53,30 @@ function HomeContent() {
 
   return (
     <div className="min-h-screen w-full relative bg-black">
-      {/* Pearl Mist Background with Top Glow */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: "radial-gradient(ellipse 50% 35% at 50% 0%, rgba(226, 232, 240, 0.12), transparent 60%), #000000",
-        }}
-      />
+      {/* Sección con fondo azul hasta el divisor */}
+      <div className="relative w-full">
+        {/* Fondo azul con sombra oscura - luz más ancha */}
+        <div
+          className="absolute inset-0 z-0 min-h-screen"
+          style={{
+            background: `
+              radial-gradient(ellipse 90% 30% at 50% 0%, rgba(76, 161, 245, 0.22), rgba(76, 161, 245, 0.12) 35%, rgba(76, 161, 245, 0.04) 55%, transparent 70%),
+              radial-gradient(ellipse 100% 35% at 50% 25%, rgba(76, 161, 245, 0.18), rgba(76, 161, 245, 0.08) 50%, transparent 70%),
+              radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0, 0, 0, 0.9), transparent 70%),
+              #000000
+            `,
+          }}
+        />
+        {/* Capa adicional de luz azul - más ancha */}
+        <div
+          className="absolute inset-0 z-0 min-h-screen"
+          style={{
+            background: "radial-gradient(ellipse 100% 50% at 50% 15%, rgba(76, 161, 245, 0.12), transparent 60%)",
+            pointerEvents: "none",
+          }}
+        />
 
-      {/* Desktop Header */}
+        {/* Desktop Header */}
       <header
         className={`sticky top-6 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-lg bg-background/95 md:flex backdrop-blur-md border border-border/50 shadow-lg transition-all duration-300 ${
           isScrolled ? "max-w-3xl px-4" : "max-w-5xl px-6"
@@ -174,18 +190,28 @@ function HomeContent() {
               e.stopPropagation()
               setLanguage(language === "en" ? "es" : "en")
             }}
-            className={`flex items-center gap-2 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-medium text-foreground cursor-pointer whitespace-nowrap ${
-              isScrolled ? "px-3 py-1.5 text-sm" : "px-4 py-2.5 text-base"
+            className={`flex items-center gap-1.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-medium text-foreground cursor-pointer whitespace-nowrap ${
+              isScrolled ? "px-2 py-1 text-xs" : "px-2.5 py-1.5 text-sm"
             }`}
             aria-label="Change language"
             type="button"
           >
-            <Globe className={`${isScrolled ? "w-4 h-4" : "w-5 h-5"}`} />
+            <Globe className={`${isScrolled ? "w-3 h-3" : "w-3.5 h-3.5"}`} />
             <span>{language === "en" ? "EN" : "ES"}</span>
           </button>
           <a
             href="#pricing"
-            className="rounded-md font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] px-5 py-2.5 text-base"
+            className={`${geist.className} rounded-md font-medium relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center text-white px-5 py-2.5 text-base`}
+            style={{
+              background: "linear-gradient(to bottom, rgba(181, 126, 220, 0.9), rgba(181, 126, 220, 0.8))",
+              boxShadow: "0 4px 14px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(181, 126, 220, 0.3)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = "0 6px 20px 0 rgba(0, 0, 0, 0.7), 0 0 30px rgba(181, 126, 220, 0.4)"
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = "0 4px 14px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(181, 126, 220, 0.3)"
+            }}
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("pricing")
@@ -270,16 +296,26 @@ function HomeContent() {
                     e.stopPropagation()
                     setLanguage(language === "en" ? "es" : "en")
                   }}
-                  className="flex items-center justify-center gap-2 px-4 py-3 text-lg font-medium border border-border/50 bg-background/50 hover:bg-background/80 transition-colors rounded-lg text-foreground relative z-50 cursor-pointer"
+                  className="flex items-center justify-center gap-1.5 px-2.5 py-2 text-sm font-medium border border-border/50 bg-background/50 hover:bg-background/80 transition-colors rounded-lg text-foreground relative z-50 cursor-pointer"
                   aria-label="Change language"
                   type="button"
                 >
-                  <Globe className="w-5 h-5" />
+                  <Globe className="w-3.5 h-3.5" />
                   <span>{language === "en" ? "English" : "Español"}</span>
                 </button>
                 <a
                   href="#pricing"
-                  className="px-4 py-3 text-lg font-bold text-center bg-gradient-to-b from-primary to-primary/80 text-primary-foreground rounded-lg shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                  className={`${geist.className} px-4 py-3 text-lg font-medium text-center text-white rounded-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer`}
+                  style={{
+                    background: "linear-gradient(to bottom, rgba(181, 126, 220, 0.9), rgba(181, 126, 220, 0.8))",
+                    boxShadow: "0 4px 14px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(181, 126, 220, 0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 6px 20px 0 rgba(0, 0, 0, 0.7), 0 0 30px rgba(181, 126, 220, 0.4)"
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 4px 14px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(181, 126, 220, 0.3)"
+                  }}
                   onClick={(e) => {
                     e.preventDefault()
                     setIsMobileMenuOpen(false)
@@ -306,8 +342,9 @@ function HomeContent() {
         </div>
       )}
 
-      {/* Hero Section */}
-      <Hero />
+        {/* Hero Section */}
+        <Hero />
+      </div>
 
       {/* Features Section */}
       <div id="features" className="py-16 md:py-24">

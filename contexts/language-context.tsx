@@ -24,7 +24,7 @@ const translations: Record<string, { en: string; es: string }> = {
   "hero.title": { en: "We turn your company into a", es: "Convertimos tu empresa en una" },
   "hero.description1": { en: "For B2B companies looking to implement AI + AUTOMATION in their sales, marketing, or growth processes.", es: "Para empresas B2B que buscan implementar IA + AUTOMATIZACIÓN en sus procesos de ventas, marketing o crecimiento." },
   "hero.description2": { en: "We have developed a proven framework called the ZalesMachine System, through which we've booked over 1,000 calls and generated more than $1M in pipeline for our clients.", es: "Hemos desarrollado un framework probado llamado Sistema ZalesMachine, a través del cual hemos agendado más de 1,000 llamadas y generado más de $1M en pipeline para nuestros clientes." },
-  "hero.schedule": { en: "Schedule a call", es: "Agendar una llamada" },
+  "hero.schedule": { en: "Book a call", es: "Reservar una llamada" },
   
   // Features
   "features.globally.title": { en: "Globally Usable", es: "Disponible Globalmente" },

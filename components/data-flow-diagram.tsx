@@ -58,7 +58,7 @@ export function DataFlowDiagram() {
 
           // Animar el nodo principal (círculo azul) - asegurar alineación perfecta
           tl.to(dotRef.current, {
-            duration: 5,
+            duration: 8,
             ease: "none",
             motionPath: {
               path: pathId,
@@ -169,7 +169,7 @@ export function DataFlowDiagram() {
           <defs>
             {/* Filtro para el efecto de luz azul del nodo */}
             <filter id="glow-blue" x="-200%" y="-200%" width="500%" height="500%">
-              <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
@@ -319,6 +319,7 @@ export function DataFlowDiagram() {
             fill="#4ca1f5"
             cx={leftIcons[0].x + 20}
             cy={leftIcons[0].y}
+            filter="url(#glow-blue)"
           />
 
           {/* NODO CENTRAL */}

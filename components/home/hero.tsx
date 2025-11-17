@@ -35,7 +35,6 @@ export default function Hero() {
                   src="/logo.png" 
                   alt="ZalesMachine" 
                   className="h-12 sm:h-16 lg:h-20 inline-block align-middle"
-                  style={{ filter: "drop-shadow(0 0 8px rgba(181, 126, 220, 0.9))" }}
                 />
               </h1>
             </motion.div>
@@ -55,25 +54,22 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* Flow Diagram */}
-            <DataFlowDiagram />
-
+            {/* Book a call button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col items-center gap-6 mt-12 md:mt-16"
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="flex flex-col items-center gap-6 mb-8"
             >
-              {/* Schedule a call button */}
               <div className="flex items-center justify-center gap-2">
                 <a href="/docs/components/theme-toggle-animations">
-                  <div className="group cursor-pointer bg-primary h-[60px] rounded-lg flex items-center justify-center text-primary-foreground px-6 shadow-lg">
-                    <p className="font-medium tracking-tight flex items-center gap-2 justify-center text-base">
+                  <div className="group cursor-pointer bg-primary h-[44px] rounded-lg flex items-center justify-center text-primary-foreground px-5 shadow-lg">
+                    <p className="font-medium tracking-tight flex items-center gap-2 justify-center text-sm">
                       {t("hero.schedule")}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -90,6 +86,9 @@ export default function Hero() {
                 </a>
               </div>
             </motion.div>
+
+            {/* Flow Diagram */}
+            <DataFlowDiagram />
           </div>
 
         </div>
