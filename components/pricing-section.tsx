@@ -144,7 +144,11 @@ export function PricingSection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15 + 0.2 }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
               >
                 <div className={`relative overflow-hidden rounded-2xl p-8 pt-12 backdrop-blur-xl ${
                   plan.popular 
