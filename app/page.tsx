@@ -5,8 +5,8 @@ import { geist } from "@/lib/fonts"
 import Hero from "@/components/home/hero"
 import Features from "@/components/features"
 import { VideoSection } from "@/components/video-section"
+import OutboundFails from "@/components/outbound-fails"
 import { TestimonialsSection } from "@/components/testimonials"
-import { NewReleasePromo } from "@/components/new-release-promo"
 import { FAQSection } from "@/components/faq-section"
 import { PricingSection } from "@/components/pricing-section"
 import { ROICalculator } from "@/components/roi-calculator"
@@ -375,6 +375,16 @@ function HomeContent() {
         <SectionDivider />
       </div>
 
+      {/* Outbound Fails Section */}
+      <div id="outbound-fails">
+        <OutboundFails />
+      </div>
+
+      {/* Section Divider */}
+      <div className="relative w-full">
+        <SectionDivider />
+      </div>
+
       {/* Video Section */}
       <div className="py-16 md:py-24">
         <VideoSection />
@@ -410,17 +420,13 @@ function HomeContent() {
         <TestimonialsSection />
       </div>
 
-      <div className="py-16 md:py-24">
-        <NewReleasePromo />
-      </div>
-
       {/* Section Divider */}
       <div className="relative w-full">
         <SectionDivider />
       </div>
 
       {/* FAQ Section */}
-      <div id="faq" className="py-16 md:py-24" style={{ backgroundColor: '#171717' }}>
+      <div id="faq" className="py-16 md:py-24" style={{ backgroundColor: '#000000' }}>
         <FAQSection />
       </div>
 

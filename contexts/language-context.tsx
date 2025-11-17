@@ -137,6 +137,28 @@ const translations: Record<string, { en: string; es: string }> = {
   "roi.roi": { en: "ROI", es: "ROI" },
   "roi.roiMultiplier": { en: "ROI Multiplier", es: "Multiplicador de ROI" },
   "roi.investmentReturn": { en: "Every $1 invested returns", es: "Cada $1 invertido retorna" },
+  
+  // Problems / Outbound Fails
+  "problems.anatomy-failed": { en: "The anatomy of failed outreach", es: "La anatomía del outreach fallido" },
+  "problems.generic-template": { en: "Generic template", es: "Plantilla genérica" },
+  "problems.vague-value": { en: "Vague value", es: "Valor vago" },
+  "problems.pushy-cta": { en: "Pushy CTA", es: "CTA agresivo" },
+  "problems.no-social-proof": { en: "No social proof", es: "Sin prueba social" },
+  "problems.typical-cold-email": { en: "Typical Cold Email", es: "Email Frío Típico" },
+  "problems.gets-deleted": { en: "The kind that gets deleted", es: "El tipo que se elimina" },
+  "problems.generic-opening": { en: "GENERIC OPENING", es: "APERTURA GENÉRICA" },
+  "problems.generic-opening-text": { en: "\"Hi [First Name], I hope this email finds you well...\"", es: "\"Hola [Nombre], espero que este email te encuentre bien...\"" },
+  "problems.vague-value-prop": { en: "VAGUE VALUE PROPOSITION", es: "PROPUESTA DE VALOR VAGA" },
+  "problems.vague-value-text": { en: "\"We help companies like yours increase efficiency...\"", es: "\"Ayudamos a empresas como la tuya a aumentar la eficiencia...\"" },
+  "problems.pushy-cta-title": { en: "PUSHY CALL-TO-ACTION", es: "LLAMADO A LA ACCIÓN AGRESIVO" },
+  "problems.pushy-cta-text": { en: "\"Can we schedule a quick 15-minute call this week?\"", es: "\"¿Podemos agendar una llamada rápida de 15 minutos esta semana?\"" },
+  "problems.no-credibility": { en: "NO CREDIBILITY", es: "SIN CREDIBILIDAD" },
+  "problems.no-credibility-text": { en: "\"Trust me, you'll find this valuable...\"", es: "\"Confía en mí, encontrarás esto valioso...\"" },
+  "problems.response-rate": { en: "Response Rate", es: "Tasa de Respuesta" },
+  "problems.conversion": { en: "Conversion", es: "Conversión" },
+  "problems.deleted": { en: "Deleted", es: "Eliminados" },
+  "problems.avoid-mistakes": { en: "Avoid these mistakes and see how we approach outbound differently.", es: "Evita estos errores y descubre cómo abordamos el outbound de manera diferente." },
+  "problems.see-approach": { en: "See Our Approach", es: "Ver Nuestro Enfoque" },
 }
 
 export function LanguageProvider({ children, language, setLanguage }: { children: ReactNode; language: Language; setLanguage: (lang: Language) => void }) {
