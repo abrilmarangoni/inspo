@@ -11,6 +11,7 @@ export function VideoSection() {
   return (
     <section className="relative py-24 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
+        {/* Text Above Container */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,17 +19,11 @@ export function VideoSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2
-            className={cn(
-              "via-foreground mb-8 bg-gradient-to-b from-zinc-800 to-zinc-700 bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[70px]",
-              geist.className,
-            )}
-          >
-            {t("video.title")}
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+            We have built the ZalesMachine System — and it actually works.
           </h2>
-
-          <p className="text-lg text-white/60 max-w-3xl mx-auto mb-12">
-            {t("video.description")}
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
+            We created a system that combines an Outbound Machine and a Content Machine, powered by AI and automation — to deliver leads on autopilot, predictably and consistently.
           </p>
         </motion.div>
 
@@ -39,23 +34,45 @@ export function VideoSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex justify-center"
         >
-          <div
-            className="relative rounded-lg overflow-hidden"
-            style={{
-              boxShadow: "0 25px 80px -10px rgba(181, 126, 220, 0.5), 0 0 40px -5px rgba(181, 126, 220, 0.4), 0 10px 20px -5px rgba(181, 126, 220, 0.3)",
-            }}
-          >
-            <iframe
-              width="1120"
-              height="630"
-              src="https://www.youtube.com/embed/lnvnm-xrBPs?si=fBG1Ve1gXMEVDTtB"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              className="w-full max-w-6xl aspect-video rounded-lg"
-            />
+          <div className="w-full mx-auto" style={{ maxWidth: '85%' }}>
+            {/* Video Container */}
+            <div
+              className="relative rounded-t-lg overflow-hidden"
+              style={{
+                boxShadow: "0 25px 80px -10px rgba(181, 126, 220, 0.5), 0 0 40px -5px rgba(181, 126, 220, 0.4), 0 10px 20px -5px rgba(181, 126, 220, 0.3)",
+              }}
+            >
+              <iframe
+                width="1120"
+                height="630"
+                src="https://www.youtube.com/embed/lnvnm-xrBPs?si=fBG1Ve1gXMEVDTtB"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="w-full aspect-video"
+              />
+            </div>
+            
+            {/* Text Container Below Video */}
+            <div className="bg-zinc-900 rounded-b-lg px-8 py-6 border-t border-zinc-800 text-center">
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Our Solutions in Action
+              </h3>
+              <p className="text-zinc-400 text-base mb-4 leading-relaxed">
+                See how we integrate AI, automation and sales tools to create personalized solutions
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=lnvnm-xrBPs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-white hover:text-violet-400 transition-colors font-medium"
+              >
+                Watch on YouTube
+                <span className="ml-2">→</span>
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

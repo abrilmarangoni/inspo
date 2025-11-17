@@ -571,7 +571,7 @@ export default function Features() {
                   <h1 className="text-center text-5xl leading-[100%] font-semibold sm:leading-normal lg:text-6xl z-20 relative" style={{ marginTop: 'calc(16rem + 68px)' }}>
                     <span
                       className="cursor-pointer"
-                      style={{ color: "rgb(181, 126, 220)" }}
+                      style={{ color: "rgb(76, 161, 245)" }}
                     >
                       {isHovering ? scrambledCountry : countries[currentCountryIndex]}
                     </span>
