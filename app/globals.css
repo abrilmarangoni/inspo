@@ -155,11 +155,6 @@
 }
 body {
   letter-spacing: var(--tracking-normal);
-  cursor: none !important;
-}
-
-* {
-  cursor: none !important;
 }
 
 /* Added custom text selection styling with purple background and dark text */
