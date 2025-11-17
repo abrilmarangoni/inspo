@@ -8,22 +8,8 @@ export default function OutboundFails() {
 
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: "#000000" }}>
-      {/* Minimal tech grid background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.5 }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(233, 255, 183, 0.18) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(233, 255, 183, 0.18) 1px, transparent 1px)
-            `,
-            backgroundSize: "100px 100px",
-          }}
-        ></div>
-      </div>
-
       <div className="container mx-auto px-4 relative py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Clean Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-white leading-tight max-w-3xl mx-auto">
@@ -33,9 +19,9 @@ export default function OutboundFails() {
           </div>
 
           {/* Problem Indicators - Floating Cards */}
-          <div className="relative max-w-4xl mx-auto mb-12">
+          <div className="relative max-w-6xl mx-auto mb-12">
             {/* Central Problem Visualization */}
-            <div className="relative bg-gradient-to-br from-red-900/20 to-red-800/10 rounded-2xl border border-red-500/20 p-8 md:p-10 backdrop-blur-sm group">
+            <div className="relative bg-gradient-to-br from-red-900/20 to-red-800/10 rounded-2xl border border-red-500/20 p-8 md:p-10 lg:p-12 backdrop-blur-sm group">
               
               {/* Floating Problem Indicators - In Red Background Area */}
               <div className="absolute top-6 left-6 bg-red-500/90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg transition-all duration-1000 ease-in-out group-hover:top-24 group-hover:left-20">
@@ -68,7 +54,7 @@ export default function OutboundFails() {
 
               {/* Central Content - Stylized Email Representation */}
               <div className="text-center">
-                <div className="relative inline-block bg-zinc-900/60 rounded-xl border border-zinc-700/50 p-6 md:p-8 max-w-xl backdrop-blur-sm">
+                <div className="relative inline-block bg-zinc-900/60 rounded-xl border border-zinc-700/50 p-6 md:p-8 max-w-2xl backdrop-blur-sm">
                   {/* Email Header Simulation */}
                   <div className="flex items-center gap-3 mb-5 pb-3 border-b border-zinc-600/30">
                     <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">

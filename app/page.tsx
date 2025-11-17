@@ -380,11 +380,6 @@ function HomeContent() {
         <OutboundFails />
       </div>
 
-      {/* Section Divider */}
-      <div className="relative w-full">
-        <SectionDivider />
-      </div>
-
       {/* Video Section */}
       <div className="py-16 md:py-24">
         <VideoSection />
