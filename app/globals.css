@@ -290,3 +290,11 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Revenanas Graph Styles */
+.revenanas-graph {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}

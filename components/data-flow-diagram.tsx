@@ -1,159 +1,383 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { Database, Server, Cloud, Activity, HardDrive, Network } from "lucide-react"
-
-interface FlowParticle {
-  id: number
-  delay: number
-  duration: number
-}
+import { useEffect, useRef, useState } from "react"
+import { MessageSquare, Database, Cloud, Zap, BarChart3, Settings } from "lucide-react"
 
 export function DataFlowDiagram() {
   const [mounted, setMounted] = useState(false)
+  const svgRef = useRef<SVGSVGElement>(null)
+  const dotRef = useRef<SVGCircleElement>(null)
+  const animationRef = useRef<any>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Input sources (left side)
-  const inputSources = [
-    { icon: Database, label: "Database", color: "text-chart-1" },
-    { icon: Cloud, label: "Cloud", color: "text-chart-2" },
-    { icon: Server, label: "Servers", color: "text-chart-3" },
-  ]
+  useEffect(() => {
+    if (!mounted || !dotRef.current || !svgRef.current) return
 
-  // Output destinations (right side)
-  const outputDestinations = [
-    { icon: Activity, label: "Analytics", color: "text-chart-1" },
-    { icon: Network, label: "Network", color: "text-chart-2" },
-    { icon: HardDrive, label: "Storage", color: "text-secondary" },
-  ]
+    // Cargar GSAP dinámicamente solo en el cliente
+    const initAnimation = async () => {
+      try {
+        const gsap = (await import("gsap")).gsap
+        const MotionPathPlugin = (await import("gsap/MotionPathPlugin")).MotionPathPlugin
+        
+        gsap.registerPlugin(MotionPathPlugin)
 
-  // Generate flowing particles with random delays
-  const generateParticles = (count: number): FlowParticle[] => {
-    return Array.from({ length: count }, (_, i) => ({
-      id: i,
-      delay: Math.random() * 3,
-      duration: 3 + Math.random() * 2,
-    }))
-  }
+        // Paths para las 3 combinaciones diferentes
+        const paths = [
+          "#path-full-1", // línea 1 izq -> línea 3 derecha
+          "#path-full-2", // línea 2 izq -> línea 1 derecha
+          "#path-full-3", // línea 3 izq -> línea 2 derecha
+        ]
 
-  const leftParticles = generateParticles(9)
-  const rightParticles = generateParticles(9)
+        let currentPathIndex = 0
+
+        const animatePath = (pathId: string) => {
+          // Crear timeline para animar nodo y trail juntos
+          const tl = gsap.timeline({
+            onComplete: () => {
+              // Cuando termina, cambiar al siguiente path
+              currentPathIndex = (currentPathIndex + 1) % paths.length
+              const nextPath = paths[currentPathIndex]
+              
+              // Resetear posición al inicio del nuevo path
+              const pathElement = svgRef.current?.querySelector(nextPath) as SVGPathElement
+              if (pathElement && dotRef.current) {
+                const startPoint = pathElement.getPointAtLength(0)
+                gsap.set(dotRef.current, {
+                  attr: { cx: startPoint.x, cy: startPoint.y }
+                })
+                
+                // Iniciar nueva animación
+                animationRef.current = animatePath(nextPath)
+              }
+            },
+          })
+
+          // Animar el nodo principal (círculo azul) - asegurar alineación perfecta
+          tl.to(dotRef.current, {
+            duration: 5,
+            ease: "none",
+            motionPath: {
+              path: pathId,
+              align: pathId,
+              alignOrigin: [0.5, 0.5],
+              autoRotate: false,
+            },
+          }, 0)
+
+          return tl
+        }
+
+        // Iniciar con el primer path
+        const firstPathElement = svgRef.current?.querySelector(paths[0]) as SVGPathElement
+        if (firstPathElement && dotRef.current) {
+          const startPoint = firstPathElement.getPointAtLength(0)
+          gsap.set(dotRef.current, {
+            attr: { cx: startPoint.x, cy: startPoint.y }
+          })
+          
+          animationRef.current = animatePath(paths[0])
+        }
+      } catch (error) {
+        console.error("Error loading GSAP:", error)
+      }
+    }
+
+    initAnimation()
+
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.kill()
+        animationRef.current = null
+      }
+    }
+  }, [mounted])
 
   if (!mounted) {
     return null
   }
 
+  // Posiciones de los iconos (en porcentaje del viewBox para que sean responsive)
+  const centerX = 800
+  const centerY = 240
+  
+  // Líneas izquierdas (3) - Más separadas verticalmente
+  const leftIcons = [
+    { x: 100, y: 100, icon: MessageSquare, label: "Chat" },
+    { x: 100, y: 240, icon: Database, label: "Data" },
+    { x: 100, y: 380, icon: Cloud, label: "Cloud" },
+  ]
+
+  // Líneas derechas (3) - Más separadas verticalmente y más ancho
+  const rightIcons = [
+    { x: 1500, y: 100, icon: Zap, label: "AI" },
+    { x: 1500, y: 240, icon: BarChart3, label: "Analytics" },
+    { x: 1500, y: 380, icon: Settings, label: "Config" },
+  ]
+
+  // Generar paths curvos desde los iconos al centro
+  const createPath = (startX: number, startY: number, endX: number, endY: number) => {
+    const midX = (startX + endX) / 2
+    return `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`
+  }
+
+  // Crear path completo de izquierda a derecha pasando por el centro
+  // Usa exactamente los mismos puntos que los paths visuales para alineación perfecta
+  const createFullPath = (startX: number, startY: number, centerX: number, centerY: number, endX: number, endY: number) => {
+    // Punto de conexión izquierdo (borde del cuadrado)
+    const leftConnX = centerX - 80
+    const leftConnY = centerY
+    // Punto de conexión derecho (borde del cuadrado)
+    const rightConnX = centerX + 80
+    const rightConnY = centerY
+    
+    // Puntos de control para la curva izquierda
+    const leftMidX = (startX + leftConnX) / 2
+    // Puntos de control para la curva derecha
+    const rightMidX = (rightConnX + endX) / 2
+    
+    // Crear path continuo: curva izquierda + línea recta invisible en el centro + curva derecha
+    return `M ${startX} ${startY} C ${leftMidX} ${startY}, ${leftMidX} ${leftConnY}, ${leftConnX} ${leftConnY} L ${rightConnX} ${rightConnY} C ${rightMidX} ${rightConnY}, ${rightMidX} ${endY}, ${endX} ${endY}`
+  }
+
+  // Calcular posición porcentual para los iconos
+  const getIconPosition = (x: number, y: number) => {
+    const viewBoxWidth = 1600
+    const viewBoxHeight = 480
+    return {
+      left: `${(x / viewBoxWidth) * 100}%`,
+      top: `${(y / viewBoxHeight) * 100}%`,
+    }
+  }
+
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="relative flex items-center justify-center gap-12 lg:gap-24">
-        {/* Left Side - Input Sources */}
-        <div className="flex flex-col gap-4 lg:gap-6 flex-1 items-end">
-          {inputSources.map((source, index) => (
+    <div ref={containerRef} className="w-full max-w-[1400px] mx-auto px-4 relative">
+      <div className="revenanas-graph relative">
+        <svg
+          ref={svgRef}
+          width="100%"
+          viewBox="0 0 1600 480"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          {/* DEFINICIONES DE GRADIENTES Y FILTROS */}
+          <defs>
+            {/* Filtro para el efecto de luz azul del nodo */}
+            <filter id="glow-blue" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            
+            {/* Filtro para el trail/rastro del nodo */}
+            <filter id="trail-blue" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="6" result="blur"/>
+              <feColorMatrix in="blur" type="matrix" values="0 0.4 1 0 0  0 0.4 1 0 0  0 0.4 1 0 0  0 0 0.4 0 0"/>
+            </filter>
+
+            {/* Gradiente para líneas izquierdas (opaco -> transparente hacia el centro) */}
+            {leftIcons.map((icon, index) => {
+              const gradientId = `gradient-left-${index}`
+              const startX = icon.x + 20
+              const startY = icon.y
+              const endX = centerX - 80
+              const endY = centerY
+              return (
+                <linearGradient 
+                  key={gradientId} 
+                  id={gradientId} 
+                  x1={startX} 
+                  y1={startY} 
+                  x2={endX} 
+                  y2={endY}
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stopColor="#8E8E8E" stopOpacity="1" />
+                  <stop offset="70%" stopColor="#8E8E8E" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#8E8E8E" stopOpacity="0.3" />
+                </linearGradient>
+              )
+            })}
+            
+            {/* Gradiente para líneas derechas (transparente desde el centro -> opaco) */}
+            {rightIcons.map((icon, index) => {
+              const gradientId = `gradient-right-${index}`
+              const startX = centerX + 80
+              const startY = centerY
+              const endX = icon.x - 20
+              const endY = icon.y
+              return (
+                <linearGradient 
+                  key={gradientId} 
+                  id={gradientId} 
+                  x1={startX} 
+                  y1={startY} 
+                  x2={endX} 
+                  y2={endY}
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stopColor="#8E8E8E" stopOpacity="0.3" />
+                  <stop offset="30%" stopColor="#8E8E8E" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#8E8E8E" stopOpacity="1" />
+                </linearGradient>
+              )
+            })}
+          </defs>
+
+          {/* PATHS DESDE IZQUIERDA AL CENTRO */}
+          {leftIcons.map((icon, index) => {
+            const pathId = `path-left-${index === 0 ? 'top' : index === 1 ? 'middle' : 'bottom'}`
+            const gradientId = `gradient-left-${index}`
+            return (
+              <path
+                key={pathId}
+                id={pathId}
+                d={createPath(icon.x + 20, icon.y, centerX - 80, centerY)}
+                stroke={`url(#${gradientId})`}
+                strokeWidth="2"
+                strokeDasharray="6 10"
+                strokeLinecap="round"
+              />
+            )
+          })}
+
+          {/* PATHS DESDE CENTRO A DERECHA */}
+          {rightIcons.map((icon, index) => {
+            const pathId = `path-right-${index === 0 ? 'top' : index === 1 ? 'middle' : 'bottom'}`
+            const gradientId = `gradient-right-${index}`
+            return (
+              <path
+                key={pathId}
+                id={pathId}
+                d={createPath(centerX + 80, centerY, icon.x - 20, icon.y)}
+                stroke={`url(#${gradientId})`}
+                strokeWidth="2"
+                strokeDasharray="6 10"
+                strokeLinecap="round"
+              />
+            )
+          })}
+
+          {/* PATHS COMPLETOS PARA LA ANIMACIÓN */}
+          {/* Path 1: línea 1 izq -> línea 3 derecha */}
+          <path
+            id="path-full-1"
+            d={createFullPath(
+              leftIcons[0].x + 20,
+              leftIcons[0].y,
+              centerX,
+              centerY,
+              rightIcons[2].x - 20,
+              rightIcons[2].y
+            )}
+            fill="none"
+            stroke="none"
+          />
+          
+          {/* Path 2: línea 2 izq -> línea 1 derecha */}
+          <path
+            id="path-full-2"
+            d={createFullPath(
+              leftIcons[1].x + 20,
+              leftIcons[1].y,
+              centerX,
+              centerY,
+              rightIcons[0].x - 20,
+              rightIcons[0].y
+            )}
+            fill="none"
+            stroke="none"
+          />
+          
+          {/* Path 3: línea 3 izq -> línea 2 derecha */}
+          <path
+            id="path-full-3"
+            d={createFullPath(
+              leftIcons[2].x + 20,
+              leftIcons[2].y,
+              centerX,
+              centerY,
+              rightIcons[1].x - 20,
+              rightIcons[1].y
+            )}
+            fill="none"
+            stroke="none"
+          />
+
+          {/* DOT ANIMADO QUE RECORRE EL PATH */}
+          <circle 
+            id="dot" 
+            ref={dotRef} 
+            r="8" 
+            fill="#4ca1f5"
+            cx={leftIcons[0].x + 20}
+            cy={leftIcons[0].y}
+          />
+
+          {/* NODO CENTRAL */}
+          <rect
+            x={centerX - 80}
+            y={centerY - 80}
+            width="160"
+            height="160"
+            rx="16"
+            fill="black"
+            stroke="white"
+            strokeWidth="2"
+          />
+          <image
+            href="/image11.png"
+            x={centerX - 50}
+            y={centerY - 50}
+            width="100"
+            height="100"
+            preserveAspectRatio="xMidYMid meet"
+          />
+
+        </svg>
+
+        {/* ICONOS IZQUIERDOS - Posicionados absolutamente sobre el SVG */}
+        {leftIcons.map((iconData, index) => {
+          const Icon = iconData.icon
+          const position = getIconPosition(iconData.x, iconData.y)
+          return (
             <div
-              key={index}
-              className="flex items-center justify-end gap-4 group"
+              key={`left-icon-${index}`}
+              className="absolute flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
               style={{
-                animation: "fadeIn 0.6s ease-out",
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: "backwards",
+                left: position.left,
+                top: position.top,
               }}
             >
-              <div className="text-right">
-                <div className={`text-sm font-mono ${source.color} group-hover:brightness-125 transition-all`}>
-                  {source.label}
-                </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  {"{"}
-                  {index + 1}
-                  {"}"}
-                </div>
-              </div>
-              <div
-                className={`${source.color} p-3 rounded-lg bg-card border-2 border-current/20 group-hover:border-current/40 transition-all group-hover:scale-110`}
-              >
-                <source.icon className="w-6 h-6 lg:w-7 lg:h-7" />
-              </div>
-              {/* Connection line to center */}
-              <div className="hidden lg:block relative w-48 h-0.5">
-                <div className={`absolute inset-0 bg-gradient-to-r from-current/40 to-transparent ${source.color}`} />
-                {leftParticles.slice(index * 3, (index + 1) * 3).map((particle) => (
-                  <div
-                    key={particle.id}
-                    className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full ${source.color}`}
-                    style={{
-                      animation: `flow-to-center ${particle.duration}s ease-in-out infinite`,
-                      animationDelay: `${particle.delay}s`,
-                      boxShadow: "0 0 10px currentColor",
-                    }}
-                  />
-                ))}
-              </div>
+              <Icon className="w-10 h-10 text-white" />
             </div>
-          ))}
-        </div>
+          )
+        })}
 
-        {/* Center - ZM Power Core */}
-        <div className="relative flex items-center justify-center flex-shrink-0">
-          {/* Core container */}
-          <div className="relative z-10 flex flex-col items-center justify-center">
-            <img 
-              src="/image11.png" 
-              alt="ZalesMachine" 
-              className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
-              style={{ filter: "drop-shadow(0 0 8px rgba(181, 126, 220, 0.9))" }}
-            />
-            <div className="absolute -bottom-8 text-xs text-muted-foreground font-mono">ZALESMACHINE</div>
-          </div>
-        </div>
-
-        {/* Right Side - Output Destinations */}
-        <div className="flex flex-col gap-4 lg:gap-6 flex-1 items-start">
-          {outputDestinations.map((dest, index) => (
+        {/* ICONOS DERECHOS - Posicionados absolutamente sobre el SVG */}
+        {rightIcons.map((iconData, index) => {
+          const Icon = iconData.icon
+          const position = getIconPosition(iconData.x, iconData.y)
+          return (
             <div
-              key={index}
-              className="flex items-center gap-4 group"
+              key={`right-icon-${index}`}
+              className="absolute flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
               style={{
-                animation: "fadeIn 0.6s ease-out",
-                animationDelay: `${index * 0.1 + 0.2}s`,
-                animationFillMode: "backwards",
+                left: position.left,
+                top: position.top,
               }}
             >
-              {/* Connection line from center */}
-              <div className="hidden lg:block relative w-48 h-0.5">
-                <div className={`absolute inset-0 bg-gradient-to-r from-transparent to-current/40 ${dest.color}`} />
-                {rightParticles.slice(index * 3, (index + 1) * 3).map((particle) => (
-                  <div
-                    key={particle.id}
-                    className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full ${dest.color}`}
-                    style={{
-                      animation: `flow-from-center ${particle.duration}s ease-in-out infinite`,
-                      animationDelay: `${particle.delay}s`,
-                      boxShadow: "0 0 10px currentColor",
-                    }}
-                  />
-                ))}
-              </div>
-              <div
-                className={`${dest.color} p-3 rounded-lg bg-card border-2 border-current/20 group-hover:border-current/40 transition-all group-hover:scale-110`}
-              >
-                <dest.icon className="w-6 h-6 lg:w-7 lg:h-7" />
-              </div>
-              <div className="text-left">
-                <div className={`text-sm font-mono ${dest.color} group-hover:brightness-125 transition-all`}>
-                  {dest.label}
-                </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  {"<"}
-                  {index + 1}
-                  {"/>"}
-                </div>
-              </div>
+              <Icon className="w-10 h-10 text-white" />
             </div>
-          ))}
-        </div>
+          )
+        })}
       </div>
     </div>
   )
