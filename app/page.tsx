@@ -15,6 +15,7 @@ import { LanguageProvider, useLanguage } from "@/contexts/language-context"
 import { BootLoader } from "@/components/boot-loader/BootLoader"
 import { AnimatePresence, motion } from "framer-motion"
 import { SectionDivider } from "@/components/section-divider"
+import { GlobalCursor } from "@/components/ui/global-cursor"
 
 function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -63,6 +64,7 @@ function HomeContent() {
 
   return (
     <>
+      <GlobalCursor />
       <AnimatePresence>
         {showBoot && <BootLoader onFinish={handleBootFinish} />}
       </AnimatePresence>
