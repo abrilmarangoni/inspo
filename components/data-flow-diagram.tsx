@@ -100,12 +100,12 @@ export function DataFlowDiagram() {
           {/* Core container */}
           <div className="relative z-10 flex flex-col items-center justify-center">
             <img 
-              src="/logo.png" 
+              src="/image11.png" 
               alt="ZalesMachine" 
               className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
               style={{ filter: "drop-shadow(0 0 8px rgba(181, 126, 220, 0.9))" }}
             />
-            <div className="absolute -bottom-8 text-xs text-muted-foreground font-mono">POWER CORE</div>
+            <div className="absolute -bottom-8 text-xs text-muted-foreground font-mono">ZALESMACHINE</div>
           </div>
         </div>
 

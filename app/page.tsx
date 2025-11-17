@@ -77,11 +77,13 @@ function HomeContent() {
             isScrolled ? "ml-6" : "ml-6"
           }`}
         >
-          <div className={`font-bold font-mono text-foreground tracking-wider transition-all duration-300 ${
-            isScrolled ? "text-2xl" : "text-3xl"
-          }`}>
-            ZM
-          </div>
+          <img 
+            src="/image11.png" 
+            alt="ZalesMachine" 
+            className={`transition-all duration-300 ${
+              isScrolled ? "h-8" : "h-10"
+            } object-contain`}
+          />
         </div>
 
         <div className={`absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-medium text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2 ${
@@ -206,9 +208,11 @@ function HomeContent() {
 
       <header className="sticky top-6 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-lg bg-background/95 backdrop-blur-md border border-border/50 shadow-lg md:hidden px-5 py-4">
         <div className="flex items-center justify-center gap-2 ml-4">
-          <div className="font-bold font-mono text-foreground tracking-wider text-3xl">
-            ZM
-          </div>
+          <img 
+            src="/image11.png" 
+            alt="ZalesMachine" 
+            className="h-10 object-contain"
+          />
         </div>
 
         <button
