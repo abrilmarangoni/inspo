@@ -13,7 +13,8 @@ import { ROICalculator } from "@/components/roi-calculator"
 import { StickyFooter } from "@/components/sticky-footer"
 import { LanguageProvider, useLanguage } from "@/contexts/language-context"
 import { BootLoader } from "@/components/boot-loader/BootLoader"
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+import { SectionDivider } from "@/components/section-divider"
 
 function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -358,6 +359,56 @@ function HomeContent() {
         {/* Hero Section */}
         <Hero />
       </div>
+
+      {/* Divider */}
+      <div className="relative w-full py-8">
+        <SectionDivider />
+      </div>
+
+      {/* Our Clients Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="w-full py-12 px-6"
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-10 text-center">
+            {t("hero.clients.title")}
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
+            {/* Client Cards */}
+            {[1, 2, 3, 4, 5, 6].map((index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="group relative"
+              >
+                <div className="relative flex flex-col items-center justify-center gap-3 p-4 cursor-pointer">
+                  {/* Efecto de brillo al hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/0 via-white/0 to-white/0 group-hover:from-white/5 group-hover:via-white/10 group-hover:to-white/5 transition-all duration-500 blur-xl opacity-0 group-hover:opacity-100"></div>
+                  
+                  {/* Logo */}
+                  <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                    <img 
+                      src="/logo1.png" 
+                      alt="Client logo" 
+                      className="w-full h-full object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500"
+                    />
+                  </div>
+                  
+                  {/* Case button - aparece al hover */}
+                  <button className="relative z-10 px-4 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-[#b57edc]/20 to-[#b57edc]/10 hover:from-[#b57edc]/30 hover:to-[#b57edc]/20 border border-[#b57edc]/30 rounded-md transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 shadow-lg hover:shadow-[#b57edc]/20">
+                    View Case
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* Features Section */}
       <div id="features" className="py-16 md:py-24">

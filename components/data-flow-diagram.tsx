@@ -56,9 +56,9 @@ export function DataFlowDiagram() {
             },
           })
 
-          // Animar el nodo principal (círculo azul) - asegurar alineación perfecta
+          // Animar el nodo principal (círculo violeta) - asegurar alineación perfecta
           tl.to(dotRef.current, {
-            duration: 8,
+            duration: 6,
             ease: "none",
             motionPath: {
               path: pathId,
@@ -167,9 +167,10 @@ export function DataFlowDiagram() {
         >
           {/* DEFINICIONES DE GRADIENTES Y FILTROS */}
           <defs>
-            {/* Filtro para el efecto de luz azul del nodo */}
-            <filter id="glow-blue" x="-200%" y="-200%" width="500%" height="500%">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            {/* Filtro para el efecto de luz violeta del nodo */}
+            <filter id="glow-violet" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+              <feColorMatrix in="coloredBlur" type="matrix" values="0.71 0.49 0.86 0 0  0.71 0.49 0.86 0 0  0.71 0.49 0.86 0 0  0 0 0 1.5 0"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
@@ -180,6 +181,16 @@ export function DataFlowDiagram() {
             <filter id="trail-blue" x="-100%" y="-100%" width="300%" height="300%">
               <feGaussianBlur stdDeviation="6" result="blur"/>
               <feColorMatrix in="blur" type="matrix" values="0 0.4 1 0 0  0 0.4 1 0 0  0 0.4 1 0 0  0 0 0.4 0 0"/>
+            </filter>
+
+            {/* Filtro para el glow del cuadrado central */}
+            <filter id="glow-center" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+              <feColorMatrix in="coloredBlur" type="matrix" values="0.71 0.49 0.86 0 0  0.71 0.49 0.86 0 0  0.71 0.49 0.86 0 0  0 0 0 0.8 0"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
             </filter>
 
             {/* Gradiente para líneas izquierdas (opaco -> transparente hacia el centro) */}
@@ -316,23 +327,43 @@ export function DataFlowDiagram() {
             id="dot" 
             ref={dotRef} 
             r="8" 
-            fill="#4ca1f5"
+            fill="rgb(181, 126, 220)"
             cx={leftIcons[0].x + 20}
             cy={leftIcons[0].y}
-            filter="url(#glow-blue)"
+            filter="url(#glow-violet)"
           />
 
           {/* NODO CENTRAL */}
+          {/* Capa de glow violeta animada */}
           <rect
             x={centerX - 80}
             y={centerY - 80}
             width="160"
             height="160"
             rx="16"
-            fill="black"
-            stroke="white"
+            fill="rgb(181, 126, 220)"
+            opacity="0.3"
+            filter="url(#glow-center)"
+          >
+            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          
+          {/* Cuadrado principal */}
+          <rect
+            x={centerX - 80}
+            y={centerY - 80}
+            width="160"
+            height="160"
+            rx="16"
+            fill="rgb(181, 126, 220)"
+            stroke="rgb(181, 126, 220)"
             strokeWidth="2"
-          />
+            opacity="0.3"
+          >
+            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          
           <image
             href="/image11.png"
             x={centerX - 50}
