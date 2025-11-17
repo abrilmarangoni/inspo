@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import Script from "next/script"
-import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
 
 declare global {
@@ -71,7 +70,6 @@ export function TestimonialsSection() {
         }}
       />
       <section id="testimonials" className="mb-24 relative overflow-hidden pt-16">
-        <SectionDivider />
         <div className="mx-auto max-w-7xl mt-12">
           <div className="mx-auto max-w-[540px]">
             <div className="flex justify-center">

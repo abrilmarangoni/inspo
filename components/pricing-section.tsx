@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import { Check } from "lucide-react"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
 
 export function PricingSection() {
@@ -72,7 +71,6 @@ export function PricingSection() {
 
   return (
     <section className="relative py-24 px-4 overflow-hidden">
-      <SectionDivider />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

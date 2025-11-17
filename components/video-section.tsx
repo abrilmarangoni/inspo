@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
 
 export function VideoSection() {
@@ -11,7 +10,6 @@ export function VideoSection() {
   
   return (
     <section className="relative py-24 px-4 overflow-hidden">
-      <SectionDivider />
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +54,7 @@ export function VideoSection() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              className="w-full max-w-5xl aspect-video rounded-lg"
+              className="w-full max-w-6xl aspect-video rounded-lg"
             />
           </div>
         </motion.div>

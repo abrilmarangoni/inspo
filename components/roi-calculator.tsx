@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Calculator, TrendingUp, DollarSign, Users, Target } from "lucide-react"
-import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
 
 export function ROICalculator() {
@@ -24,7 +23,6 @@ export function ROICalculator() {
 
   return (
     <section className="relative py-12 sm:py-16 md:py-24 px-4 overflow-hidden">
-      <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
