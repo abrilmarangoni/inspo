@@ -12,11 +12,20 @@ import { PricingSection } from "@/components/pricing-section"
 import { ROICalculator } from "@/components/roi-calculator"
 import { StickyFooter } from "@/components/sticky-footer"
 import { LanguageProvider, useLanguage } from "@/contexts/language-context"
+import { BootLoader } from "@/components/boot-loader/BootLoader"
+import { AnimatePresence } from "framer-motion"
 
 function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  
+  // Boot loader state - aparece en cada reload
+  const [showBoot, setShowBoot] = useState(true)
+
+  const handleBootFinish = () => {
+    setShowBoot(false)
+  }
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -52,7 +61,11 @@ function HomeContent() {
   }
 
   return (
-    <div className="min-h-screen w-full relative bg-black">
+    <>
+      <AnimatePresence>
+        {showBoot && <BootLoader onFinish={handleBootFinish} />}
+      </AnimatePresence>
+      <div className={`min-h-screen w-full relative bg-black transition-opacity duration-500 ${showBoot ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
       {/* Sección con fondo azul hasta el divisor */}
       <div className="relative w-full">
         {/* Fondo azul con sombra oscura - luz más ancha */}
@@ -383,6 +396,7 @@ function HomeContent() {
       {/* Sticky Footer */}
       <StickyFooter />
     </div>
+    </>
   )
 }
 
