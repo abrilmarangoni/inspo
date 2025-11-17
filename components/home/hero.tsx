@@ -89,6 +89,39 @@ export default function Hero() {
 
             {/* Flow Diagram */}
             <DataFlowDiagram />
+
+            {/* Our Clients Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-16 sm:mt-20 py-12 px-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+            >
+              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8 text-center">
+                {t("hero.clients.title")}
+              </h2>
+              <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+                {/* Placeholder para logos - puedes agregar las imágenes aquí */}
+                <div className="h-12 sm:h-16 w-auto flex items-center justify-center">
+                  {/* Logo 1 */}
+                </div>
+                <div className="h-12 sm:h-16 w-auto flex items-center justify-center">
+                  {/* Logo 2 */}
+                </div>
+                <div className="h-12 sm:h-16 w-auto flex items-center justify-center">
+                  {/* Logo 3 */}
+                </div>
+                <div className="h-12 sm:h-16 w-auto flex items-center justify-center">
+                  {/* Logo 4 */}
+                </div>
+                <div className="h-12 sm:h-16 w-auto flex items-center justify-center">
+                  {/* Logo 5 */}
+                </div>
+                <div className="h-12 sm:h-16 w-auto flex items-center justify-center">
+                  {/* Logo 6 */}
+                </div>
+              </div>
+            </motion.div>
           </div>
 
         </div>

@@ -6,11 +6,9 @@ import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SectionDivider } from "@/components/section-divider"
 import { useLanguage } from "@/contexts/language-context"
-import { useState } from "react"
 
 export function PricingSection() {
   const { t } = useLanguage()
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   
   const pricingPlans = [
     {
@@ -149,8 +147,6 @@ export function PricingSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15 + 0.2 }}
                 whileHover={{ scale: 1.02 }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className={`relative overflow-hidden rounded-2xl p-8 pt-12 backdrop-blur-xl ${
                   plan.popular 
@@ -181,165 +177,6 @@ export function PricingSection() {
                       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                     }}
                   />
-
-                  {/* Animated expanding lines on hover */}
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center z-[1]"
-                    initial={{ opacity: 0 }}
-                    animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <svg width="100%" height="100%" viewBox="0 0 200 200" className="absolute">
-                      {/* Diagonal lines expanding from center */}
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="100"
-                        y2="0"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
-                        strokeWidth="1.5"
-                        strokeDasharray="3 3"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                      />
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="100"
-                        y2="200"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
-                        strokeWidth="1.5"
-                        strokeDasharray="3 3"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.1 }}
-                      />
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="0"
-                        y2="100"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
-                        strokeWidth="1.5"
-                        strokeDasharray="3 3"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-                      />
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="200"
-                        y2="100"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.6)" : "rgba(76, 161, 245, 0.6)"}
-                        strokeWidth="1.5"
-                        strokeDasharray="3 3"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
-                      />
-                      {/* Diagonal lines */}
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="0"
-                        y2="0"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
-                        strokeWidth="1"
-                        strokeDasharray="2 2"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-                      />
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="200"
-                        y2="200"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
-                        strokeWidth="1"
-                        strokeDasharray="2 2"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                      />
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="0"
-                        y2="200"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
-                        strokeWidth="1"
-                        strokeDasharray="2 2"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.6 }}
-                      />
-                      <motion.line
-                        x1="100"
-                        y1="100"
-                        x2="200"
-                        y2="0"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.4)" : "rgba(76, 161, 245, 0.4)"}
-                        strokeWidth="1"
-                        strokeDasharray="2 2"
-                        initial={{ pathLength: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1 } : { pathLength: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.7 }}
-                      />
-                    </svg>
-                  </motion.div>
-
-                  {/* Animated rotating circle on hover */}
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center z-[1]"
-                    initial={{ opacity: 0 }}
-                    animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <svg width="300" height="300" viewBox="0 0 300 300" className="opacity-50">
-                      <motion.circle
-                        cx="150"
-                        cy="150"
-                        r="140"
-                        fill="none"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.5)" : "rgba(76, 161, 245, 0.5)"}
-                        strokeWidth="2"
-                        strokeDasharray="8 8"
-                        initial={{ pathLength: 0, rotate: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1, rotate: 360 } : { pathLength: 0, rotate: 0 }}
-                        transition={{
-                          pathLength: { duration: 2, ease: "easeInOut" },
-                          rotate: {
-                            duration: 15,
-                            repeat: hoveredIndex === index ? Infinity : 0,
-                            ease: "linear",
-                          },
-                        }}
-                      />
-                      <motion.circle
-                        cx="150"
-                        cy="150"
-                        r="120"
-                        fill="none"
-                        stroke={plan.popular ? "rgba(181, 126, 220, 0.3)" : "rgba(76, 161, 245, 0.3)"}
-                        strokeWidth="1.5"
-                        strokeDasharray="6 6"
-                        initial={{ pathLength: 0, rotate: 0 }}
-                        animate={hoveredIndex === index ? { pathLength: 1, rotate: -360 } : { pathLength: 0, rotate: 0 }}
-                        transition={{
-                          pathLength: { duration: 2, ease: "easeInOut", delay: 0.3 },
-                          rotate: {
-                            duration: 20,
-                            repeat: hoveredIndex === index ? Infinity : 0,
-                            ease: "linear",
-                          },
-                        }}
-                      />
-                    </svg>
-                  </motion.div>
-
 
 
                   <motion.div 

@@ -159,7 +159,7 @@ export default function Features() {
                     >
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
                         <motion.path
-                          d="M 60.688 1.59 L 60.688 92.449 M 60.688 92.449 L 119.368 92.449 M 60.688 92.449 L 1.414 92.449"
+                          d="M 60.688 1.59 L 119.368 1.59 M 60.688 1.59 L 1.414 1.59"
                           stroke="rgb(255,222,213)"
                           fill="transparent"
                           strokeDasharray="2 2"
@@ -173,7 +173,7 @@ export default function Features() {
                       </svg>
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
                         <motion.path
-                          d="M 60.688 92.449 L 60.688 1.59 M 60.688 1.59 L 119.368 1.59 M 60.688 1.59 L 1.414 1.59"
+                          d="M 60.688 92.449 L 119.368 92.449 M 60.688 92.449 L 1.414 92.449"
                           stroke="rgb(255,222,213)"
                           fill="transparent"
                           strokeDasharray="2 2"
@@ -305,33 +305,6 @@ export default function Features() {
                             </motion.div>
                     </div>
 
-                    {/* Animated Circular Border */}
-                    <motion.div
-                      className="absolute inset-0 flex items-center justify-center"
-                      initial={{ opacity: 0 }}
-                      animate={isCliHovering ? { opacity: 1 } : { opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <svg width="350" height="350" viewBox="0 0 350 350" className="opacity-40">
-                        <motion.path
-                          d="M 175 1.159 C 271.01 1.159 348.841 78.99 348.841 175 C 348.841 271.01 271.01 348.841 175 348.841 C 78.99 348.841 1.159 271.01 1.159 175 C 1.159 78.99 78.99 1.159 175 1.159 Z"
-                          stroke="rgba(255, 255, 255, 0.38)"
-                          strokeWidth="1.16"
-                          fill="transparent"
-                          strokeDasharray="4 4"
-                          initial={{ pathLength: 0, rotate: 0 }}
-                          animate={isCliHovering ? { pathLength: 1, rotate: 360 } : { pathLength: 0, rotate: 0 }}
-                          transition={{
-                            pathLength: { duration: 3, ease: "easeInOut" },
-                            rotate: {
-                              duration: 20,
-                              repeat: isCliHovering ? Number.POSITIVE_INFINITY : 0,
-                              ease: "linear",
-                            },
-                          }}
-                        />
-                      </svg>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -394,7 +367,7 @@ export default function Features() {
                     >
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
                         <motion.path
-                          d="M 60.688 1.59 L 60.688 92.449 M 60.688 92.449 L 119.368 92.449 M 60.688 92.449 L 1.414 92.449"
+                          d="M 60.688 1.59 L 119.368 1.59 M 60.688 1.59 L 1.414 1.59"
                           stroke="rgb(255,222,213)"
                           fill="transparent"
                           strokeDasharray="2 2"
@@ -408,7 +381,7 @@ export default function Features() {
                       </svg>
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
                         <motion.path
-                          d="M 60.688 92.449 L 60.688 1.59 M 60.688 1.59 L 119.368 1.59 M 60.688 1.59 L 1.414 1.59"
+                          d="M 60.688 92.449 L 119.368 92.449 M 60.688 92.449 L 1.414 92.449"
                           stroke="rgb(255,222,213)"
                           fill="transparent"
                           strokeDasharray="2 2"
@@ -516,33 +489,6 @@ export default function Features() {
                       </motion.div>
                     </div>
 
-                    {/* Animated Circular Border */}
-                    <motion.div
-                      className="absolute inset-0 flex items-center justify-center"
-                      initial={{ opacity: 0 }}
-                      animate={isFeature4Hovering ? { opacity: 1 } : { opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <svg width="350" height="350" viewBox="0 0 350 350" className="opacity-40">
-                        <motion.path
-                          d="M 175 1.159 C 271.01 1.159 348.841 78.99 348.841 175 C 348.841 271.01 271.01 348.841 175 348.841 C 78.99 348.841 1.159 271.01 1.159 175 C 1.159 78.99 78.99 1.159 175 1.159 Z"
-                          stroke="rgba(255, 255, 255, 0.38)"
-                          strokeWidth="1.16"
-                          fill="transparent"
-                          strokeDasharray="4 4"
-                          initial={{ pathLength: 0, rotate: 0 }}
-                          animate={isFeature4Hovering ? { pathLength: 1, rotate: 360 } : { pathLength: 0, rotate: 0 }}
-                          transition={{
-                            pathLength: { duration: 3, ease: "easeInOut" },
-                            rotate: {
-                              duration: 20,
-                              repeat: isFeature4Hovering ? Number.POSITIVE_INFINITY : 0,
-                              ease: "linear",
-                            },
-                          }}
-                        />
-                      </svg>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -605,7 +551,7 @@ export default function Features() {
                     >
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
                         <motion.path
-                          d="M 60.688 1.59 L 60.688 92.449 M 60.688 92.449 L 119.368 92.449 M 60.688 92.449 L 1.414 92.449"
+                          d="M 60.688 1.59 L 119.368 1.59 M 60.688 1.59 L 1.414 1.59"
                           stroke="rgb(255,222,213)"
                           fill="transparent"
                           strokeDasharray="2 2"
@@ -619,7 +565,7 @@ export default function Features() {
                       </svg>
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
                         <motion.path
-                          d="M 60.688 92.449 L 60.688 1.59 M 60.688 1.59 L 119.368 1.59 M 60.688 1.59 L 1.414 1.59"
+                          d="M 60.688 92.449 L 119.368 92.449 M 60.688 92.449 L 1.414 92.449"
                           stroke="rgb(255,222,213)"
                           fill="transparent"
                           strokeDasharray="2 2"
@@ -631,7 +577,7 @@ export default function Features() {
                             ease: "easeInOut",
                           }}
                         />
-                            </svg>
+                      </svg>
                     </motion.div>
 
                     {/* Animated Blue Blur Effect */}
@@ -739,33 +685,6 @@ export default function Features() {
                       </motion.div>
                     </div>
 
-                    {/* Animated Circular Border */}
-                    <motion.div
-                      className="absolute inset-0 flex items-center justify-center"
-                      initial={{ opacity: 0 }}
-                      animate={isFeature3Hovering ? { opacity: 1 } : { opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <svg width="350" height="350" viewBox="0 0 350 350" className="opacity-40">
-                        <motion.path
-                          d="M 175 1.159 C 271.01 1.159 348.841 78.99 348.841 175 C 348.841 271.01 271.01 348.841 175 348.841 C 78.99 348.841 1.159 271.01 1.159 175 C 1.159 78.99 78.99 1.159 175 1.159 Z"
-                          stroke="rgba(255, 255, 255, 0.38)"
-                          strokeWidth="1.16"
-                          fill="transparent"
-                          strokeDasharray="4 4"
-                          initial={{ pathLength: 0, rotate: 0 }}
-                          animate={isFeature3Hovering ? { pathLength: 1, rotate: 360 } : { pathLength: 0, rotate: 0 }}
-                          transition={{
-                            pathLength: { duration: 3, ease: "easeInOut" },
-                            rotate: {
-                              duration: 20,
-                              repeat: isFeature3Hovering ? Number.POSITIVE_INFINITY : 0,
-                              ease: "linear",
-                            },
-                          }}
-                        />
-                      </svg>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>
