@@ -86,12 +86,10 @@ function TeamContent() {
             </button>
             <Link
               href="/"
-              className={`${interTight.className} flex items-center gap-2 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-extralight text-foreground cursor-pointer whitespace-nowrap ${
-                isScrolled ? "px-2 py-1 text-xs" : "px-2.5 py-1.5 text-sm"
-              }`}
+              className={`${interTight.className} flex items-center gap-2 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-extralight text-foreground cursor-pointer whitespace-nowrap px-2.5 py-1.5 text-sm`}
             >
-              <ArrowLeft className={`${isScrolled ? "w-3 h-3" : "w-3.5 h-3.5"}`} />
-              <span>{language === "en" ? "Home" : "Inicio"}</span>
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>{t("footer.home")}</span>
             </Link>
           </div>
         </header>
@@ -125,6 +123,7 @@ function TeamContent() {
               className={`${interTight.className} flex items-center gap-1.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-extralight text-foreground cursor-pointer px-2 py-1 text-xs`}
             >
               <ArrowLeft className="w-3 h-3" />
+              <span className="text-xs">{t("footer.home")}</span>
             </Link>
           </div>
         </header>

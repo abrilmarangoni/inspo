@@ -106,11 +106,15 @@ const translations: Record<string, { en: string; es: string }> = {
   "pricing.setup": { en: "setup", es: "configuración" },
   "pricing.month": { en: "/month", es: "/mes" },
   "pricing.months": { en: "months", es: "meses" },
+  "pricing.forMonths": { en: "for {months} months", es: "por {months} meses" },
   "pricing.approach": { en: "Approach", es: "Enfoque" },
   
   // Video Section
   "video.title": { en: "We have built the ZalesMachine System — and it actually works.", es: "Hemos construido el Sistema ZalesMachine — y realmente funciona." },
   "video.description": { en: "We created a system that combines an Outbound Machine and a Content Machine, powered by AI and automation — to deliver leads on autopilot, predictably and consistently.", es: "Creamos un sistema que combina una Máquina de Salida y una Máquina de Contenido, impulsado por IA y automatización — para entregar leads en piloto automático, de manera predecible y consistente." },
+  "video.solutionsAction": { en: "Our Solutions in Action", es: "Nuestras Soluciones en Acción" },
+  "video.seeHow": { en: "See how we integrate AI, automation and sales tools to create personalized solutions", es: "Descubre cómo integramos IA, automatización y herramientas de ventas para crear soluciones personalizadas" },
+  "video.watchYouTube": { en: "Watch on YouTube", es: "Ver en YouTube" },
   
   // Testimonials
   "testimonials.title": { en: "What our users say", es: "Lo que dicen nuestros usuarios" },
@@ -160,6 +164,49 @@ const translations: Record<string, { en: string; es: string }> = {
   "problems.deleted": { en: "Deleted", es: "Eliminados" },
   "problems.avoid-mistakes": { en: "Avoid these mistakes and see how we approach outbound differently.", es: "Evita estos errores y descubre cómo abordamos el outbound de manera diferente." },
   "problems.see-approach": { en: "See Our Approach", es: "Ver Nuestro Enfoque" },
+  
+  // Email Generator Section
+  "email.title": { en: "Why Most Outbounds Fail?", es: "¿Por qué fallan la mayoría de los outbounds?" },
+  "email.subtitle": { en: "The anatomy of failed outreach", es: "La anatomía del outreach fallido" },
+  "email.failedColdEmail": { en: "Failed Cold Email", es: "Email Frío Fallido" },
+  "email.genericTemplates": { en: "— Generic templates that feel robotic", es: "— Plantillas genéricas que se sienten robóticas" },
+  "email.vagueValue": { en: "— Vague value propositions that don't resonate", es: "— Propuestas de valor vagas que no resuenan" },
+  "email.pushyCTA": { en: "— Pushy CTAs that trigger instant delete", es: "— CTAs agresivos que provocan eliminación instantánea" },
+  "email.noSocialProof": { en: "— No social proof or credibility signals", es: "— Sin prueba social o señales de credibilidad" },
+  "email.howWeSolve": { en: "How we solve it?", es: "¿Cómo lo resolvemos?" },
+  "email.subject": { en: "Subject: Typical Cold Email", es: "Asunto: Email Frío Típico" },
+  "email.kindDeleted": { en: "The kind that gets deleted", es: "El tipo que se elimina" },
+  "email.genericOpening": { en: "GENERIC OPENING", es: "APERTURA GENÉRICA" },
+  "email.genericOpeningText": { en: "\"Hi [First Name], I hope this email finds you well...\"", es: "\"Hola [Nombre], espero que este email te encuentre bien...\"" },
+  "email.vagueValueProp": { en: "VAGUE VALUE PROPOSITION", es: "PROPUESTA DE VALOR VAGA" },
+  "email.vagueValueText": { en: "\"We help companies like yours increase efficiency...\"", es: "\"Ayudamos a empresas como la tuya a aumentar la eficiencia...\"" },
+  "email.pushyCTATitle": { en: "PUSHY CALL-TO-ACTION", es: "LLAMADO A LA ACCIÓN AGRESIVO" },
+  "email.pushyCTAText": { en: "\"Can we schedule a quick 15-minute call this week?\"", es: "\"¿Podemos agendar una llamada rápida de 15 minutos esta semana?\"" },
+  "email.noCredibility": { en: "NO CREDIBILITY", es: "SIN CREDIBILIDAD" },
+  "email.noCredibilityText": { en: "\"Trust me, you'll find this valuable...\"", es: "\"Confía en mí, encontrarás esto valioso...\"" },
+  "email.responseRate": { en: "Response Rate", es: "Tasa de Respuesta" },
+  "email.conversion": { en: "Conversion", es: "Conversión" },
+  "email.deleted": { en: "Deleted", es: "Eliminados" },
+  
+  // Full Stack AI Solutions
+  "fullstack.title": { en: "What we developed", es: "Lo que desarrollamos" },
+  "fullstack.subtitle": { en: "Three automated frameworks to scale your outbound", es: "Tres frameworks automatizados para escalar tu outbound" },
+  "fullstack.developingGraph": { en: "developing graph", es: "gráfico en desarrollo" },
+  "fullstack.meetTeam": { en: "Meet our team", es: "Conoce nuestro equipo" },
+  "fullstack.bookCall": { en: "Book a call", es: "Reservar una llamada" },
+  "fullstack.warm.title": { en: "Warm Outbound:", es: "Outbound Cálido:" },
+  "fullstack.warm.description": { en: "Prospects interact with your Social Media Content. Based on that, we developed a framework that allows you to scrape all the personal information and run email + LinkedIn campaigns automatically", es: "Los prospectos interactúan con tu Contenido de Redes Sociales. Basado en eso, desarrollamos un framework que te permite extraer toda la información personal y ejecutar campañas de email + LinkedIn automáticamente" },
+  "fullstack.intent.title": { en: "Intent–Event Outbound:", es: "Outbound de Intención–Evento:" },
+  "fullstack.intent.description": { en: "Prospects attend or sponsor an event. We have developed a system that allows you to gather all the information related to the event and automate campaigns to reach all the sponsors, speakers, and attendees of the event.", es: "Los prospectos asisten o patrocinan un evento. Hemos desarrollado un sistema que te permite recopilar toda la información relacionada con el evento y automatizar campañas para llegar a todos los patrocinadores, oradores y asistentes del evento." },
+  "fullstack.cold.title": { en: "Cold Outbound:", es: "Outbound Frío:" },
+  "fullstack.cold.description": { en: "Prospects will be reached based on ICP, Buyer Persona, Industry, Company Size, etc. We developed the strategy for how to acquire leads that are relevant to your value proposition, and we set up automated LinkedIn + email campaigns", es: "Los prospectos serán contactados basándose en ICP, Buyer Persona, Industria, Tamaño de Empresa, etc. Desarrollamos la estrategia para adquirir leads relevantes para tu propuesta de valor y configuramos campañas automatizadas de LinkedIn + email" },
+  
+  // Hero
+  "hero.learnMore": { en: "Learn more", es: "Saber más" },
+  
+  // Team Page
+  "team.title": { en: "Our Team", es: "Nuestro Equipo" },
+  "team.subtitle": { en: "Meet the founders behind ZalesMachine", es: "Conoce a los fundadores detrás de ZalesMachine" },
 }
 
 export function LanguageProvider({ children, language, setLanguage }: { children: ReactNode; language: Language; setLanguage: (lang: Language) => void }) {

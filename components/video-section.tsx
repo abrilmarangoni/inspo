@@ -20,10 +20,10 @@ export function VideoSection() {
           className="text-center mb-12"
         >
           <h2 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px] mb-4`}>
-            We have built the ZalesMachine System — and it actually works.
+            {t("video.title")}
           </h2>
           <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
-            We created a system that combines an Outbound Machine and a Content Machine, powered by AI and automation — to deliver leads on autopilot, predictably and consistently.
+            {t("video.description")}
           </p>
         </motion.div>
 
@@ -56,10 +56,10 @@ export function VideoSection() {
             {/* Text Container Below Video */}
             <div className="bg-zinc-900 rounded-b-lg px-8 py-6 border-t border-zinc-800 text-center">
               <h3 className="text-2xl font-extralight text-white mb-3">
-                Our Solutions in Action
+                {t("video.solutionsAction")}
               </h3>
               <p className="text-zinc-400 text-base mb-4 leading-relaxed">
-                See how we integrate AI, automation and sales tools to create personalized solutions
+                {t("video.seeHow")}
               </p>
               <a
                 href="https://www.youtube.com/watch?v=lnvnm-xrBPs"
@@ -67,7 +67,7 @@ export function VideoSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-white hover:text-violet-400 transition-colors font-medium"
               >
-                Watch on YouTube
+                {t("video.watchYouTube")}
                 <span className="ml-2">→</span>
               </a>
             </div>

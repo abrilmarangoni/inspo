@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { useLanguage } from "@/contexts/language-context"
 
 export function PricingSection() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   
   const pricingPlans = [
     {
@@ -135,17 +135,20 @@ export function PricingSection() {
                         ) : plan.setupPrice ? (
                           <>
                             <div className="flex items-baseline justify-center gap-1">
-                              <span className="text-3xl font-bold text-white">${plan.setupPrice.toLocaleString()}</span>
+                              <span className="text-3xl font-bold text-white">${plan.setupPrice.toLocaleString(language === 'es' ? 'es-ES' : 'en-US')}</span>
                               <span className="text-white/70 text-sm">{t("pricing.setup")}</span>
                             </div>
-                            <div className="flex items-baseline justify-center gap-1">
-                              <span className="text-3xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
-                              <span className="text-white/70 text-sm">{t("pricing.month")} ({plan.months} {t("pricing.months")})</span>
+                            <div className="flex flex-col items-center justify-center gap-1">
+                              <div className="flex items-baseline justify-center gap-1">
+                                <span className="text-3xl font-bold text-white">${plan.monthlyPrice?.toLocaleString(language === 'es' ? 'es-ES' : 'en-US')}</span>
+                                <span className="text-white/70 text-sm">{t("pricing.month")}</span>
+                              </div>
+                              <span className="text-white/60 text-xs">{t("pricing.forMonths").replace('{months}', plan.months.toString())}</span>
                             </div>
                           </>
                         ) : (
                           <>
-                            <span className="text-4xl font-bold text-white">${plan.monthlyPrice?.toLocaleString()}</span>
+                            <span className="text-4xl font-bold text-white">${plan.monthlyPrice?.toLocaleString(language === 'es' ? 'es-ES' : 'en-US')}</span>
                             <span className="text-white/70 text-lg">{t("pricing.month")}</span>
                           </>
                         )}

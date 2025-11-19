@@ -37,6 +37,13 @@ export default function MobileEmailGenerator() {
   const timeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
+    // Reset cuando cambia el idioma
+    setDisplayedText('')
+    setCurrentIndex(0)
+    setShowResults(false)
+  }, [language])
+
+  useEffect(() => {
     if (currentIndex < emailText.length) {
       const char = emailText[currentIndex]
       
@@ -56,12 +63,12 @@ export default function MobileEmailGenerator() {
         setDisplayedText('')
         setCurrentIndex(0)
         setShowResults(false)
-      }, 6000)
+      }, 4000)
     }
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
-  }, [currentIndex])
+  }, [currentIndex, emailText])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,7 +82,7 @@ export default function MobileEmailGenerator() {
       <div className="mx-auto max-w-full">
         <div className="text-center mb-12">
           <h1 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-3xl font-extralight tracking-tight text-transparent`}>
-            Why Most Outbounds Fail?
+            {t("email.title")}
           </h1>
         </div>
         <div className="flex flex-col gap-8">
@@ -90,7 +97,7 @@ export default function MobileEmailGenerator() {
                   <div className="h-2.5 w-2.5 rounded-full bg-violet-400/60" />
                   <div className="h-2.5 w-2.5 rounded-full bg-violet-400/60" />
                 </div>
-                <span className="ml-3 text-xs text-white/40">Failed Cold Email</span>
+                <span className="ml-3 text-xs text-white/40">{t("email.failedColdEmail")}</span>
               </div>
               
               <div className="font-mono text-xs leading-tight text-white/90">
@@ -125,21 +132,21 @@ export default function MobileEmailGenerator() {
           <div className="space-y-6">
             <div className="space-y-4">
               <h2 className={`${interTight.className} text-2xl leading-tight font-extralight tracking-tight text-white`}>
-                The anatomy of failed outreach
+                {t("email.subtitle")}
               </h2>
               
               <div className="space-y-2">
                 <p className={`${interTight.className} text-sm text-white/65 leading-relaxed font-extralight`}>
-                  — Generic templates that feel robotic
+                  {t("email.genericTemplates")}
                 </p>
                 <p className={`${interTight.className} text-sm text-white/65 leading-relaxed font-extralight`}>
-                  — Vague value propositions that don't resonate
+                  {t("email.vagueValue")}
                 </p>
                 <p className={`${interTight.className} text-sm text-white/65 leading-relaxed font-extralight`}>
-                  — Pushy CTAs that trigger instant delete
+                  {t("email.pushyCTA")}
                 </p>
                 <p className={`${interTight.className} text-sm text-white/65 leading-relaxed font-extralight`}>
-                  — No social proof or credibility signals
+                  {t("email.noSocialProof")}
                 </p>
               </div>
             </div>
@@ -164,7 +171,7 @@ export default function MobileEmailGenerator() {
                 }}
               >
                 <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
-                  How we solve it?
+                  {t("email.howWeSolve")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"

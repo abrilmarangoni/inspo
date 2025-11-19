@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { interTight } from '@/lib/fonts'
+import { useLanguage } from '@/contexts/language-context'
 
 type SolutionId = 'warm' | 'intent-event' | 'cold'
 
@@ -12,28 +13,38 @@ interface Solution {
   description: string
 }
 
-const solutions: Solution[] = [
+interface SolutionConfig {
+  id: SolutionId
+  titleKey: string
+  descriptionKey: string
+}
+
+const solutionIds: SolutionConfig[] = [
   {
     id: 'warm',
-    title: 'Warm Outbound:',
-    description:
-      'Prospects interact with your Social Media Content. Based on that, we developed a framework that allows you to scrape all the personal information and run email + LinkedIn campaigns automatically',
+    titleKey: 'fullstack.warm.title',
+    descriptionKey: 'fullstack.warm.description',
   },
   {
     id: 'intent-event',
-    title: 'Intent–Event Outbound:',
-    description:
-      'Prospects attend or sponsor an event. We have developed a system that allows you to gather all the information related to the event and automate campaigns to reach all the sponsors, speakers, and attendees of the event.',
+    titleKey: 'fullstack.intent.title',
+    descriptionKey: 'fullstack.intent.description',
   },
   {
     id: 'cold',
-    title: 'Cold Outbound:',
-    description:
-      'Prospects will be reached based on ICP, Buyer Persona, Industry, Company Size, etc. We developed the strategy for how to acquire leads that are relevant to your value proposition, and we set up automated LinkedIn + email campaigns',
+    titleKey: 'fullstack.cold.title',
+    descriptionKey: 'fullstack.cold.description',
   },
 ]
 
 export default function FullStackAISolutions() {
+  const { t } = useLanguage()
+  
+  const solutions: Solution[] = solutionIds.map(sol => ({
+    id: sol.id,
+    title: t(sol.titleKey),
+    description: t(sol.descriptionKey),
+  }))
   const [hoveredId, setHoveredId] = useState<SolutionId | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -48,10 +59,10 @@ export default function FullStackAISolutions() {
     <section className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-8" style={{ backgroundColor: '#000000' }}>
       <div className="mb-20 text-center">
         <h2 className={`${interTight.className} text-4xl font-extralight bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent lg:text-5xl`}>
-          What we developed
+          {t("fullstack.title")}
         </h2>
         <p className={`${interTight.className} mt-6 text-lg font-extralight text-white/60`}>
-          Three automated frameworks to scale your outbound
+          {t("fullstack.subtitle")}
         </p>
       </div>
       <div className="grid gap-20 lg:grid-cols-2 lg:gap-24">
@@ -120,7 +131,7 @@ export default function FullStackAISolutions() {
               {/* Developing Graph Text - Centered */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <p className={`${interTight.className} text-lg font-extralight text-white/40 italic`}>
-                  developing graph
+                  {t("fullstack.developingGraph")}
                 </p>
               </div>
               {/* Connecting Lines */}
@@ -156,7 +167,7 @@ export default function FullStackAISolutions() {
           className={`${interTight.className} cursor-pointer bg-white h-[44px] rounded-lg flex items-center justify-center px-6 shadow-lg hover:bg-gray-50 transition-colors`}
         >
           <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
-            Meet our team
+            {t("fullstack.meetTeam")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"
@@ -193,7 +204,7 @@ export default function FullStackAISolutions() {
           }}
         >
           <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-300 hover:text-white transition-colors">
-            Book a call
+            {t("fullstack.bookCall")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"

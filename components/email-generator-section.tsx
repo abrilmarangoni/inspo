@@ -2,39 +2,48 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { interTight } from '@/lib/fonts'
-
-const emailText = `Subject: Typical Cold Email
-
-The kind that gets deleted
-
-GENERIC OPENING
-
-"Hi [First Name], I hope this email finds you well..."
-
-VAGUE VALUE PROPOSITION
-
-"We help companies like yours increase efficiency..."
-
-PUSHY CALL-TO-ACTION
-
-"Can we schedule a quick 15-minute call this week?"
-
-NO CREDIBILITY
-
-"Trust me, you'll find this valuable..."`
-
-const results = [
-  { label: 'Response Rate', value: '2%' },
-  { label: 'Conversion', value: '0.1%' },
-  { label: 'Deleted', value: '95%' }
-]
+import { useLanguage } from '@/contexts/language-context'
 
 export default function EmailGeneratorSection() {
+  const { t, language } = useLanguage()
   const [displayedText, setDisplayedText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
   const [showResults, setShowResults] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout>()
+
+  const emailText = `${t("email.subject")}
+
+${t("email.kindDeleted")}
+
+${t("email.genericOpening")}
+
+${t("email.genericOpeningText")}
+
+${t("email.vagueValueProp")}
+
+${t("email.vagueValueText")}
+
+${t("email.pushyCTATitle")}
+
+${t("email.pushyCTAText")}
+
+${t("email.noCredibility")}
+
+${t("email.noCredibilityText")}`
+
+  const results = [
+    { label: t("email.responseRate"), value: '2%' },
+    { label: t("email.conversion"), value: '0.1%' },
+    { label: t("email.deleted"), value: '95%' }
+  ]
+
+  useEffect(() => {
+    // Reset cuando cambia el idioma
+    setDisplayedText('')
+    setCurrentIndex(0)
+    setShowResults(false)
+  }, [language])
 
   useEffect(() => {
     if (currentIndex < emailText.length) {
@@ -61,7 +70,7 @@ export default function EmailGeneratorSection() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
-  }, [currentIndex])
+  }, [currentIndex, emailText])
 
   // Cursor blink effect
   useEffect(() => {
@@ -76,7 +85,7 @@ export default function EmailGeneratorSection() {
       <div className="mx-auto max-w-[1100px]">
         <div className="text-center mb-20">
           <h1 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px]`}>
-            Why Most Outbounds Fail?
+            {t("email.title")}
           </h1>
         </div>
         <div className="grid gap-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 items-center">
@@ -93,7 +102,7 @@ export default function EmailGeneratorSection() {
                   <div className="h-3 w-3 rounded-full bg-violet-400/60" />
                   <div className="h-3 w-3 rounded-full bg-violet-400/60" />
                 </div>
-                <span className="ml-4 text-sm text-white/40">Failed Cold Email</span>
+                <span className="ml-4 text-sm text-white/40">{t("email.failedColdEmail")}</span>
               </div>
               {/* Email Content */}
               <div className="font-mono text-[15px] leading-tight text-white/90">
@@ -127,21 +136,21 @@ export default function EmailGeneratorSection() {
           <div className="space-y-8 sticky top-0 self-start">
             <div className="space-y-6">
               <h2 className={`${interTight.className} text-3xl leading-none font-extralight tracking-tight text-white`}>
-                The anatomy of failed outreach
+                {t("email.subtitle")}
               </h2>
               
               <div className="space-y-2">
                 <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                  — Generic templates that feel robotic
+                  {t("email.genericTemplates")}
                 </p>
                 <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                  — Vague value propositions that don't resonate
+                  {t("email.vagueValue")}
                 </p>
                 <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                  — Pushy CTAs that trigger instant delete
+                  {t("email.pushyCTA")}
                 </p>
                 <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                  — No social proof or credibility signals
+                  {t("email.noSocialProof")}
                 </p>
               </div>
             </div>
@@ -165,7 +174,7 @@ export default function EmailGeneratorSection() {
                 }}
               >
                 <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
-                  How we solve it?
+                  {t("email.howWeSolve")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"

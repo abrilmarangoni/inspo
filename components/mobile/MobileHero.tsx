@@ -90,7 +90,7 @@ export default function MobileHero() {
               <a href="#features" className="group">
                 <div className={`${interTight.className} cursor-pointer flex items-center justify-center`}>
                   <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-300 active:text-white transition-colors">
-                    Learn more
+                    {t("hero.learnMore")}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"
