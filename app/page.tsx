@@ -56,37 +56,13 @@ function HomeContent() {
   return (
     <>
       <div className="min-h-screen w-full relative bg-black">
-      {/* Sección con fondo azul hasta el divisor */}
-      <div className="relative w-full">
-        {/* Fondo azul con sombra oscura - luz más ancha */}
-        <div
-          className="absolute inset-0 z-0 min-h-screen"
-          style={{
-            background: `
-              radial-gradient(ellipse 90% 30% at 50% 0%, rgba(76, 161, 245, 0.22), rgba(76, 161, 245, 0.12) 35%, rgba(76, 161, 245, 0.04) 55%, transparent 70%),
-              radial-gradient(ellipse 100% 35% at 50% 25%, rgba(76, 161, 245, 0.18), rgba(76, 161, 245, 0.08) 50%, transparent 70%),
-              radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0, 0, 0, 0.9), transparent 70%),
-              #000000
-            `,
-          }}
-        />
-        {/* Capa adicional de luz azul - más ancha */}
-        <div
-          className="absolute inset-0 z-0 min-h-screen"
-          style={{
-            background: "radial-gradient(ellipse 100% 50% at 50% 15%, rgba(76, 161, 245, 0.12), transparent 60%)",
-            pointerEvents: "none",
-          }}
-        />
-
-        {/* Desktop Header */}
+      {/* Desktop Header - Movido fuera del contenedor para sticky en toda la página */}
       <header
-        className={`sticky top-6 z-[9999] mx-auto hidden w-[75%] flex-row items-center justify-between self-start rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg transition-all duration-300 ${
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-[9999] hidden w-[75%] flex-row items-center justify-between rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg transition-all duration-300 ${
           isScrolled ? "px-4" : "px-6"
         } py-4`}
         style={{
           willChange: "transform",
-          transform: "translateZ(0)",
           backfaceVisibility: "hidden",
           perspective: "1000px",
         }}
@@ -235,7 +211,8 @@ function HomeContent() {
         </div>
       </header>
 
-      <header className="sticky top-6 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-lg bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg md:hidden px-5 py-6">
+      {/* Mobile Header - Movido fuera del contenedor para sticky en toda la página */}
+      <header className="fixed top-6 left-4 right-4 z-[9999] flex w-auto flex-row items-center justify-between rounded-lg bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg md:hidden px-5 py-6">
         <div className="flex items-center justify-center gap-2 ml-4">
           <img 
             src="/image13.png" 
@@ -344,6 +321,29 @@ function HomeContent() {
           </div>
         </div>
       )}
+
+      {/* Sección con fondo azul hasta el divisor */}
+      <div className="relative w-full">
+        {/* Fondo azul con sombra oscura - luz más ancha */}
+        <div
+          className="absolute inset-0 z-0 min-h-screen"
+          style={{
+            background: `
+              radial-gradient(ellipse 90% 30% at 50% 0%, rgba(76, 161, 245, 0.22), rgba(76, 161, 245, 0.12) 35%, rgba(76, 161, 245, 0.04) 55%, transparent 70%),
+              radial-gradient(ellipse 100% 35% at 50% 25%, rgba(76, 161, 245, 0.18), rgba(76, 161, 245, 0.08) 50%, transparent 70%),
+              radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0, 0, 0, 0.9), transparent 70%),
+              #000000
+            `,
+          }}
+        />
+        {/* Capa adicional de luz azul - más ancha */}
+        <div
+          className="absolute inset-0 z-0 min-h-screen"
+          style={{
+            background: "radial-gradient(ellipse 100% 50% at 50% 15%, rgba(76, 161, 245, 0.12), transparent 60%)",
+            pointerEvents: "none",
+          }}
+        />
 
         {/* Hero Section */}
         <Hero />

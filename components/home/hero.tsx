@@ -19,8 +19,8 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative overflow-hidden min-h-screen flex flex-col">
-        <div className="container mx-auto px-4 pt-12 sm:pt-16 pb-24 sm:pb-32 relative z-10 flex-1 flex flex-col">
+      <section className="relative overflow-hidden min-h-screen flex flex-col pt-0">
+        <div className="container mx-auto px-4 pt-24 sm:pt-28 pb-24 sm:pb-32 relative z-10 flex-1 flex flex-col">
           <div className="mx-auto max-w-5xl lg:max-w-6xl text-center flex-1 flex flex-col justify-start">
             {/* Main Heading */}
             <motion.div
@@ -28,7 +28,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-8"
-              style={{ marginTop: "30px" }}
+              style={{ marginTop: "58px" }}
             >
               <h1 id="main-title" className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                 {t("hero.title")}{" "}
