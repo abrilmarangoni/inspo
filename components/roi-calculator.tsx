@@ -39,14 +39,14 @@ export function ROICalculator() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
           {/* Inputs Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-6 h-full flex flex-col"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-[#b57edc]/20 rounded-lg">
@@ -55,7 +55,7 @@ export function ROICalculator() {
               <h3 className="text-xl font-semibold text-white">{t("roi.metrics")}</h3>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-5 flex-1">
               <div>
                 <label className="block text-sm font-medium text-white/80 mb-2 flex items-center gap-2">
                   <DollarSign className="w-4 h-4 text-[#b57edc]" />
@@ -130,7 +130,7 @@ export function ROICalculator() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 h-full flex flex-col"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-[#b57edc]/20 rounded-lg">
@@ -139,7 +139,7 @@ export function ROICalculator() {
               <h3 className="text-xl font-semibold text-white">{t("roi.results")}</h3>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-4">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-4 flex-1 flex flex-col">
               <div className="flex justify-between items-center py-2">
                 <span className="text-white/70 text-sm">{t("roi.leadsNeeded")}</span>
                 <span className="text-xl font-bold text-white">{leadsNeeded.toLocaleString()}</span>
@@ -164,7 +164,7 @@ export function ROICalculator() {
 
               <div className="h-px bg-white/10 my-4" />
 
-              <div className="bg-gradient-to-br from-[#b57edc]/20 to-[#b57edc]/10 border border-[#b57edc]/30 rounded-lg p-5">
+              <div className="bg-gradient-to-br from-[#b57edc]/20 to-[#b57edc]/10 border border-[#b57edc]/30 rounded-lg p-5 mt-auto">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-white/90 font-medium">{t("roi.annualRevenue")}</span>
                   <span className="text-3xl font-bold text-white">${annualRevenue.toLocaleString()}</span>
@@ -179,37 +179,43 @@ export function ROICalculator() {
                 </div>
               </div>
             </div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="pt-4"
-            >
-              <div className="flex items-center justify-center">
-                <div className="group border border-white/20 bg-white/5 hover:bg-white/10 flex h-12 cursor-pointer items-center gap-2 rounded-full px-6 w-full max-w-sm transition-all">
-                  <p className="flex items-center justify-center gap-2 font-medium text-white text-sm">
-                    {t("hero.schedule")}
-                  </p>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-arrow-right text-white transition-transform group-hover:translate-x-1"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
+
+        {/* CTA Button - Bottom Center */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex items-center justify-center mt-8"
+        >
+          <motion.a
+            href="#pricing"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group border border-white/20 bg-white/5 hover:bg-white/10 flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full px-8 transition-all"
+          >
+            <p className="flex items-center justify-center gap-2 font-medium text-white text-sm">
+              {t("hero.schedule")}
+            </p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-arrow-right text-white transition-transform group-hover:translate-x-1"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   )

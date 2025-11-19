@@ -12,21 +12,13 @@ import { PricingSection } from "@/components/pricing-section"
 import { ROICalculator } from "@/components/roi-calculator"
 import { StickyFooter } from "@/components/sticky-footer"
 import { LanguageProvider, useLanguage } from "@/contexts/language-context"
-import { BootLoader } from "@/components/boot-loader/BootLoader"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { SectionDivider } from "@/components/section-divider"
 
 function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
-  
-  // Boot loader state - aparece en cada reload
-  const [showBoot, setShowBoot] = useState(true)
-
-  const handleBootFinish = () => {
-    setShowBoot(false)
-  }
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -63,10 +55,7 @@ function HomeContent() {
 
   return (
     <>
-      <AnimatePresence>
-        {showBoot && <BootLoader onFinish={handleBootFinish} />}
-      </AnimatePresence>
-      <div className={`min-h-screen w-full relative bg-black transition-opacity duration-500 ${showBoot ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
+      <div className="min-h-screen w-full relative bg-black">
       {/* Sección con fondo azul hasta el divisor */}
       <div className="relative w-full">
         {/* Fondo azul con sombra oscura - luz más ancha */}
@@ -108,7 +97,7 @@ function HomeContent() {
           }`}
         >
           <img 
-            src="/image11.png" 
+            src="/image13.png" 
             alt="ZalesMachine" 
             className={`transition-all duration-300 ${
               isScrolled ? "h-8" : "h-10"
@@ -249,7 +238,7 @@ function HomeContent() {
       <header className="sticky top-6 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-lg bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg md:hidden px-5 py-4">
         <div className="flex items-center justify-center gap-2 ml-4">
           <img 
-            src="/image11.png" 
+            src="/image13.png" 
             alt="ZalesMachine" 
             className="h-10 object-contain"
           />

@@ -365,7 +365,7 @@ export function DataFlowDiagram() {
           </rect>
           
           <image
-            href="/image11.png"
+            href="/image13.png"
             x={centerX - 50}
             y={centerY - 50}
             width="100"
