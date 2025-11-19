@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { interTight } from '@/lib/fonts'
 
 type SolutionId = 'warm' | 'intent-event' | 'cold'
@@ -150,9 +151,32 @@ export default function FullStackAISolutions() {
       
       {/* CTA Buttons */}
       <div className="flex items-center justify-center gap-6 mt-16">
+        <Link
+          href="/team"
+          className={`${interTight.className} cursor-pointer bg-white h-[44px] rounded-lg flex items-center justify-center px-6 shadow-lg hover:bg-gray-50 transition-colors`}
+        >
+          <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
+            Meet our team
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </p>
+        </Link>
         <a 
           href="#pricing"
-          className={`${interTight.className} cursor-pointer bg-white h-[44px] rounded-lg flex items-center justify-center px-6 shadow-lg hover:bg-gray-50 transition-colors`}
+          className={`${interTight.className} cursor-pointer flex items-center justify-center`}
           onClick={(e) => {
             e.preventDefault()
             const element = document.getElementById("pricing")
@@ -168,7 +192,7 @@ export default function FullStackAISolutions() {
             }
           }}
         >
-          <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
+          <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-300 hover:text-white transition-colors">
             Book a call
             <svg
               xmlns="http://www.w3.org/2000/svg"

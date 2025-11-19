@@ -132,6 +132,13 @@ function MobileContent() {
                 >
                   {t("nav.faq")}
                 </button>
+                <a
+                  href="/team"
+                  className={`${interTight.className} text-left px-4 py-3 text-base font-extralight text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t("nav.team")}
+                </a>
                 <div className="border-t border-border/50 pt-4 mt-4">
                   <a
                     href="#pricing"

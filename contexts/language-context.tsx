@@ -18,6 +18,7 @@ const translations: Record<string, { en: string; es: string }> = {
   "nav.pricing": { en: "Pricing", es: "Precios" },
   "nav.testimonials": { en: "Testimonials", es: "Testimonios" },
   "nav.faq": { en: "FAQ", es: "Preguntas Frecuentes" },
+  "nav.team": { en: "Team", es: "Equipo" },
   "nav.contact": { en: "Contact Us", es: "Contáctanos" },
   
   // Hero

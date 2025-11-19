@@ -163,6 +163,12 @@ function HomeContent() {
           >
             <span className="relative z-20 text-inherit">{t("nav.faq")}</span>
           </a>
+          <a
+            href="/team"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap font-extralight"
+          >
+            <span className="relative z-20 text-inherit">{t("nav.team")}</span>
+          </a>
         </div>
 
         <div className="flex items-center gap-3 relative z-50">
@@ -272,6 +278,13 @@ function HomeContent() {
               >
                 {t("nav.faq")}
               </button>
+              <a
+                href="/team"
+                className={`${interTight.className} text-left px-4 py-3 text-lg font-extralight text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t("nav.team")}
+              </a>
               <div className="border-t border-border/50 pt-4 mt-4 flex flex-col space-y-3">
                 <button
                   onClick={(e) => {
