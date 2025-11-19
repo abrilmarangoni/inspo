@@ -201,6 +201,47 @@ export default function FullStackAISolutions() {
           </div>
         </div>
       </div>
+      
+      {/* CTA Buttons */}
+      <div className="flex items-center justify-center gap-6 mt-16">
+        <a 
+          href="#pricing"
+          className={`${interTight.className} cursor-pointer bg-white h-[44px] rounded-lg flex items-center justify-center px-6 shadow-lg hover:bg-gray-50 transition-colors`}
+          onClick={(e) => {
+            e.preventDefault()
+            const element = document.getElementById("pricing")
+            if (element) {
+              const headerOffset = 120
+              const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+              const offsetPosition = elementPosition - headerOffset
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              })
+            }
+          }}
+        >
+          <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
+            Book a call
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </p>
+        </a>
+      </div>
     </section>
   )
 }
