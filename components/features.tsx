@@ -547,7 +547,7 @@ export default function Features() {
 
               {/* Globally Usable */}
               <motion.div
-                className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
+                className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
                 initial={{ opacity: 0, y: 50 }}
@@ -567,7 +567,7 @@ export default function Features() {
                     </p>
                   </div>
                 </div>
-                <div className="flex min-h-[400px] grow items-start justify-center select-none relative overflow-visible">
+                <div className="flex min-h-[350px] grow items-start justify-center select-none relative overflow-visible">
                   <h1 className="text-center text-5xl leading-[100%] font-extralight sm:leading-normal lg:text-6xl z-20 relative" style={{ marginTop: 'calc(16rem + 68px)' }}>
                     <span
                       className="cursor-pointer"

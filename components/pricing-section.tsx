@@ -82,18 +82,14 @@ export function PricingSection() {
         >
           <h2
             className={cn(
-              "mb-12 mt-4 bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[70px]",
+              "mt-4 bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px]",
               interTight.className,
             )}
           >
             {t("pricing.title")}
           </h2>
 
-          <h2 className={`${interTight.className} text-4xl md:text-5xl font-extralight bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent mb-4`}>
-            {t("pricing.subtitle")}
-          </h2>
-
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+          <p className={`${interTight.className} mt-6 text-lg font-extralight text-white/60 max-w-2xl mx-auto`}>
             {t("pricing.description")}
           </p>
         </motion.div>

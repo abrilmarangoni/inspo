@@ -44,23 +44,6 @@ export function FAQSection() {
       <div className="bg-[#4ca1f5]/20 absolute top-1/2 -left-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl"></div>
 
       <div className="z-10 container mx-auto px-4">
-        <motion.div
-          className="flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <button
-            type="button"
-            className="group relative z-[60] mx-auto rounded-full border border-white/20 bg-white/5 px-6 py-1 text-xs backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100 md:text-sm"
-          >
-            <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
-            <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
-            <span className="relative text-white">{t("nav.faq")}</span>
-          </button>
-        </motion.div>
-
         <motion.h2
           className={`${interTight.className} mx-auto mt-6 max-w-xl text-center text-4xl font-extralight md:text-[54px] md:leading-[60px]`}
           initial={{ opacity: 0, y: 20 }}
@@ -68,10 +51,7 @@ export function FAQSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent">{t("faq.title")}</span>{" "}
-          <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent">
-            {t("faq.answers")}
-          </span>
+          <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent">FAQ</span>
         </motion.h2>
 
         <div className="mx-auto mt-12 flex max-w-xl flex-col gap-6">

@@ -73,17 +73,7 @@ export function TestimonialsSection() {
       <section id="testimonials" className="mb-24 relative overflow-hidden pt-16">
         <div className="mx-auto max-w-7xl mt-12">
           <div className="mx-auto max-w-[540px]">
-            <div className="flex justify-center">
-              <button
-                type="button"
-                className="group relative z-[60] mx-auto rounded-full border border-white/20 bg-white/5 px-6 py-1 text-xs backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100 md:text-sm"
-              >
-                <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
-                <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#4ca1f5] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
-                <span className="relative text-white">{t("nav.testimonials")}</span>
-              </button>
-            </div>
-            <h2 className={`${interTight.className} mt-5 bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px] relative z-10`}>
+            <h2 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px] relative z-10`}>
               {t("testimonials.title")}
             </h2>
 

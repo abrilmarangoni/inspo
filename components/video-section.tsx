@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { inter } from "@/lib/fonts"
+import { inter, interTight } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -9,7 +9,7 @@ export function VideoSection() {
   const { t } = useLanguage()
   
   return (
-    <section className="relative py-24 px-4 overflow-hidden">
+    <section className="relative px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Text Above Container */}
         <motion.div
@@ -19,7 +19,7 @@ export function VideoSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-extralight text-white mb-4">
+          <h2 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px] mb-4`}>
             We have built the ZalesMachine System — and it actually works.
           </h2>
           <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
@@ -34,7 +34,7 @@ export function VideoSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex justify-center"
         >
-          <div className="w-full mx-auto" style={{ maxWidth: '85%' }}>
+          <div className="w-full mx-auto" style={{ maxWidth: '65%' }}>
             {/* Video Container */}
             <div
               className="relative rounded-t-lg overflow-hidden"
@@ -43,8 +43,6 @@ export function VideoSection() {
               }}
             >
               <iframe
-                width="1120"
-                height="630"
                 src="https://www.youtube.com/embed/lnvnm-xrBPs?si=fBG1Ve1gXMEVDTtB"
                 title="YouTube video player"
                 frameBorder="0"

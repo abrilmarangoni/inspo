@@ -44,7 +44,7 @@ export default function FullStackAISolutions() {
   }
 
   return (
-    <section className="relative mx-auto max-w-7xl px-6 py-32 lg:px-8 lg:py-40" style={{ backgroundColor: '#000000' }}>
+    <section className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-8" style={{ backgroundColor: '#000000' }}>
       <div className="mb-20 text-center">
         <h2 className={`${interTight.className} text-4xl font-extralight bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent lg:text-5xl`}>
           What we developed

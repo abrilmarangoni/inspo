@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Calculator, TrendingUp, DollarSign, Users, Target, Sparkles, ArrowRight } from "lucide-react"
+import { Calculator, TrendingUp, DollarSign, Users, Target, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { interTight } from "@/lib/fonts"
 
@@ -32,12 +32,9 @@ export function ROICalculator() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-[#b57edc]" />
-            <h2 className={`${interTight.className} text-3xl sm:text-4xl md:text-5xl font-extralight bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent`}>
-              {t("roi.title")}
-            </h2>
-          </div>
+          <h2 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px] mb-4`}>
+            {t("roi.title")}
+          </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             {t("roi.description")}
           </p>
