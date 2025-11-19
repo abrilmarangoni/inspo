@@ -61,32 +61,17 @@ function HomeContent() {
       <div className="min-h-screen w-full relative bg-black">
       {/* Desktop Header - Movido fuera del contenedor para sticky en toda la página */}
       <header
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-[9999] hidden w-[75%] flex-row items-center justify-between rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg transition-all duration-300 ${
-          isScrolled ? "px-4" : "px-6"
-        } py-4`}
-        style={{
-          willChange: "transform",
-          backfaceVisibility: "hidden",
-          perspective: "1000px",
-        }}
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] hidden w-[75%] flex-row items-center justify-between rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg px-6 py-4"
       >
-        <div
-          className={`z-50 flex items-center justify-center gap-2 transition-all duration-300 ${
-            isScrolled ? "ml-6" : "ml-6"
-          }`}
-        >
+        <div className="z-50 flex items-center justify-center gap-2 ml-6">
           <img 
             src="/image13.png" 
             alt="ZalesMachine" 
-            className={`transition-all duration-300 ${
-              isScrolled ? "h-8" : "h-10"
-            } object-contain`}
+            className="h-10 object-contain"
           />
         </div>
 
-        <div className={`absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-extralight text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2 ${interTight.className} ${
-          isScrolled ? "px-32" : "px-40"
-        }`}>
+        <div className={`absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-extralight text-muted-foreground md:flex md:space-x-2 ${interTight.className} px-40`}>
           <a
             className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap font-extralight"
             onClick={(e) => {
@@ -178,13 +163,11 @@ function HomeContent() {
               e.stopPropagation()
               setLanguage(language === "en" ? "es" : "en")
             }}
-            className={`${interTight.className} flex items-center gap-1.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-extralight text-foreground cursor-pointer whitespace-nowrap ${
-              isScrolled ? "px-2 py-1 text-xs" : "px-2.5 py-1.5 text-sm"
-            }`}
+            className={`${interTight.className} flex items-center gap-1.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-extralight text-foreground cursor-pointer whitespace-nowrap px-2.5 py-1.5 text-sm`}
             aria-label="Change language"
             type="button"
           >
-            <Globe className={`${isScrolled ? "w-3 h-3" : "w-3.5 h-3.5"}`} />
+            <Globe className="w-3.5 h-3.5" />
             <span>{language === "en" ? "EN" : "ES"}</span>
           </button>
           <a

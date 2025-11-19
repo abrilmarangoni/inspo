@@ -82,7 +82,7 @@ export default function EmailGeneratorSection() {
         <div className="grid gap-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 items-center">
           {/* Left Column - Email Generator */}
           <div className="relative">
-            <div className="email-generator-container relative overflow-hidden rounded-2xl bg-[#151515] p-8 shadow-[0_0_60px_rgba(0,0,0,0.6)] border border-white/5">
+            <div className="email-generator-container relative overflow-hidden rounded-2xl bg-[#151515] p-[17px] shadow-[0_0_60px_rgba(0,0,0,0.6)] border border-white/5 min-h-[600px]">
               {/* Subtle glare effect */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
               

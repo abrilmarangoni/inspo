@@ -100,7 +100,7 @@ export function PricingSection() {
             <motion.div
               key={plan.name}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              whileInView={{ opacity: 1, y: plan.popular ? -20 : 20 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ 
                 duration: 0.6, 
@@ -117,10 +117,10 @@ export function PricingSection() {
                 </div>
               )}
               <div className="mx-auto">
-                <div className={`relative overflow-hidden rounded-xl p-8 pt-12 border transition-colors duration-300 ${
+                <div className={`relative overflow-hidden rounded-xl p-8 pt-12 border transition-all duration-300 ${
                   plan.popular 
-                    ? "bg-[#b57edc]/10 border-[#b57edc]/30 hover:bg-[#b57edc]/15 hover:border-[#b57edc]/50" 
-                    : "bg-[#4ca1f5]/10 border-[#4ca1f5]/30 hover:bg-[#4ca1f5]/15 hover:border-[#4ca1f5]/50"
+                    ? "bg-[#b57edc]/10 border-[#b57edc]/30 hover:bg-[#b57edc]/15 hover:border-[#b57edc]/50 hover:scale-[1.02]" 
+                    : "bg-[#4ca1f5]/10 border-[#4ca1f5]/30 hover:bg-[#4ca1f5]/15 hover:border-[#4ca1f5]/50 hover:scale-[1.02]"
                 }`}>
 
 
