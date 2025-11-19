@@ -34,9 +34,38 @@ export default function EmailGeneratorSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
   const [showResults, setShowResults] = useState(false)
+  const [isInView, setIsInView] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout>()
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // Intersection Observer para detectar cuando la sección está visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   useEffect(() => {
+    // Solo iniciar la animación si la sección está visible
+    if (!isInView) return
+
     if (currentIndex < emailText.length) {
       const char = emailText[currentIndex]
       
@@ -61,7 +90,7 @@ export default function EmailGeneratorSection() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
-  }, [currentIndex])
+  }, [currentIndex, isInView])
 
   // Cursor blink effect
   useEffect(() => {
@@ -72,7 +101,7 @@ export default function EmailGeneratorSection() {
   }, [])
 
   return (
-    <section className={`relative bg-black py-20 md:py-28 px-6 md:px-12 lg:px-20 ${interTight.className}`}>
+    <section ref={sectionRef} className={`relative bg-black py-20 md:py-28 px-6 md:px-12 lg:px-20 ${interTight.className}`}>
       <div className="mx-auto max-w-[1100px]">
         <div className="text-center mb-20">
           <h1 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px]`}>

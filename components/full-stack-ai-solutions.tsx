@@ -93,7 +93,7 @@ export default function FullStackAISolutions() {
           ))}
         </div>
         {/* Right Column - 3D Graph */}
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex flex-col items-center justify-center">
           <div
             className="relative h-[500px] w-full max-w-[500px] transition-transform duration-300 ease-out"
             onMouseMove={handleMouseMove}
@@ -116,65 +116,11 @@ export default function FullStackAISolutions() {
                      backgroundSize: '40px 40px'
                    }} />
               
-              {/* Warm Outbound Layer - Top */}
-              <div
-                className={`absolute left-1/2 top-[15%] -translate-x-1/2 transition-all duration-300 ease-out ${
-                  hoveredId === 'warm'
-                    ? 'opacity-100 scale-110'
-                    : 'opacity-40'
-                }`}
-                style={{
-                  filter: hoveredId === 'warm'
-                    ? 'drop-shadow(0 0 20px rgba(146, 135, 255, 0.5))'
-                    : 'drop-shadow(0 0 8px rgba(146, 135, 255, 0.15))',
-                }}
-              >
-                <div className="flex gap-6">
-                  <IconBlock color="violet" icon="⚡" />
-                  <IconBlock color="violet" icon="🎯" />
-                  <IconBlock color="violet" icon="🔧" />
-                </div>
-              </div>
-              {/* Intent–Event Outbound Layer - Middle */}
-              <div
-                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out ${
-                  hoveredId === 'intent-event'
-                    ? 'opacity-100 scale-110'
-                    : 'opacity-40'
-                }`}
-                style={{
-                  filter: hoveredId === 'intent-event'
-                    ? 'drop-shadow(0 0 20px rgba(124, 199, 255, 0.5))'
-                    : 'drop-shadow(0 0 8px rgba(124, 199, 255, 0.15))',
-                }}
-              >
-                <div className="flex gap-6">
-                  <IconBlock color="cyan" icon="🧠" />
-                  <IconBlock color="cyan" icon="🚀" />
-                  <IconBlock color="cyan" icon="⚙️" />
-                  <IconBlock color="cyan" icon="💎" />
-                </div>
-              </div>
-              {/* Cold Outbound Layer - Bottom */}
-              <div
-                className={`absolute bottom-[15%] left-1/2 -translate-x-1/2 transition-all duration-300 ease-out ${
-                  hoveredId === 'cold'
-                    ? 'opacity-100 scale-110'
-                    : 'opacity-40'
-                }`}
-                style={{
-                  filter: hoveredId === 'cold'
-                    ? 'drop-shadow(0 0 20px rgba(146, 135, 255, 0.5))'
-                    : 'drop-shadow(0 0 8px rgba(146, 135, 255, 0.15))',
-                }}
-              >
-                <div className="flex gap-6">
-                  <IconBlock color="violet" icon="🔒" />
-                  <IconBlock color="cyan" icon="📊" />
-                  <IconBlock color="violet" icon="🗄️" />
-                  <IconBlock color="cyan" icon="🔐" />
-                  <IconBlock color="violet" icon="📈" />
-                </div>
+              {/* Developing Graph Text - Centered */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className={`${interTight.className} text-lg font-extralight text-white/40 italic`}>
+                  developing graph
+                </p>
               </div>
               {/* Connecting Lines */}
               {hoveredId && (
