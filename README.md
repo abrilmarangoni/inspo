@@ -24,6 +24,11 @@ npm run dev
 
 Abrí [http://localhost:3000](http://localhost:3000) y listo.
 
+**Para acceder desde el celular:** El servidor ahora escucha en todas las interfaces de red. Para acceder desde tu celular, necesitás:
+1. Asegurate de que tu celular esté en la misma red WiFi que tu computadora
+2. Buscá la IP local de tu compu (en Mac: `ifconfig | grep "inet "` o en Settings > Network)
+3. Abrí en el celular: `http://TU_IP_LOCAL:3000` (ejemplo: `http://192.168.1.100:3000`)
+
 Para producción:
 ```bash
 npm run build
@@ -60,4 +65,4 @@ Se puede deployar en Vercel, Netlify o cualquier lado que soporte Next.js. En Ve
 
 ---
 
-Cualquier duda, preguntame.
+besooo

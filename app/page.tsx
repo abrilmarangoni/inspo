@@ -15,8 +15,6 @@ import { StickyFooter } from "@/components/sticky-footer"
 import { LanguageProvider, useLanguage } from "@/contexts/language-context"
 import { motion } from "framer-motion"
 import { SectionDivider } from "@/components/section-divider"
-import { useIsMobile } from "@/hooks/use-is-mobile"
-import MobilePage from "@/components/mobile/MobilePage"
 
 function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -413,18 +411,11 @@ function HomeContent() {
 
 export default function Home() {
   const [language, setLanguage] = useState<"en" | "es">("en")
-  const isMobile = useIsMobile()
   
   const handleLanguageChange = (newLang: "en" | "es") => {
     setLanguage(newLang)
   }
   
-  // Si es móvil, mostrar la versión móvil
-  if (isMobile) {
-    return <MobilePage />
-  }
-  
-  // Versión desktop original (sin cambios)
   return (
     <LanguageProvider language={language} setLanguage={handleLanguageChange}>
       <HomeContent />
