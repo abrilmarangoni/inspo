@@ -51,7 +51,7 @@ export function FeatureCard({ feature, countries, accentColor = "#4ca1f5" }: Fea
 
     const finalInterval = setInterval(() => {
       setCurrentCountryIndex((prev) => (prev + 1) % countries.length)
-    }, 2000)
+    }, 3500)
 
     return () => {
       clearInterval(scrambleInterval)

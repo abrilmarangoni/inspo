@@ -58,10 +58,10 @@ export default function Features() {
       setScrambledCountry(randomCountry)
     }, 150)
 
-    // Rotar al país final cada 2 segundos cuando hay hover
+    // Rotar al país final cada 3.5 segundos cuando hay hover
     const finalInterval = setInterval(() => {
       setCurrentCountryIndex((prev) => (prev + 1) % countries.length)
-    }, 2000)
+    }, 3500)
 
     return () => {
       clearInterval(scrambleInterval)

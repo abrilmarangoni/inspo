@@ -5,7 +5,7 @@ import { inter, interTight } from "@/lib/fonts"
 import Hero from "@/components/home/hero"
 import Features from "@/components/features"
 import { VideoSection } from "@/components/video-section"
-import OutboundFails from "@/components/outbound-fails"
+import FullStackAISolutions from "@/components/full-stack-ai-solutions"
 import { TestimonialsSection } from "@/components/testimonials"
 import { FAQSection } from "@/components/faq-section"
 import { PricingSection } from "@/components/pricing-section"
@@ -350,9 +350,9 @@ function HomeContent() {
         <SectionDivider />
       </div>
 
-      {/* Outbound Fails Section */}
-      <div id="outbound-fails">
-        <OutboundFails />
+      {/* Full Stack AI Solutions Section */}
+      <div id="full-stack-ai-solutions">
+        <FullStackAISolutions />
       </div>
 
       {/* Video Section */}
