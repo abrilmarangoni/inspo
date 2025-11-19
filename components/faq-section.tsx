@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/contexts/language-context"
+import { interTight } from "@/lib/fonts"
 
 export function FAQSection() {
   const { t } = useLanguage()
@@ -61,14 +62,14 @@ export function FAQSection() {
         </motion.div>
 
         <motion.h2
-          className="mx-auto mt-6 max-w-xl text-center text-4xl font-medium md:text-[54px] md:leading-[60px] text-white"
+          className={`${interTight.className} mx-auto mt-6 max-w-xl text-center text-4xl font-extralight md:text-[54px] md:leading-[60px]`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {t("faq.title")}{" "}
-          <span className="bg-gradient-to-b from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent">{t("faq.title")}</span>{" "}
+          <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent">
             {t("faq.answers")}
           </span>
         </motion.h2>
@@ -96,7 +97,7 @@ export function FAQSection() {
               {...(index === faqs.length - 1 && { "data-faq": faq.question })}
             >
               <div className="flex items-start justify-between">
-                <h3 className="m-0 font-medium pr-4">{faq.question}</h3>
+                <h3 className="m-0 font-extralight pr-4">{faq.question}</h3>
                 <motion.div
                   animate={{ rotate: openItems.includes(index) ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}

@@ -7,7 +7,7 @@ import Earth from "./ui/globe"
 import { FollowerPointerCard } from "./ui/following-pointer"
 import { motion, useInView } from "framer-motion"
 import { Suspense, useEffect, useRef, useState } from "react"
-import { geist } from "@/lib/fonts"
+import { inter, interTight } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -80,8 +80,8 @@ export default function Features() {
       >
         <h2
           className={cn(
-            "via-foreground mb-8 bg-gradient-to-b from-zinc-800 to-zinc-700 bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px]",
-            geist.className,
+            "mb-8 bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px]",
+            interTight.className,
           )}
         >
           Features
@@ -110,7 +110,7 @@ export default function Features() {
                 }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.ai.title")}</h3>
+                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.ai.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
                       {t("features.ai.description1")}
@@ -206,7 +206,7 @@ export default function Features() {
                         transition={{ duration: 0.3 }}
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-lg font-semibold text-white">Deliverables</h4>
+                          <h4 className="text-lg font-extralight text-white">Deliverables</h4>
                           <span className="text-xs text-white/60 font-medium">20 items</span>
                         </div>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/90 max-h-[200px] overflow-y-auto pr-2">
@@ -265,7 +265,7 @@ export default function Features() {
                 }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.content.title")}</h3>
+                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.content.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
                       {t("features.content.description")}
@@ -358,7 +358,7 @@ export default function Features() {
                         transition={{ duration: 0.3 }}
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-lg font-semibold text-white">Deliverables</h4>
+                          <h4 className="text-lg font-extralight text-white">Deliverables</h4>
                           <span className="text-xs text-white/60 font-medium">14 items</span>
                         </div>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/90 max-h-[200px] overflow-y-auto pr-2">
@@ -411,7 +411,7 @@ export default function Features() {
                 }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.outbound.title")}</h3>
+                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.outbound.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
                       {t("features.outbound.description")}
@@ -504,7 +504,7 @@ export default function Features() {
                         transition={{ duration: 0.3 }}
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-lg font-semibold text-white">Deliverables</h4>
+                          <h4 className="text-lg font-extralight text-white">Deliverables</h4>
                           <span className="text-xs text-white/60 font-medium">17 items</span>
                         </div>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/90 max-h-[200px] overflow-y-auto pr-2">
@@ -560,7 +560,7 @@ export default function Features() {
                 }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-semibold tracking-tight">{t("features.globally.title")}</h3>
+                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.globally.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p>
                       {t("features.globally.description")}
@@ -568,7 +568,7 @@ export default function Features() {
                   </div>
                 </div>
                 <div className="flex min-h-[400px] grow items-start justify-center select-none relative overflow-visible">
-                  <h1 className="text-center text-5xl leading-[100%] font-semibold sm:leading-normal lg:text-6xl z-20 relative" style={{ marginTop: 'calc(16rem + 68px)' }}>
+                  <h1 className="text-center text-5xl leading-[100%] font-extralight sm:leading-normal lg:text-6xl z-20 relative" style={{ marginTop: 'calc(16rem + 68px)' }}>
                     <span
                       className="cursor-pointer"
                       style={{ color: "rgb(76, 161, 245)" }}

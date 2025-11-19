@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Script from "next/script"
 import { useLanguage } from "@/contexts/language-context"
+import { interTight } from "@/lib/fonts"
 
 declare global {
   interface Window {
@@ -82,7 +83,7 @@ export function TestimonialsSection() {
                 <span className="relative text-white">{t("nav.testimonials")}</span>
               </button>
             </div>
-            <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
+            <h2 className={`${interTight.className} mt-5 bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px] relative z-10`}>
               {t("testimonials.title")}
             </h2>
 

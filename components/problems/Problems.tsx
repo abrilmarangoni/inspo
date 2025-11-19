@@ -18,7 +18,7 @@ export default function Problems() {
         {/* Título arriba */}
         <div className="w-full flex flex-col gap-4 items-center text-center mb-12">
           {/* TÍTULO PRINCIPAL */}
-          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-extralight text-white mb-6">
             Common challenges we solve.
           </h2>
           {/* TEXTO UNIFORME */}

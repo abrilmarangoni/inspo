@@ -1,50 +1,17 @@
-import localFont from "next/font/local"
+import { Inter, Inter_Tight } from "next/font/google"
 
-export const geist = localFont({
-  src: [
-    {
-      path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-sans",
+// Inter Tight 200 (Extra Light) - Para títulos (H1-H6)
+export const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: "200",
+  variable: "--font-heading",
   display: "swap",
 })
 
-export const geistMono = localFont({
-  src: [
-    {
-      path: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-mono",
+// Inter 400 (Regular) - Para textos (body, párrafos, botones, descripciones)
+export const inter = Inter({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-body",
   display: "swap",
 })

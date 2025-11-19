@@ -2,6 +2,7 @@
 
 import React from "react"
 import { useLanguage } from "@/contexts/language-context"
+import { interTight } from "@/lib/fonts"
 
 export default function OutboundFails() {
   const { t } = useLanguage()
@@ -12,8 +13,8 @@ export default function OutboundFails() {
         <div className="max-w-7xl mx-auto">
           {/* Clean Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-white leading-tight max-w-3xl mx-auto">
-              Why most outbound <span className="font-medium text-red-400">fails</span>
+            <h2 className={`${interTight.className} text-3xl md:text-4xl lg:text-5xl font-extralight mb-4 leading-tight max-w-3xl mx-auto`}>
+              <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent">Why most outbound</span> <span className="font-medium text-red-400">fails</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-400 font-light max-w-2xl mx-auto">{t('problems.anatomy-failed')}</p>
           </div>

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Calculator, TrendingUp, DollarSign, Users, Target, Sparkles, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { interTight } from "@/lib/fonts"
 
 export function ROICalculator() {
   const { t } = useLanguage()
@@ -33,7 +34,7 @@ export function ROICalculator() {
         >
           <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles className="w-5 h-5 text-[#b57edc]" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+            <h2 className={`${interTight.className} text-3xl sm:text-4xl md:text-5xl font-extralight bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent`}>
               {t("roi.title")}
             </h2>
           </div>
@@ -62,7 +63,7 @@ export function ROICalculator() {
                 <div className="p-3 bg-gradient-to-br from-[#b57edc] to-[#4ca1f5] rounded-xl shadow-lg">
                   <Calculator className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white">{t("roi.metrics")}</h3>
+                <h3 className="text-xl font-extralight text-white">{t("roi.metrics")}</h3>
               </div>
 
               <div className="space-y-5 flex-1">
@@ -143,7 +144,7 @@ export function ROICalculator() {
                 <div className="p-3 bg-gradient-to-br from-[#4ca1f5] to-[#b57edc] rounded-xl shadow-lg">
                   <TrendingUp className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white">{t("roi.results")}</h3>
+                <h3 className="text-xl font-extralight text-white">{t("roi.results")}</h3>
               </div>
 
               <div className="bg-white/10 rounded-xl p-5 border border-white/20 flex-1 flex flex-col">

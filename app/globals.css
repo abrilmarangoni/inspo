@@ -173,11 +173,19 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: var(--font-sans), sans-serif;
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), sans-serif;
   }
   html {
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-body), sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 200;
+  }
+  p, span, div, a, button, li, td, th, label, input, textarea, select {
+    font-family: var(--font-body), sans-serif;
+    font-weight: 400;
   }
 }
 

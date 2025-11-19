@@ -77,13 +77,13 @@ export function ProblemCard({ problem, countries, accentColor = "#4ca1f5" }: Pro
         style={{ borderColor: accentColor, backgroundColor: accentColor }}
       >
         <div className="flex flex-col gap-6 mb-6">
-          <h3 className="text-2xl leading-none font-semibold tracking-tight text-white">{problem.title}</h3>
+          <h3 className="text-2xl leading-none font-extralight tracking-tight text-white">{problem.title}</h3>
           <div className="text-md flex flex-col gap-4 text-sm text-white/90">
             <p>{problem.description}</p>
           </div>
         </div>
         <div className="flex min-h-[400px] grow items-start justify-center select-none relative overflow-visible">
-          <h1 className="text-center text-5xl leading-[100%] font-semibold sm:leading-normal lg:text-6xl z-20 relative" style={{ marginTop: 'calc(16rem + 68px)' }}>
+          <h1 className="text-center text-5xl leading-[100%] font-extralight sm:leading-normal lg:text-6xl z-20 relative" style={{ marginTop: 'calc(16rem + 68px)' }}>
             <span
               className="cursor-pointer"
               style={{ color: accentColor }}
@@ -141,7 +141,7 @@ export function ProblemCard({ problem, countries, accentColor = "#4ca1f5" }: Pro
             </svg>
           </div>
           <div className="flex-1">
-            <h3 className="text-xl leading-tight font-semibold tracking-tight text-white mb-3">{problem.title}</h3>
+            <h3 className="text-xl leading-tight font-extralight tracking-tight text-white mb-3">{problem.title}</h3>
             <p className="text-sm text-white/70 leading-relaxed">
               {problem.description}
             </p>

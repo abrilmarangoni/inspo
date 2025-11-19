@@ -96,7 +96,7 @@ export default function Features() {
             Futures
           </p>
           {/* TÍTULO PRINCIPAL */}
-          <h2 className="text-4xl md:text-5xl font-semibold text-zinc-50">
+          <h2 className="text-4xl md:text-5xl font-extralight text-zinc-50">
             Design the next version of your revenue engine.
           </h2>
           {/* DESCRIPCIÓN CORTA DE LA SECCIÓN FUTURES */}

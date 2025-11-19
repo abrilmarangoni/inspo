@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { Globe } from "lucide-react"
-import { geist } from "@/lib/fonts"
+import { inter, interTight } from "@/lib/fonts"
 import Hero from "@/components/home/hero"
 import Features from "@/components/features"
 import { VideoSection } from "@/components/video-section"
@@ -81,11 +81,11 @@ function HomeContent() {
           />
         </div>
 
-        <div className={`absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-medium text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2 ${
+        <div className={`absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-extralight text-muted-foreground transition duration-200 hover:text-foreground md:flex md:space-x-2 ${interTight.className} ${
           isScrolled ? "px-32" : "px-40"
         }`}>
           <a
-            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap font-extralight"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("features")
@@ -104,7 +104,7 @@ function HomeContent() {
             <span className="relative z-20 text-inherit">{t("nav.features")}</span>
           </a>
           <a
-            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap font-extralight"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("pricing")
@@ -123,7 +123,7 @@ function HomeContent() {
             <span className="relative z-20 text-inherit">{t("nav.pricing")}</span>
           </a>
           <a
-            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap font-extralight"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("testimonials")
@@ -142,7 +142,7 @@ function HomeContent() {
             <span className="relative z-20 text-inherit">{t("nav.testimonials")}</span>
           </a>
           <a
-            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+            className="relative px-3 py-2 text-muted-foreground hover:text-white transition-colors cursor-pointer whitespace-nowrap font-extralight"
             onClick={(e) => {
               e.preventDefault()
               const element = document.getElementById("faq")
@@ -169,7 +169,7 @@ function HomeContent() {
               e.stopPropagation()
               setLanguage(language === "en" ? "es" : "en")
             }}
-            className={`flex items-center gap-1.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-medium text-foreground cursor-pointer whitespace-nowrap ${
+            className={`${interTight.className} flex items-center gap-1.5 rounded-md border border-border/50 bg-background/50 hover:bg-background/80 transition-colors font-extralight text-foreground cursor-pointer whitespace-nowrap ${
               isScrolled ? "px-2 py-1 text-xs" : "px-2.5 py-1.5 text-sm"
             }`}
             aria-label="Change language"
@@ -180,7 +180,7 @@ function HomeContent() {
           </button>
           <a
             href="#pricing"
-            className={`${geist.className} rounded-md font-medium relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center text-white px-5 py-2.5 text-base`}
+            className={`${interTight.className} rounded-md font-extralight relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center text-white px-5 py-2.5 text-base`}
             style={{
               background: "linear-gradient(to bottom, rgba(181, 126, 220, 0.9), rgba(181, 126, 220, 0.8))",
               boxShadow: "0 4px 14px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(181, 126, 220, 0.3)",
@@ -247,25 +247,25 @@ function HomeContent() {
             <nav className="flex flex-col space-y-4">
               <button
                 onClick={() => handleMobileNavClick("features")}
-                className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
+                className={`${interTight.className} text-left px-4 py-3 text-lg font-extralight text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50`}
               >
                 {t("nav.features")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("pricing")}
-                className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
+                className={`${interTight.className} text-left px-4 py-3 text-lg font-extralight text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50`}
               >
                 {t("nav.pricing")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("testimonials")}
-                className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
+                className={`${interTight.className} text-left px-4 py-3 text-lg font-extralight text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50`}
               >
                 {t("nav.testimonials")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("faq")}
-                className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
+                className={`${interTight.className} text-left px-4 py-3 text-lg font-extralight text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50`}
               >
                 {t("nav.faq")}
               </button>
@@ -276,7 +276,7 @@ function HomeContent() {
                     e.stopPropagation()
                     setLanguage(language === "en" ? "es" : "en")
                   }}
-                  className="flex items-center justify-center gap-1.5 px-2.5 py-2 text-sm font-medium border border-border/50 bg-background/50 hover:bg-background/80 transition-colors rounded-lg text-foreground relative z-50 cursor-pointer"
+                  className={`${interTight.className} flex items-center justify-center gap-1.5 px-2.5 py-2 text-sm font-extralight border border-border/50 bg-background/50 hover:bg-background/80 transition-colors rounded-lg text-foreground relative z-50 cursor-pointer`}
                   aria-label="Change language"
                   type="button"
                 >
@@ -285,7 +285,7 @@ function HomeContent() {
                 </button>
                 <a
                   href="#pricing"
-                  className={`${geist.className} px-4 py-3 text-lg font-medium text-center text-white rounded-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer`}
+                  className={`${interTight.className} px-4 py-3 text-lg font-extralight text-center text-white rounded-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer`}
                   style={{
                     background: "linear-gradient(to bottom, rgba(181, 126, 220, 0.9), rgba(181, 126, 220, 0.8))",
                     boxShadow: "0 4px 14px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(181, 126, 220, 0.3)",
@@ -322,29 +322,15 @@ function HomeContent() {
         </div>
       )}
 
-      {/* Sección con fondo azul hasta el divisor */}
+      {/* Sección Hero */}
       <div className="relative w-full">
-        {/* Fondo azul con sombra oscura - luz más ancha */}
+        {/* Luz blanca para profundidad */}
         <div
-          className="absolute inset-0 z-0 min-h-screen"
+          className="absolute inset-0 z-0 min-h-screen pointer-events-none"
           style={{
-            background: `
-              radial-gradient(ellipse 90% 30% at 50% 0%, rgba(76, 161, 245, 0.22), rgba(76, 161, 245, 0.12) 35%, rgba(76, 161, 245, 0.04) 55%, transparent 70%),
-              radial-gradient(ellipse 100% 35% at 50% 25%, rgba(76, 161, 245, 0.18), rgba(76, 161, 245, 0.08) 50%, transparent 70%),
-              radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0, 0, 0, 0.9), transparent 70%),
-              #000000
-            `,
+            background: "radial-gradient(ellipse 80% 40% at 50% 20%, rgba(255, 255, 255, 0.08), transparent 60%)",
           }}
         />
-        {/* Capa adicional de luz azul - más ancha */}
-        <div
-          className="absolute inset-0 z-0 min-h-screen"
-          style={{
-            background: "radial-gradient(ellipse 100% 50% at 50% 15%, rgba(76, 161, 245, 0.12), transparent 60%)",
-            pointerEvents: "none",
-          }}
-        />
-
         {/* Hero Section */}
         <Hero />
       </div>

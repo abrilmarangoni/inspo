@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
-import { geist } from "@/lib/fonts"
+import { inter, interTight } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -82,14 +82,14 @@ export function PricingSection() {
         >
           <h2
             className={cn(
-              "via-foreground mb-12 mt-4 bg-gradient-to-b from-zinc-800 to-zinc-700 bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[70px]",
-              geist.className,
+              "mb-12 mt-4 bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-center text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[70px]",
+              interTight.className,
             )}
           >
             {t("pricing.title")}
           </h2>
 
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent mb-4">
+          <h2 className={`${interTight.className} text-4xl md:text-5xl font-extralight bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent mb-4`}>
             {t("pricing.subtitle")}
           </h2>
 

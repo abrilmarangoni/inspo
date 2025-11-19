@@ -334,7 +334,7 @@ export function DataFlowDiagram() {
           />
 
           {/* NODO CENTRAL */}
-          {/* Capa de glow violeta animada */}
+          {/* Capa de glow violeta */}
           <rect
             x={centerX - 80}
             y={centerY - 80}
@@ -344,9 +344,7 @@ export function DataFlowDiagram() {
             fill="rgb(181, 126, 220)"
             opacity="0.3"
             filter="url(#glow-center)"
-          >
-            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
-          </rect>
+          />
           
           {/* Cuadrado principal */}
           <rect
@@ -359,10 +357,7 @@ export function DataFlowDiagram() {
             stroke="rgb(181, 126, 220)"
             strokeWidth="2"
             opacity="0.3"
-          >
-            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
-          </rect>
+          />
           
           <image
             href="/image13.png"

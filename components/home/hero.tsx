@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { DataFlowDiagram } from "@/components/data-flow-diagram"
 import { useLanguage } from "@/contexts/language-context"
+import { interTight } from "@/lib/fonts"
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
@@ -30,13 +31,8 @@ export default function Hero() {
               className="mb-8"
               style={{ marginTop: "58px" }}
             >
-              <h1 id="main-title" className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                {t("hero.title")}{" "}
-                <img 
-                  src="/logo.png" 
-                  alt="ZalesMachine" 
-                  className="h-12 sm:h-16 lg:h-20 inline-block align-middle"
-                />
+              <h1 id="main-title" className="text-4xl font-extralight tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                {t("hero.title")} <span className="bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-transparent" style={{ fontWeight: 200, fontFamily: 'inherit', fontSize: 'inherit', letterSpacing: 'inherit' }}>ZalesMachine</span>
               </h1>
             </motion.div>
 
@@ -58,17 +54,18 @@ export default function Hero() {
             {/* Flow Diagram */}
             <DataFlowDiagram />
 
-            {/* Book a call button */}
+            {/* Book a call and Learn more buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col items-center gap-6 mt-8"
             >
-              <div className="flex items-center justify-center gap-2">
-                <a href="/docs/components/theme-toggle-animations">
-                  <div className="group cursor-pointer bg-primary h-[44px] rounded-lg flex items-center justify-center text-primary-foreground px-5 shadow-lg">
-                    <p className="font-medium tracking-tight flex items-center gap-2 justify-center text-sm">
+              <div className="flex items-center justify-center gap-6">
+                {/* Book a call button - white background */}
+                <a href="#pricing" className="group">
+                  <div className={`${interTight.className} cursor-pointer bg-white h-[44px] rounded-lg flex items-center justify-center px-6 shadow-lg hover:bg-gray-50 transition-colors`}>
+                    <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-900">
                       {t("hero.schedule")}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +77,30 @@ export default function Hero() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="lucide lucide-arrow-right transition-transform duration-200 group-hover:rotate-45"
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </p>
+                  </div>
+                </a>
+                {/* Learn more button - text only */}
+                <a href="#features" className="group">
+                  <div className={`${interTight.className} cursor-pointer flex items-center justify-center`}>
+                    <p className="font-extralight tracking-tight flex items-center gap-2 justify-center text-sm text-gray-300 hover:text-white transition-colors">
+                      Learn more
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform duration-200 group-hover:translate-x-1"
                       >
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>

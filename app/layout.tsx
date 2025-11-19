@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { geist, geistMono } from "@/lib/fonts"
+import { inter, interTight } from "@/lib/fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans dark`} suppressHydrationWarning>{children}</body>
+      <body className={`${inter.variable} ${interTight.variable} font-body dark`} suppressHydrationWarning>{children}</body>
     </html>
   )
 }
