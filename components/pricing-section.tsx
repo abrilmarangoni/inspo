@@ -99,13 +99,13 @@ export function PricingSection() {
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: plan.popular ? -20 : 20, scale: 1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ 
-                duration: 0.8, 
-                delay: index * 0.15,
-                ease: [0.16, 1, 0.3, 1]
+                duration: 0.6, 
+                delay: index * 0.1,
+                ease: "easeOut"
               }}
               className={`relative ${plan.popular ? 'z-10' : 'z-0'}`}
             >
@@ -117,10 +117,10 @@ export function PricingSection() {
                 </div>
               )}
               <div className="mx-auto">
-                <div className={`relative overflow-hidden rounded-xl p-8 pt-12 border transition-all duration-300 ${
+                <div className={`relative overflow-hidden rounded-xl p-8 pt-12 border transition-colors duration-300 ${
                   plan.popular 
-                    ? "bg-[#b57edc]/10 border-[#b57edc]/30 hover:bg-[#b57edc]/15 hover:border-[#b57edc]/50 hover:scale-[1.02]" 
-                    : "bg-[#4ca1f5]/10 border-[#4ca1f5]/30 hover:bg-[#4ca1f5]/15 hover:border-[#4ca1f5]/50 hover:scale-[1.02]"
+                    ? "bg-[#b57edc]/10 border-[#b57edc]/30 hover:bg-[#b57edc]/15 hover:border-[#b57edc]/50" 
+                    : "bg-[#4ca1f5]/10 border-[#4ca1f5]/30 hover:bg-[#4ca1f5]/15 hover:border-[#4ca1f5]/50"
                 }`}>
 
 
@@ -173,9 +173,9 @@ export function PricingSection() {
                       <div className="mb-6 p-4 bg-white/5 rounded-lg border border-white/10">
                         <p className={`${interTight.className} text-white/70 text-sm font-extralight leading-relaxed`}>
                           <span className="text-white/90 mr-1.5">{t("pricing.approach")}:</span>
-                          {plan.approach}
-                        </p>
-                      </div>
+                              {plan.approach}
+                            </p>
+                          </div>
                     )}
 
                     <button

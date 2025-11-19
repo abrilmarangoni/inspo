@@ -26,8 +26,8 @@ export function ROICalculator() {
     <section className="relative py-12 sm:py-16 md:py-24 px-4 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
@@ -42,8 +42,8 @@ export function ROICalculator() {
 
         {/* Single Quadrant Container */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12"
@@ -166,15 +166,13 @@ export function ROICalculator() {
 
           {/* CTA Button - Bottom Center */}
           <div className="flex items-center justify-center mt-10">
-            <motion.a
+            <a
               href="#pricing"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className={`${interTight.className} group bg-white text-black font-extralight py-3 px-8 rounded-lg transition-all flex items-center gap-2`}
+              className={`${interTight.className} group bg-white text-black font-extralight py-3 px-8 rounded-lg transition-colors hover:bg-gray-50 flex items-center gap-2`}
             >
               <span>{t("hero.schedule")}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </motion.a>
+            </a>
           </div>
         </motion.div>
       </div>
