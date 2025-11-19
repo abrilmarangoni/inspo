@@ -81,8 +81,8 @@ function HomeContent() {
 
         {/* Desktop Header */}
       <header
-        className={`sticky top-6 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg transition-all duration-300 ${
-          isScrolled ? "max-w-3xl px-4" : "max-w-5xl px-6"
+        className={`sticky top-6 z-[9999] mx-auto hidden w-[75%] flex-row items-center justify-between self-start rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg transition-all duration-300 ${
+          isScrolled ? "px-4" : "px-6"
         } py-4`}
         style={{
           willChange: "transform",
@@ -235,7 +235,7 @@ function HomeContent() {
         </div>
       </header>
 
-      <header className="sticky top-6 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-lg bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg md:hidden px-5 py-4">
+      <header className="sticky top-6 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-lg bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg md:hidden px-5 py-6">
         <div className="flex items-center justify-center gap-2 ml-4">
           <img 
             src="/image13.png" 
