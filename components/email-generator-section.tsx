@@ -56,7 +56,7 @@ export default function EmailGeneratorSection() {
         setDisplayedText('')
         setCurrentIndex(0)
         setShowResults(false)
-      }, 6000)
+      }, 4000)
     }
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
