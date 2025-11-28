@@ -44,17 +44,17 @@ ${t("email.noCredibility")}
 ${t("email.noCredibilityText")}`
 
   // Output email texto (con marcadores para highlights)
-  const outputEmailText = `Subject: The kind that actually generates sales
+  const outputEmailText = `${t("email.successSubject")}
 
-Hola [Nico]
+${t("email.outputGreeting")}
 
-Vi que [alcanzaron 4.2M ARR - felicitaciones por ese hito!!]
+${t("email.outputHighlight1")}
 
-Me llamó la atención algo: [están escalando operaciones con un equipo de recruiting de pocas personas].
+${t("email.outputAttention")}
 
-Esto me hizo pensar - [si pudiéramos ayudarte a contratar profesionales de LATAM 2x más rápido, esos 6 roles que están buscando los podrías cerrar en semanas en lugar de meses].
+${t("email.outputThinking")}
 
-Tiene sentido explorar cómo podríamos acelerarte ese proceso?`
+${t("email.outputClosing")}`
 
   const failedResults = [
     { label: t("email.responseRate"), value: '2%' },
@@ -63,9 +63,9 @@ Tiene sentido explorar cómo podríamos acelerarte ese proceso?`
   ]
 
   const successResults = [
-    { label: language === 'es' ? 'Tasa de respuesta' : 'Response Rate', value: '34%' },
-    { label: language === 'es' ? 'Conversión' : 'Conversion', value: '12%' },
-    { label: language === 'es' ? 'Reuniones agendadas' : 'Meetings Booked', value: '8x' }
+    { label: t("email.responseRate"), value: '34%' },
+    { label: t("email.conversion"), value: '12%' },
+    { label: t("email.meetingsBooked"), value: '8x' }
   ]
 
   // Reset cuando cambia el idioma
@@ -317,7 +317,7 @@ Tiene sentido explorar cómo podríamos acelerarte ese proceso?`
                 {/* Título */}
                 <div className="text-center mb-12">
                   <h1 className={`${interTight.className} bg-gradient-to-r from-[#e0c5f0] to-[#b3d5ff] bg-clip-text text-4xl font-extralight tracking-tight text-transparent md:text-[54px] md:leading-[60px]`}>
-                    {language === 'es' ? 'Cómo se ve un Outbound de Alto Rendimiento' : 'What a High-Performing Outbound Looks Like'}
+                    {t("email.highPerformingTitle")}
                   </h1>
                 </div>
                 
@@ -333,7 +333,7 @@ Tiene sentido explorar cómo podríamos acelerarte ese proceso?`
                           <div className="h-3 w-3 rounded-full bg-violet-400/60" />
                           <div className="h-3 w-3 rounded-full bg-violet-400/60" />
                         </div>
-                        <span className="ml-4 text-sm text-white/40">{language === 'es' ? 'Email de Alto Rendimiento' : 'High-Performing Email'}</span>
+                        <span className="ml-4 text-sm text-white/40">{t("email.highPerformingEmail")}</span>
                       </div>
                       
                       <div className="font-mono text-[14px] leading-tight text-white/90">
@@ -359,26 +359,26 @@ Tiene sentido explorar cómo podríamos acelerarte ese proceso?`
                   {/* Texto descriptivo - Placeholders */}
                   <div className="space-y-6">
                     <h2 className={`${interTight.className} text-2xl md:text-3xl leading-none font-extralight tracking-tight text-white`}>
-                      {language === 'es' ? 'Variables personalizadas' : 'Personalized variables'}
+                      {t("email.personalizedVariables")}
                     </h2>
                     <div className="space-y-2">
                       <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                        — {"{FirstName}"}
+                        — {t("email.placeholder.firstName")}
                       </p>
                       <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                        — {"{Lead-level signal or activity}"}
+                        — {t("email.placeholder.leadSignal")}
                       </p>
                       <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                        — {"{1-3 word compliment}"}
+                        — {t("email.placeholder.compliment")}
                       </p>
                       <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                        — {"{Specific thing of their company}"}
+                        — {t("email.placeholder.companyThing")}
                       </p>
                       <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                        — {"{Value proposition mapping}"}
+                        — {t("email.placeholder.valueProp")}
                       </p>
                       <p className={`${interTight.className} text-sm md:text-base text-white/65 leading-relaxed font-extralight`}>
-                        — {"{Outcome}"}
+                        — {t("email.placeholder.outcome")}
                       </p>
                     </div>
                   </div>
