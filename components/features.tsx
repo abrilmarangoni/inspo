@@ -196,7 +196,7 @@ export default function Features() {
 
                     {/* Main Content Container with Deliverables */}
                     <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <motion.div
+                            <motion.div
                         className="flex flex-col gap-4 p-6 bg-black/60 backdrop-blur-md rounded-xl max-w-lg w-full border border-white/10 shadow-2xl"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={isFeature3Hovering ? { opacity: 1, scale: 1 } : { opacity: 0.8, scale: 0.95 }}
@@ -229,7 +229,7 @@ export default function Features() {
                             <div key={idx} className="flex items-start gap-1.5">
                               <span className="text-[#b57edc] mt-0.5">•</span>
                               <span>{item}</span>
-                            </div>
+                          </div>
                           ))}
                         </div>
                         <a
@@ -238,7 +238,7 @@ export default function Features() {
                         >
                           Explore Capabilities
                         </a>
-                      </motion.div>
+                            </motion.div>
                     </div>
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export default function Features() {
                             <div key={idx} className="flex items-start gap-1.5">
                               <span className="text-[#b57edc] mt-0.5">•</span>
                               <span>{item}</span>
-                            </div>
+                          </div>
                           ))}
                         </div>
                         <a
@@ -475,7 +475,7 @@ export default function Features() {
                             ease: "easeInOut",
                           }}
                         />
-                      </svg>
+                            </svg>
                     </motion.div>
 
                     {/* Animated Violet Blur Effect */}
@@ -530,7 +530,7 @@ export default function Features() {
                             <div key={idx} className="flex items-start gap-1.5">
                               <span className="text-[#b57edc] mt-0.5">•</span>
                               <span>{item}</span>
-                            </div>
+                          </div>
                           ))}
                         </div>
                         <a
@@ -573,7 +573,7 @@ export default function Features() {
                       className="cursor-pointer"
                       style={{ color: "rgb(76, 161, 245)" }}
                     >
-                      {isHovering ? scrambledCountry : countries[currentCountryIndex]}
+                        {isHovering ? scrambledCountry : countries[currentCountryIndex]}
                     </span>
                   </h1>
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center">

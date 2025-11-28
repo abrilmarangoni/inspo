@@ -25,7 +25,7 @@ const TestimonialCard = ({
 }: Testimonial) => {
   return (
     <div className={`relative w-full max-w-[280px] overflow-hidden rounded-xl border border-white/10 bg-black p-6 ${interTight.className}`}>
-      <div className={`text-white/80 leading-relaxed font-extralight text-sm mb-4`}>{body}</div>
+      <div className={`text-white/80 leading-relaxed font-extralight text-sm mb-4`}>{body || "Great product!"}</div>
 
       <div className="flex items-center gap-3">
         <img 
@@ -59,7 +59,12 @@ export function TestimonialsSection() {
       try {
         // Senja API endpoint - ajusta según tu widget ID
         const widgetId = "7120adc0-7e87-438f-bf7d-435059d4728c"
-        const response = await fetch(`https://widget.senja.io/widget/${widgetId}/testimonials.json`)
+        const response = await fetch(`https://widget.senja.io/widget/${widgetId}/testimonials.json`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+          },
+        })
         
         if (response.ok) {
           const data = await response.json()
@@ -68,18 +73,22 @@ export function TestimonialsSection() {
             id: t.id || Math.random().toString(),
             name: t.author?.name || "Anonymous",
             username: t.author?.username || t.author?.handle,
-            body: t.body || t.content || "",
+            body: t.body || t.content || "Great product!",
             img: t.author?.avatar || t.author?.photo || `https://i.pravatar.cc/150?u=${t.author?.name || Math.random()}`,
             role: t.author?.role || t.author?.title,
             company: t.author?.company || t.author?.company_name,
-          })) || []
+          })).filter((t: any) => t.body && t.body.trim() !== "") || []
           
-          setTestimonials(formattedTestimonials)
+          if (formattedTestimonials.length > 0) {
+            setTestimonials(formattedTestimonials)
+          } else {
+            setTestimonials(getDefaultTestimonials())
+          }
         } else {
           // Si la API falla, usar datos de ejemplo
           setTestimonials(getDefaultTestimonials())
         }
-        } catch (error) {
+      } catch (error) {
         console.error("Error fetching Senja testimonials:", error)
         // Si falla, usar datos de ejemplo
         setTestimonials(getDefaultTestimonials())
@@ -176,9 +185,12 @@ export function TestimonialsSection() {
     )
   }
 
-  const firstColumn = testimonials.slice(0, Math.ceil(testimonials.length / 3))
-  const secondColumn = testimonials.slice(Math.ceil(testimonials.length / 3), Math.ceil(testimonials.length * 2 / 3))
-  const thirdColumn = testimonials.slice(Math.ceil(testimonials.length * 2 / 3))
+  // Asegurar que siempre tengamos testimonios
+  const safeTestimonials = testimonials.length > 0 ? testimonials : getDefaultTestimonials()
+  
+  const firstColumn = safeTestimonials.slice(0, Math.ceil(safeTestimonials.length / 3))
+  const secondColumn = safeTestimonials.slice(Math.ceil(safeTestimonials.length / 3), Math.ceil(safeTestimonials.length * 2 / 3))
+  const thirdColumn = safeTestimonials.slice(Math.ceil(safeTestimonials.length * 2 / 3))
 
   return (
     <section id="testimonials" className="mb-24">
