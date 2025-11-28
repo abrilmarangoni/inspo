@@ -84,7 +84,7 @@ export default function Features() {
             interTight.className,
           )}
         >
-          Features
+          {t("features.title")}
         </h2>
         <FollowerPointerCard
           title={
@@ -95,11 +95,11 @@ export default function Features() {
         >
           <div className="cursor-none">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1400px] mx-auto">
-              {/* AI RevOps Agents */}
+              {/* Outbound Machine */}
               <motion.div
                 className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
-                onMouseEnter={() => setIsCliHovering(true)}
-                onMouseLeave={() => setIsCliHovering(false)}
+                onMouseEnter={() => setIsFeature3Hovering(true)}
+                onMouseLeave={() => setIsFeature3Hovering(false)}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
@@ -110,13 +110,10 @@ export default function Features() {
                 }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.ai.title")}</h3>
+                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.outbound.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
-                      {t("features.ai.description1")}
-                    </p>
-                    <p className="leading-relaxed">
-                      {t("features.ai.description2")}
+                      {t("features.outbound.description")}
                     </p>
                   </div>
                 </div>
@@ -149,7 +146,7 @@ export default function Features() {
                     <motion.div
                       className="absolute inset-0 flex items-center justify-center"
                       initial={{ opacity: 0 }}
-                      animate={isCliHovering ? { opacity: 1 } : { opacity: 0 }}
+                      animate={isFeature3Hovering ? { opacity: 1 } : { opacity: 0 }}
                       transition={{ duration: 0.5 }}
                     >
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
@@ -159,7 +156,7 @@ export default function Features() {
                           fill="transparent"
                           strokeDasharray="2 2"
                           initial={{ pathLength: 0 }}
-                          animate={isCliHovering ? { pathLength: 1 } : { pathLength: 0 }}
+                          animate={isFeature3Hovering ? { pathLength: 1 } : { pathLength: 0 }}
                           transition={{
                             duration: 2,
                             ease: "easeInOut",
@@ -173,7 +170,7 @@ export default function Features() {
                           fill="transparent"
                           strokeDasharray="2 2"
                           initial={{ pathLength: 0 }}
-                          animate={isCliHovering ? { pathLength: 1 } : { pathLength: 0 }}
+                          animate={isFeature3Hovering ? { pathLength: 1 } : { pathLength: 0 }}
                           transition={{
                             duration: 2,
                             delay: 0.5,
@@ -188,11 +185,11 @@ export default function Features() {
                       className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
                       style={{ backgroundColor: "rgb(181, 126, 220)" }}
                       initial={{ scale: 1 }}
-                      animate={isCliHovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
+                      animate={isFeature3Hovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
                       transition={{
                         duration: 3,
                         ease: "easeInOut",
-                        repeat: isCliHovering ? Number.POSITIVE_INFINITY : 0,
+                        repeat: isFeature3Hovering ? Number.POSITIVE_INFINITY : 0,
                         repeatType: "loop",
                       }}
                     />
@@ -202,34 +199,31 @@ export default function Features() {
                       <motion.div
                         className="flex flex-col gap-4 p-6 bg-black/60 backdrop-blur-md rounded-xl max-w-lg w-full border border-white/10 shadow-2xl"
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={isCliHovering ? { opacity: 1, scale: 1 } : { opacity: 0.8, scale: 0.95 }}
+                        animate={isFeature3Hovering ? { opacity: 1, scale: 1 } : { opacity: 0.8, scale: 0.95 }}
                         transition={{ duration: 0.3 }}
                       >
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="text-lg font-extralight text-white">Deliverables</h4>
-                          <span className="text-xs text-white/60 font-medium">20 items</span>
+                          <span className="text-xs text-white/60 font-medium">17 items</span>
                         </div>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/90 max-h-[200px] overflow-y-auto pr-2">
                           {[
-                            "Custom AI Agents",
-                            "AI Agent Calendar",
-                            "SDRs Enablement",
-                            "AEs Enablement",
-                            "TAL Creation",
-                            "Lead Routing",
+                            "Graph Email Prospecting",
+                            "LinkedIn Prospecting",
+                            "ICP Modeling",
+                            "TAM Map",
+                            "Email Infrastructure",
+                            "Plays Selection",
+                            "Tools Selection",
+                            "List Building",
+                            "Contact Sourcing",
+                            "Data Enrichment",
                             "Lead Scoring",
-                            "Signal Tracking",
-                            "Phone Numbers",
-                            "Sequences",
-                            "Slack Notifications",
+                            "Personalized Copywriting",
+                            "ICP Connection Requests",
+                            "AI Reply Drafts",
                             "CRM Workflows",
-                            "CRM Clean-Up",
-                            "CRM Enrichment",
-                            "Inbound Enrichment",
-                            "Job-Change Tracking",
-                            "Data Formatting",
-                            "Product Analytics",
-                            "Lifecycle Stages",
+                            "CRM Sync",
                             "Analytics Reports",
                           ].map((item, idx) => (
                             <div key={idx} className="flex items-start gap-1.5">
@@ -396,11 +390,11 @@ export default function Features() {
                 </div>
               </motion.div>
 
-              {/* Outbound Machine */}
+              {/* AI RevOps Agents */}
               <motion.div
                 className="group border-[#4ca1f5]/40 text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-2 p-8 shadow-xl transition-all ease-in-out"
-                onMouseEnter={() => setIsFeature3Hovering(true)}
-                onMouseLeave={() => setIsFeature3Hovering(false)}
+                onMouseEnter={() => setIsCliHovering(true)}
+                onMouseLeave={() => setIsCliHovering(false)}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.5, delay: 1.0 }}
@@ -411,10 +405,13 @@ export default function Features() {
                 }}
               >
                 <div className="flex flex-col gap-6 mb-6">
-                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.outbound.title")}</h3>
+                  <h3 className="text-2xl leading-none font-extralight tracking-tight">{t("features.ai.title")}</h3>
                   <div className="text-md text-muted-foreground flex flex-col gap-4 text-sm">
                     <p className="leading-relaxed">
-                      {t("features.outbound.description")}
+                      {t("features.ai.description1")}
+                    </p>
+                    <p className="leading-relaxed">
+                      {t("features.ai.description2")}
                     </p>
                   </div>
                 </div>
@@ -447,7 +444,7 @@ export default function Features() {
                     <motion.div
                       className="absolute inset-0 flex items-center justify-center"
                       initial={{ opacity: 0 }}
-                      animate={isFeature3Hovering ? { opacity: 1 } : { opacity: 0 }}
+                      animate={isCliHovering ? { opacity: 1 } : { opacity: 0 }}
                       transition={{ duration: 0.5 }}
                     >
                       <svg width="100%" height="100%" viewBox="0 0 121 94" className="absolute">
@@ -457,7 +454,7 @@ export default function Features() {
                           fill="transparent"
                           strokeDasharray="2 2"
                           initial={{ pathLength: 0 }}
-                          animate={isFeature3Hovering ? { pathLength: 1 } : { pathLength: 0 }}
+                          animate={isCliHovering ? { pathLength: 1 } : { pathLength: 0 }}
                           transition={{
                             duration: 2,
                             ease: "easeInOut",
@@ -471,7 +468,7 @@ export default function Features() {
                           fill="transparent"
                           strokeDasharray="2 2"
                           initial={{ pathLength: 0 }}
-                          animate={isFeature3Hovering ? { pathLength: 1 } : { pathLength: 0 }}
+                          animate={isCliHovering ? { pathLength: 1 } : { pathLength: 0 }}
                           transition={{
                             duration: 2,
                             delay: 0.5,
@@ -486,11 +483,11 @@ export default function Features() {
                       className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full blur-[74px] opacity-65 transform -translate-x-1/2 -translate-y-1/2"
                       style={{ backgroundColor: "rgb(181, 126, 220)" }}
                       initial={{ scale: 1 }}
-                      animate={isFeature3Hovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
+                      animate={isCliHovering ? { scale: [1, 1.342, 1, 1.342] } : { scale: 1 }}
                       transition={{
                         duration: 3,
                         ease: "easeInOut",
-                        repeat: isFeature3Hovering ? Number.POSITIVE_INFINITY : 0,
+                        repeat: isCliHovering ? Number.POSITIVE_INFINITY : 0,
                         repeatType: "loop",
                       }}
                     />
@@ -500,31 +497,34 @@ export default function Features() {
                       <motion.div
                         className="flex flex-col gap-4 p-6 bg-black/60 backdrop-blur-md rounded-xl max-w-lg w-full border border-white/10 shadow-2xl"
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={isFeature3Hovering ? { opacity: 1, scale: 1 } : { opacity: 0.8, scale: 0.95 }}
+                        animate={isCliHovering ? { opacity: 1, scale: 1 } : { opacity: 0.8, scale: 0.95 }}
                         transition={{ duration: 0.3 }}
                       >
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="text-lg font-extralight text-white">Deliverables</h4>
-                          <span className="text-xs text-white/60 font-medium">17 items</span>
+                          <span className="text-xs text-white/60 font-medium">20 items</span>
                         </div>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/90 max-h-[200px] overflow-y-auto pr-2">
                           {[
-                            "Graph Email Prospecting",
-                            "LinkedIn Prospecting",
-                            "ICP Modeling",
-                            "TAM Map",
-                            "Email Infrastructure",
-                            "Plays Selection",
-                            "Tools Selection",
-                            "List Building",
-                            "Contact Sourcing",
-                            "Data Enrichment",
+                            "Custom AI Agents",
+                            "AI Agent Calendar",
+                            "SDRs Enablement",
+                            "AEs Enablement",
+                            "TAL Creation",
+                            "Lead Routing",
                             "Lead Scoring",
-                            "Personalized Copywriting",
-                            "ICP Connection Requests",
-                            "AI Reply Drafts",
+                            "Signal Tracking",
+                            "Phone Numbers",
+                            "Sequences",
+                            "Slack Notifications",
                             "CRM Workflows",
-                            "CRM Sync",
+                            "CRM Clean-Up",
+                            "CRM Enrichment",
+                            "Inbound Enrichment",
+                            "Job-Change Tracking",
+                            "Data Formatting",
+                            "Product Analytics",
+                            "Lifecycle Stages",
                             "Analytics Reports",
                           ].map((item, idx) => (
                             <div key={idx} className="flex items-start gap-1.5">

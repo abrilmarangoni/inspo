@@ -4,8 +4,8 @@ import { Globe } from "lucide-react"
 import { inter, interTight } from "@/lib/fonts"
 import Hero from "@/components/home/hero"
 import EmailHorizontalScroll from "@/components/email-horizontal-scroll"
-import Features from "@/components/features"
 import { VideoSection } from "@/components/video-section"
+import Features from "@/components/features"
 import FullStackAISolutions from "@/components/full-stack-ai-solutions"
 import { TestimonialsSection } from "@/components/testimonials"
 import { FAQSection } from "@/components/faq-section"
@@ -332,8 +332,20 @@ function HomeContent() {
       <Hero />
       </div>
 
-      {/* Email Horizontal Scroll Section (3 slides) */}
-      <EmailHorizontalScroll />
+      {/* Email Horizontal Scroll Section */}
+      <div>
+        <EmailHorizontalScroll />
+      </div>
+
+      {/* Section Divider */}
+      <div className="relative w-full">
+        <SectionDivider />
+      </div>
+
+      {/* Video Section */}
+      <div className="py-20 md:py-28">
+        <VideoSection />
+      </div>
 
       {/* Section Divider */}
       <div className="relative w-full">
@@ -353,11 +365,6 @@ function HomeContent() {
       {/* Full Stack AI Solutions Section */}
       <div id="full-stack-ai-solutions">
         <FullStackAISolutions />
-      </div>
-
-      {/* Video Section */}
-      <div className="py-20 md:py-28">
-        <VideoSection />
       </div>
 
       {/* Section Divider */}

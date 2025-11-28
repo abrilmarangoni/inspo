@@ -29,6 +29,7 @@ const translations: Record<string, { en: string; es: string }> = {
   "hero.clients.title": { en: "Our clients", es: "Nuestros clientes" },
   
   // Features
+  "features.title": { en: "Solutions", es: "Soluciones" },
   "features.globally.title": { en: "Globally Usable", es: "Disponible Globalmente" },
   "features.globally.description": { en: "We work globally, serving clients across multiple countries and regions. Our proven system delivers results regardless of location.", es: "Trabajamos globalmente, atendiendo clientes en múltiples países y regiones. Nuestro sistema probado entrega resultados sin importar la ubicación." },
   
