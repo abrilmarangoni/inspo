@@ -382,7 +382,7 @@ export function DataFlowDiagram() {
                 left: position.left,
                 top: position.top,
               }}
-            >
+              >
               <Icon className="w-10 h-10 text-white" />
             </div>
           )
@@ -399,7 +399,7 @@ export function DataFlowDiagram() {
               style={{
                 left: position.left,
                 top: position.top,
-              }}
+                    }}
             >
               <Icon className="w-10 h-10 text-white" />
             </div>

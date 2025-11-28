@@ -79,7 +79,7 @@ export function TestimonialsSection() {
           // Si la API falla, usar datos de ejemplo
           setTestimonials(getDefaultTestimonials())
         }
-      } catch (error) {
+        } catch (error) {
         console.error("Error fetching Senja testimonials:", error)
         // Si falla, usar datos de ejemplo
         setTestimonials(getDefaultTestimonials())
@@ -160,7 +160,7 @@ export function TestimonialsSection() {
   }
 
   if (loading) {
-    return (
+  return (
       <section id="testimonials" className="mb-24">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-[540px]">

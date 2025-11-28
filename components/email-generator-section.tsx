@@ -133,7 +133,7 @@ ${t("email.noCredibilityText")}`
             </div>
           </div>
           {/* Right Column - Title & CTA */}
-          <div className="space-y-8 sticky top-0 self-start">
+          <div className="space-y-8">
             <div className="space-y-6">
               <h2 className={`${interTight.className} text-3xl leading-none font-extralight tracking-tight text-white`}>
                 {t("email.subtitle")}

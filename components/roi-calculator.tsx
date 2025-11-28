@@ -41,84 +41,84 @@ export function ROICalculator() {
         </motion.div>
 
         {/* Single Quadrant Container */}
-        <motion.div
+          <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12"
-        >
+          >
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Side - Inputs */}
             <div className="space-y-6 h-full flex flex-col">
               <h3 className={`${interTight.className} text-xl font-extralight text-white mb-6`}>{t("roi.metrics")}</h3>
 
               <div className="space-y-5 flex-1">
-                <div>
+              <div>
                   <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
-                    {t("roi.monthlyRevenue")}
-                  </label>
-                  <div className="relative">
+                  {t("roi.monthlyRevenue")}
+                </label>
+                <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
-                    <input
-                      type="number"
-                      value={monthlyRevenue}
-                      onChange={(e) => setMonthlyRevenue(Number(e.target.value))}
+                  <input
+                    type="number"
+                    value={monthlyRevenue}
+                    onChange={(e) => setMonthlyRevenue(Number(e.target.value))}
                       className={`${interTight.className} w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
-                      placeholder="50000"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
-                    {t("roi.conversionRate")}
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="number"
-                      value={conversionRate}
-                      onChange={(e) => setConversionRate(Number(e.target.value))}
-                      step="0.1"
-                      className={`${interTight.className} w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
-                      placeholder="2"
-                    />
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">%</span>
-                  </div>
-                </div>
-
-                <div>
-                  <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
-                    {t("roi.dealSize")}
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
-                    <input
-                      type="number"
-                      value={averageDealSize}
-                      onChange={(e) => setAverageDealSize(Number(e.target.value))}
-                      className={`${interTight.className} w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
-                      placeholder="10000"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
-                    {t("roi.costPerLead")}
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
-                    <input
-                      type="number"
-                      value={costPerLead}
-                      onChange={(e) => setCostPerLead(Number(e.target.value))}
-                      className={`${interTight.className} w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
-                      placeholder="50"
-                    />
-                  </div>
+                    placeholder="50000"
+                  />
                 </div>
               </div>
+
+              <div>
+                  <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
+                  {t("roi.conversionRate")}
+                </label>
+                  <div className="relative">
+                <input
+                  type="number"
+                  value={conversionRate}
+                  onChange={(e) => setConversionRate(Number(e.target.value))}
+                  step="0.1"
+                      className={`${interTight.className} w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
+                  placeholder="2"
+                />
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">%</span>
+                  </div>
+              </div>
+
+              <div>
+                  <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
+                  {t("roi.dealSize")}
+                </label>
+                <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
+                  <input
+                    type="number"
+                    value={averageDealSize}
+                    onChange={(e) => setAverageDealSize(Number(e.target.value))}
+                      className={`${interTight.className} w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
+                    placeholder="10000"
+                  />
+                </div>
+              </div>
+
+              <div>
+                  <label className={`${interTight.className} block text-sm font-extralight text-white/70 mb-2`}>
+                  {t("roi.costPerLead")}
+                </label>
+                <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
+                  <input
+                    type="number"
+                    value={costPerLead}
+                    onChange={(e) => setCostPerLead(Number(e.target.value))}
+                      className={`${interTight.className} w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all`}
+                    placeholder="50"
+                  />
+                </div>
+              </div>
+            </div>
             </div>
 
             {/* Right Side - Results */}
@@ -129,12 +129,12 @@ export function ROICalculator() {
                 <div className="flex justify-between items-center py-3 border-b border-white/10">
                   <span className={`${interTight.className} text-white/70 text-sm font-extralight`}>{t("roi.leadsNeeded")}</span>
                   <span className={`${interTight.className} text-lg font-extralight text-white`}>{leadsNeeded.toLocaleString()}</span>
-                </div>
+              </div>
 
                 <div className="flex justify-between items-center py-3 border-b border-white/10">
                   <span className={`${interTight.className} text-white/70 text-sm font-extralight`}>{t("roi.qualifiedLeads")}</span>
                   <span className={`${interTight.className} text-lg font-extralight text-white`}>{qualifiedLeadsNeeded.toLocaleString()}</span>
-                </div>
+              </div>
 
                 <div className="flex justify-between items-center py-3 border-b border-white/10">
                   <span className={`${interTight.className} text-white/70 text-sm font-extralight`}>{t("roi.monthlyCost")}</span>
@@ -154,15 +154,15 @@ export function ROICalculator() {
                   <div className="flex justify-between items-center">
                     <span className={`${interTight.className} text-white/70 text-sm font-extralight`}>{t("roi.roi")}</span>
                     <span className={`${interTight.className} text-xl font-extralight text-white`}>{roi.toFixed(0)}%</span>
-                  </div>
-                  <div className="pt-3 border-t border-white/10 text-center">
+                </div>
+                <div className="pt-3 border-t border-white/10 text-center">
                     <span className={`${interTight.className} text-white/60 text-xs font-extralight`}>{t("roi.investmentReturn")} </span>
                     <span className={`${interTight.className} text-base font-extralight text-white`}>${roiMultiplier}</span>
                   </div>
                 </div>
+                </div>
               </div>
             </div>
-          </div>
 
           {/* CTA Button - Bottom Center */}
           <div className="flex items-center justify-center mt-10">
@@ -173,8 +173,8 @@ export function ROICalculator() {
               <span>{t("hero.schedule")}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
-          </div>
-        </motion.div>
+              </div>
+            </motion.div>
       </div>
     </section>
   )

@@ -139,7 +139,7 @@ export function PricingSection() {
                               <span className="text-white/70 text-sm">{t("pricing.setup")}</span>
                             </div>
                             <div className="flex flex-col items-center justify-center gap-1">
-                              <div className="flex items-baseline justify-center gap-1">
+                            <div className="flex items-baseline justify-center gap-1">
                                 <span className="text-3xl font-bold text-white">${plan.monthlyPrice?.toLocaleString(language === 'es' ? 'es-ES' : 'en-US')}</span>
                                 <span className="text-white/70 text-sm">{t("pricing.month")}</span>
                               </div>

@@ -36,19 +36,19 @@ export function VideoSection() {
         >
           <div className="w-full mx-auto" style={{ maxWidth: '65%' }}>
             {/* Video Container */}
-            <div
+          <div
               className="relative rounded-t-lg overflow-hidden"
-              style={{
-                boxShadow: "0 25px 80px -10px rgba(181, 126, 220, 0.5), 0 0 40px -5px rgba(181, 126, 220, 0.4), 0 10px 20px -5px rgba(181, 126, 220, 0.3)",
-              }}
-            >
-              <iframe
-                src="https://www.youtube.com/embed/lnvnm-xrBPs?si=fBG1Ve1gXMEVDTtB"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
+            style={{
+              boxShadow: "0 25px 80px -10px rgba(181, 126, 220, 0.5), 0 0 40px -5px rgba(181, 126, 220, 0.4), 0 10px 20px -5px rgba(181, 126, 220, 0.3)",
+            }}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/lnvnm-xrBPs?si=fBG1Ve1gXMEVDTtB"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
                 className="w-full aspect-video"
               />
             </div>

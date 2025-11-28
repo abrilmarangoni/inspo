@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { Globe } from "lucide-react"
 import { inter, interTight } from "@/lib/fonts"
 import Hero from "@/components/home/hero"
-import EmailGeneratorSection from "@/components/email-generator-section"
+import EmailHorizontalScroll from "@/components/email-horizontal-scroll"
 import Features from "@/components/features"
 import { VideoSection } from "@/components/video-section"
 import FullStackAISolutions from "@/components/full-stack-ai-solutions"
@@ -56,7 +56,7 @@ function HomeContent() {
 
   return (
     <>
-      <div className="min-h-screen w-full relative bg-black">
+    <div className="min-h-screen w-full relative bg-black">
       {/* Desktop Header - Movido fuera del contenedor para sticky en toda la página */}
       <header
         className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] hidden w-[75%] flex-row items-center justify-between rounded-lg bg-background/80 md:flex backdrop-blur-sm border border-border/40 shadow-lg px-6 py-4"
@@ -328,14 +328,12 @@ function HomeContent() {
             background: "radial-gradient(ellipse 80% 40% at 50% 20%, rgba(255, 255, 255, 0.08), transparent 60%)",
           }}
         />
-        {/* Hero Section */}
-        <Hero />
+      {/* Hero Section */}
+      <Hero />
       </div>
 
-      {/* Email Generator Section */}
-      <div>
-        <EmailGeneratorSection />
-      </div>
+      {/* Email Horizontal Scroll Section (3 slides) */}
+      <EmailHorizontalScroll />
 
       {/* Section Divider */}
       <div className="relative w-full">

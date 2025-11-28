@@ -11,7 +11,7 @@ export const interTight = Inter_Tight({
 // Inter 400 (Regular) - Para textos (body, párrafos, botones, descripciones)
 export const inter = Inter({
   subsets: ["latin"],
-  weight: "400",
+      weight: "400",
   variable: "--font-body",
   display: "swap",
 })
