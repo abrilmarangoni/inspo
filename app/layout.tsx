@@ -4,7 +4,7 @@ import { inter, interTight } from "@/lib/fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "ZalesMachine - Transform Your Revenue Operations",
+  title: "Zales Machine",
   description: "AI-powered revenue operations platform that automates sales, marketing, and growth processes for B2B companies.",
   generator: "ZalesMachine",
   viewport: {
