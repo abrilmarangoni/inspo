@@ -332,6 +332,11 @@ function HomeContent() {
       <Hero />
       </div>
 
+      {/* Section Divider */}
+      <div className="relative w-full">
+        <SectionDivider />
+      </div>
+
       {/* Email Horizontal Scroll Section */}
       <div>
         <EmailHorizontalScroll />
@@ -343,7 +348,7 @@ function HomeContent() {
       </div>
 
       {/* Video Section */}
-      <div className="py-20 md:py-28">
+      <div className="pt-32 pb-20 md:pt-40 md:pb-28">
         <VideoSection />
       </div>
 
@@ -353,7 +358,7 @@ function HomeContent() {
       </div>
 
       {/* Features Section */}
-      <div id="features" className="py-20 md:py-28" style={{ backgroundColor: '#171717' }}>
+      <div id="features" className="pt-32 pb-20 md:pt-40 md:pb-28" style={{ backgroundColor: '#171717' }}>
         <Features />
       </div>
 
@@ -363,7 +368,7 @@ function HomeContent() {
       </div>
 
       {/* Full Stack AI Solutions Section */}
-      <div id="full-stack-ai-solutions">
+      <div id="full-stack-ai-solutions" className="pt-32 pb-20 md:pt-40 md:pb-28">
         <FullStackAISolutions />
       </div>
 
@@ -373,7 +378,7 @@ function HomeContent() {
       </div>
 
       {/* ROI Calculator Section */}
-      <div className="py-20 md:py-28" style={{ backgroundColor: '#171717' }}>
+      <div className="pt-32 pb-20 md:pt-40 md:pb-28" style={{ backgroundColor: '#171717' }}>
         <ROICalculator />
       </div>
 
@@ -383,7 +388,7 @@ function HomeContent() {
       </div>
 
       {/* Pricing Section */}
-      <div id="pricing" className="py-20 md:py-28">
+      <div id="pricing" className="pt-32 pb-20 md:pt-40 md:pb-28">
         <PricingSection />
       </div>
 
@@ -393,7 +398,7 @@ function HomeContent() {
       </div>
 
       {/* Testimonials Section */}
-      <div id="testimonials" className="py-20 md:py-28" style={{ backgroundColor: '#171717' }}>
+      <div id="testimonials" className="pt-32 pb-20 md:pt-40 md:pb-28" style={{ backgroundColor: '#171717' }}>
         <TestimonialsSection />
       </div>
 
@@ -403,7 +408,7 @@ function HomeContent() {
       </div>
 
       {/* FAQ Section */}
-      <div id="faq" className="py-20 md:py-28" style={{ backgroundColor: '#000000' }}>
+      <div id="faq" className="pt-32 pb-20 md:pt-40 md:pb-28" style={{ backgroundColor: '#000000' }}>
         <FAQSection />
       </div>
 
